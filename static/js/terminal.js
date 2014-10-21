@@ -277,7 +277,7 @@
 					((e.which == 66) && (kc_count == 8))) { resetkc = false; kc_count++; }
 			if ((e.which == 65) && (kc_count == 9)) { kc_count++; }
 			if (kc_count == 10) {
-				$('main').append($('<img src="images/miley1.png" onload="$(this).animate({ left: $(window).width()+150 }, 2000, function() { $(this).remove(); })" style="position:absolute;left:-150px;top:'+($(window).scrollTop()+100)+'px;"/>'));
+				$('main').append($('<img src="static/images/miley1.png" onload="$(this).animate({ left: $(window).width()+150 }, 2000, function() { $(this).remove(); })" style="position:absolute;left:-150px;top:'+($(window).scrollTop()+100)+'px;"/>'));
 				ga( 'send', 'event', 'toys', 'terminal', 'upupdowndownleftrightleftrightba');
 			};
 			if (resetkc) kc_count = 0;
@@ -304,7 +304,7 @@
 			if (func_options == "clear") {
 				$('.gifDancers').remove();
 			} else {
-				$("body").append('<img style="position:absolute;top:'+Math.floor(Math.random()*$(window).height()+$(document).scrollTop())+'px;left:'+Math.floor(Math.random()*$(window).width())+'px;" src="images/dancers/'+(Math.floor(Math.random()*8)+1)+'.gif" alt="" class="gifDancers"/>');
+				$("body").append('<img style="position:absolute;top:'+Math.floor(Math.random()*$(window).height()+$(document).scrollTop())+'px;left:'+Math.floor(Math.random()*$(window).width())+'px;" src="static/images/dancers/'+(Math.floor(Math.random()*8)+1)+'.gif" alt="" class="gifDancers"/>');
 			}
 			$("#onlineTerminal").html($("#onlineTerminal").html().trim()+'<span class="response">I don\'t feel like dancing, no sir, no dancing today.</span>'+breakLine()+breakLine());
 			ga( 'send', 'event', 'toys', 'terminal', 'dancer');
@@ -507,7 +507,7 @@
 			$('#likeasir').remove();
 			$('#shades').remove()
 			if (func_options != "clear") {
-				$('body').append($('<div style="background:url(images/likeasir.png) center center no-repeat;background-size:auto 100%;position:fixed;left:0;top:0;width:100%;height:100%;" id="likeasir"></div>'));
+				$('body').append($('<div style="background:url(static/images/likeasir.png) center center no-repeat;background-size:auto 100%;position:fixed;left:0;top:0;width:100%;height:100%;" id="likeasir"></div>'));
 				$("#onlineTerminal").html($("#onlineTerminal").html().trim()+'<span class="response">I mustache you a question, but I\'ll shave it for later.</span>'+breakLine()+breakLine());
 			} else {
 				$("#onlineTerminal").html($("#onlineTerminal").html().trim()+'<span class="response">Too fancy. *sigh*</span>'+breakLine()+breakLine());
@@ -519,7 +519,7 @@
 			$('#likeasir').remove();
 			$('#shades').remove()
 			if (func_options != "clear") {
-				$('body').append($('<div style="background:url(images/kanye_glasses.png) center center no-repeat;background-size:100% auto;position:fixed;left:0;top:0;width:100%;height:100%;" id="shades"></div>'));
+				$('body').append($('<div style="background:url(static/images/kanye_glasses.png) center center no-repeat;background-size:100% auto;position:fixed;left:0;top:0;width:100%;height:100%;" id="shades"></div>'));
 				$("#onlineTerminal").html($("#onlineTerminal").html().trim()+'<span class="response">Wake up in the mornin\' feelin\' like Kanye.</span>'+breakLine()+breakLine());
 			} else {
 				$("#onlineTerminal").html($("#onlineTerminal").html().trim()+'<span class="response">I was feeling like a total douche. *sigh*</span>'+breakLine()+breakLine());
