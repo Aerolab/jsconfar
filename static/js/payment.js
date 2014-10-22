@@ -25,8 +25,6 @@
         if( typeof data.salesError !== 'undefined' ) {
           // Something went wrong (there are no tickets available or the sale hasn't started yet)
           showError( data.salesError );
-
-          $('#payment-form').removeClass('loading');
           return;
         }
         
@@ -35,7 +33,6 @@
       },
       'error': function(data){
         showError("There are some connectivity issues and we can't get started with your payment.<br/>Try again in 30 seconds!");
-        $('#payment-form').removeClass('loading');
       }
     });
   });
@@ -49,7 +46,6 @@
       if(error) {
         //handle error
         showError("We had an issue while setting up your payment. Try again!");
-        $('#payment-form').removeClass('loading');
         return;
       }
 
@@ -61,12 +57,11 @@
   }
 
   function confirmPayment(error, data) {
-    $('#modal-holder').show();
+    showVerifying();
 
     if(error) {
       // Todo: handle error
       showError("There was an issue when processing your payment. Your card has not been charged. We'll contact you to sort out the details, but feel free to try again with another card.");
-      $('#payment-form').removeClass('loading');
       return;
     }
 
@@ -75,22 +70,28 @@
       'url': '/tickets/confirm',
       'data': { 'charge_uid': data.charge_uid },
       'success': function(res) {
-        $('#payment-form').removeClass('loading');
         if(res === 'ok') {
           // Todo: success
-          showSuccess("Awesome! You'll receive an email with your ticket.");
+          showSuccess("Yay! I'm yours to take home :D");
         } else {
           // error
           showError("There was an issue when processing your payment. Your card has not been charged. We'll contact you to sort out the details, but feel free to try again with another card.");
         }
       },
       'error': function() {
-        $('#payment-form').removeClass('loading');
         showError("There are some connectivity issues and we can't verify if your payment was made. Contact us at <a href=\"mailto:support@jsconfar.com\">support@jsconfar.com</a>.");
       }
     });
   }
 
+
+
+  function showVerifying() {
+    $('#modal-holder > .modal').hide();
+
+    $('#modal-holder > .modal-verifying').show();
+    $('#modal-holder').show();
+  }
 
 
   function showSuccess(message) {
@@ -99,6 +100,7 @@
 
     $('#modal-holder > .modal-success h2').html(message);
     $('#modal-holder > .modal-success').show();
+    $('#modal-holder').show();
   }
 
 
@@ -108,6 +110,7 @@
 
     $('#modal-holder > .modal-error h2').html(message);
     $('#modal-holder > .modal-error').show();
+    $('#modal-holder').show();
   }
 
 
@@ -118,6 +121,7 @@
     $('#modal-holder > .modal-payment').show();
     $('.modal-holder').fadeIn(200);
   });
+
 
   $('.modal-close').click(function(event){
     event.preventDefault();
@@ -130,6 +134,7 @@
       $('#modal-holder').hide();
     }
   });
+
 
   $('.modal-success button, .modal-error button').click(function(event){
     $('.modal-close').trigger('click');
