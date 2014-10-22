@@ -60,7 +60,7 @@
 
     if(error) {
       // Todo: handle error
-      showError("There was an issue when processing your payment. Your card has not been charged. We'll contact you to sort out the details, but feel free to try again with another card.");
+      showError("There was an issue when processing your payment. Your card has not been charged.");
       return;
     }
 
@@ -74,7 +74,7 @@
           showSuccess("Yay! I'm yours to take home :D");
         } else {
           // error
-          showError("There was an issue when processing your payment. Your card has not been charged. We'll contact you to sort out the details, but feel free to try again with another card.");
+          showError("There was an issue with your payment info. Your card has not been charged.<br/>Try again with another card.");
         }
       },
       'error': function() {
