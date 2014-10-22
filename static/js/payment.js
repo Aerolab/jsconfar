@@ -11,6 +11,7 @@ $('.modal-close').click(function(event){
   event.preventDefault();
   if( $('#payment-form').hasClass('loading') ) {
     // Don't close
+    alert("Hold on, we're setting up the payment. Wait 30 seconds and refresh the page if it's still loading.");
   } else {
     $('#modal-holder').hide();
   }
