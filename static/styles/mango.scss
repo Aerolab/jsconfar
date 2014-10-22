@@ -4,11 +4,11 @@
     left: 0;
     z-index: 9998;
     overflow: auto;
-    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(20px, rgba(0,0,0,0.3)), color-stop(100%, rgba(0,0,0,0.6)));
-    background: -webkit-radial-gradient(center center, rgba(0,0,0,0.3) 20px,rgba(0,0,0,0.6));
-    background: -moz-radial-gradient(center center, rgba(0,0,0,0.3) 20px,rgba(0,0,0,0.6));
-    background: -o-radial-gradient(center center, rgba(0,0,0,0.3) 20px,rgba(0,0,0,0.6));
-    background: radial-gradient(center center, rgba(0,0,0,0.3) 20px,rgba(0,0,0,0.6));
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(20px, rgba(0, 0, 0, 0.3)), color-stop(100%, rgba(0, 0, 0, 0.6)));
+    background: -webkit-radial-gradient(center center, rgba(0, 0, 0, 0.3) 20px, rgba(0, 0, 0, 0.6));
+    background: -moz-radial-gradient(center center, rgba(0, 0, 0, 0.3) 20px, rgba(0, 0, 0, 0.6));
+    background: -o-radial-gradient(center center, rgba(0, 0, 0, 0.3) 20px, rgba(0, 0, 0, 0.6));
+    background: radial-gradient(center center, rgba(0, 0, 0, 0.3) 20px, rgba(0, 0, 0, 0.6));
 }
 
 .mangoPaymentModal * {
@@ -146,4 +146,41 @@
         width: auto;
         margin: 20px;
     }
+}
+
+
+
+/* Overrides */
+.mangoPaymentModal {
+    background: rgba(255,200,28, 0.8);
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-brand h1 {
+    display: none;
+}
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c {
+    border: none;
+    -webkit-border-radius: none;
+    -moz-border-radius: none;
+    -ms-border-radius: none;
+    -o-border-radius: none;
+    border-radius: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-close {
+    position: absolute;
+    top: 15px;
+    right: 11px;
+    z-index: 9999;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-security {
+    width: 520px
+    background: #214760;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-security p {
+    font-family: "InputMono", "Consolas", "Lucida Console", "Courier", monospace
 }

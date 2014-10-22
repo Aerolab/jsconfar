@@ -36,7 +36,7 @@ $('.modal-close').click(function(event){
 
         if( typeof data.salesError !== 'undefined' ) {
           // Something went wrong (there are no tickets available or the sale hasn't started yet)
-          if( data.salesError === 'SUCK HACKER. MUCH SECURITY. WOW.' ) {
+          if( data.salesError == "SUCH HACKER. MUCH SECURITY. WOW." ) {
             alert("Ticket sales are not yet open. Sales start on October 24 @ 13:00hs (Argentina Time [GMT-3])");
           } else {
             alert( data.salesError );
