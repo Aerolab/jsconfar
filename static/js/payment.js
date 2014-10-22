@@ -50,14 +50,13 @@
       }
 
       // Hide the input modal and show the Checkout one
-      $('#modal-holder').hide();
+      showCheckoutBackground();
 
       this.charge(confirmPayment);
     });
   }
 
   function confirmPayment(error, data) {
-    showVerifying();
 
     if(error) {
       // Todo: handle error
@@ -85,11 +84,10 @@
   }
 
 
-
-  function showVerifying() {
+  function showCheckoutBackground() {
     $('#modal-holder > .modal').hide();
 
-    $('#modal-holder > .modal-verifying').show();
+    $('#modal-holder > .modal-loading').show();
     $('#modal-holder').show();
   }
 

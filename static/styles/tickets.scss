@@ -152,9 +152,12 @@
 
 /* Overrides */
 .ticketsPaymentModal {
-    background: rgba(255,200,28, 0.8);
+    background: none;
 }
 
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-brand {
+    display: none;
+}
 .ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-brand h1 {
     display: none;
 }
@@ -171,16 +174,17 @@
 }
 .ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-close {
     position: absolute;
-    top: 15px;
-    right: 11px;
+    top: 5px;
+    right: -1px;
     z-index: 9999;
 }
 
 .ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-security {
     width: 520px;
-    background: #214760;
+    background: rgba(43, 51, 56, 0.7);
 }
 
 .ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-security p {
     font-family: "InputMono", "Consolas", "Lucida Console", "Courier", monospace;
+    color: #ffffff;
 }
