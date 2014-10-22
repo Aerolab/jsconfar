@@ -53,7 +53,7 @@ $('.modal-close').click(function(event){
   });
 
   function initPayment(data) {
-    Tickets({
+    JsConfPayments({
       'api_key': 'public_test_wsl91zxbk055ao3d', 
       'authorization_uid': data.uid
     }, function(error){
