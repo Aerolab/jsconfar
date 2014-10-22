@@ -1,4 +1,4 @@
-.mangoPaymentModal {
+.ticketsPaymentModal {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,30 +11,30 @@
     background: radial-gradient(center center, rgba(0, 0, 0, 0.3) 20px, rgba(0, 0, 0, 0.6));
 }
 
-.mangoPaymentModal * {
+.ticketsPaymentModal * {
     width: auto;
     height: auto;
     padding: 0;
     margin: 0;
 }
 
-.mangoPaymentModal,.mangoPaymentModal .mangoPaymentModal-h {
+.ticketsPaymentModal,.ticketsPaymentModal .ticketsPaymentModal-h {
     width: 100%;
     height: 100%;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h {
+.ticketsPaymentModal .ticketsPaymentModal-h {
     display: table;
     text-align: center;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i {
     display: table-cell;
     vertical-align: middle;
     padding: 40px 0;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c {
     width: 520px;
     padding: 30px 30px 10px;
     margin: 0 auto;
@@ -51,61 +51,61 @@
     box-shadow: 0 0 4px rgba(0,0,0,0.5);
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-brand {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-brand {
     padding-bottom: 20px;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-brand h1 {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-brand h1 {
     font: bold 28px Arial, Helvetica, sans-serif;
     color: #000;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-brand img {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-brand img {
     display: block;
     margin: 0 auto;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-iframe {
-    background: url(https://js.getmango.com/v0/images/loading-big.gif) no-repeat center center;
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-iframe {
+    background: url(images/tickets-loading.gif) no-repeat center center;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-iframe iframe {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-iframe iframe {
     border: 0;
     width: 100%;
     height: 510px;
     border: 0;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-iframe-hidden {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-iframe-hidden {
     height: 60px;
     margin: 20px 0;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-iframe-hidden iframe {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-iframe-hidden iframe {
     display: none;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-close {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-close {
     position: absolute;
     top: 25px;
     right: 25px;
     z-index: 9999;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-close a {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-close a {
     display: block;
     font-size: 0;
     text-indent: -9999em;
     width: 30px;
     height: 30px;
-    background: url(https://js.getmango.com/v0/images/close.png) no-repeat 0 0;
+    background: url(images/tickets-close.png) no-repeat 0 0;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-close a:focus {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-close a:focus {
     outline: 0;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-security {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-security {
     width: 580px;
     margin: 20px auto 0;
     padding: 12px 0;
@@ -118,9 +118,9 @@
     border-radius: 3px;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-security p {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-security p {
     padding-left: 20px;
-    background: url(https://js.getmango.com/v0/images/lock.png) no-repeat 0 0;
+    background: url(images/tickets-lock.png) no-repeat 0 0;
     display: inline;
     color: #CCC;
     font-size: 13px;
@@ -128,11 +128,11 @@
 }
 
 @media screen and (max-width: 580px) {
-    .mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i {
+    .ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i {
         padding: 0;
     }
 
-    .mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c {
+    .ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c {
         width: auto;
         border: 0;
         -webkit-border-radius: 0;
@@ -142,7 +142,7 @@
         border-radius: 0;
     }
 
-    .mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-security {
+    .ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-security {
         width: auto;
         margin: 20px;
     }
@@ -151,14 +151,14 @@
 
 
 /* Overrides */
-.mangoPaymentModal {
+.ticketsPaymentModal {
     background: rgba(255,200,28, 0.8);
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-brand h1 {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-brand h1 {
     display: none;
 }
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c {
     border: none;
     -webkit-border-radius: none;
     -moz-border-radius: none;
@@ -169,18 +169,18 @@
     -moz-box-shadow: none;
     box-shadow: none;
 }
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-close {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-c .ticketsPaymentModal-close {
     position: absolute;
     top: 15px;
     right: 11px;
     z-index: 9999;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-security {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-security {
     width: 520px;
     background: #214760;
 }
 
-.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-security p {
+.ticketsPaymentModal .ticketsPaymentModal-h .ticketsPaymentModal-i .ticketsPaymentModal-security p {
     font-family: "InputMono", "Consolas", "Lucida Console", "Courier", monospace;
 }
