@@ -795,10 +795,10 @@
 
       <div class="buy-ticket">
 
-        <div class="price">ARS 849</div>
+        <div class="price">ARS 999</div>
 
         <div class="illustration-tickets">
-          <a class="button" href="#" target="_blank">Get Your Ticket Now!</a>
+          <a class="button button-get-tickets" href="#">Get Your Ticket Now!</a>
 
           <span class="icon icon-button-thingy"></span>
         </div>
@@ -807,7 +807,7 @@
 
       <div class="ticket-includes wow animated fadeInRight" data-wow-delay=".1s">
         <h2>Early Bird Promo!</h2>
-        <p>Just 100 Early Bird Tickets available. Regular tickets will cost ARS 1299.</p>
+        <p>Just 100 Early Bird Tickets available. Regular tickets will cost ARS 1499.</p>
         <p>Each ticket includes:</p>
         <ul>
           <li>Access to the all the talks</li>
@@ -918,6 +918,35 @@
 
 </main>
 
+
+<div class="modal-holder" id="modal-holder" style="display:none;">
+
+  <div class="modal modal-payment">
+
+    <a class="modal-close">X</a>
+
+    <figure>
+      <img src="static/images/earlybird.png" alt="Early Bird" />
+    </figure>
+
+    <h2>Hurry up before it's too late!</h2>
+
+    <form id="payment-form" action="">
+
+      <input id="payment-email" type="email" name="email" value="" placeholder="Email" />
+
+      <select id="payment-cardtype" name="cardtype">
+        <option value="visa">Visa</option>
+        <option value="amex">American Express</option>
+        <option value="master">MasterCard</option>
+      </select>
+
+      <button type="submit">Pay ARS 999</button>
+    </form>
+
+  </div>
+
+</div>
 
 <script>
   // https://www.youtube.com/watch?v=9jK-NcRmVcw

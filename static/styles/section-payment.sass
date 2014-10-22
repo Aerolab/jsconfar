@@ -1,0 +1,82 @@
+// Payment modal (Part 1)
+.modal-holder
+  display: none
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: rgba(255,200,28, 0.8)
+  z-index: 8999
+  display: flex
+  align-items: center
+  overflow: auto /* Bleh */
+
+.modal
+  margin: 0px auto 0px auto
+  background: $white
+  padding: 40px
+  max-width: 390px
+  z-index: 9000
+  position: relative
+
+  .modal-close
+    position: absolute
+    top: 20px
+    right: 20px
+    font-size: 22px
+    font-weight: bold
+    z-index: 9500
+
+.modal-payment
+  
+  figure
+    text-align: center
+    margin: 0
+    img
+      max-width: 100%
+
+  h2
+    font-size: 22px
+    font-weight: bold
+    line-height: 30px
+    margin-bottom: 10px
+    text-align: center
+
+  input, select, textarea, button
+    box-sizing: border-box
+    width: 100%
+    padding: 8px 10px 8px 50px
+    border: 2px solid #214760
+    font-size: 18px
+    line-height: 26px
+    background-color: $white
+    color: $blue
+    margin-bottom: 20px
+
+    &::-webkit-input-placeholder
+      color: #acbeca
+    &:-moz-placeholder
+      color: #acbeca
+    &::-moz-placeholder
+      color: #acbeca
+    &:-ms-input-placeholder
+      color: #acbeca
+
+  button
+    padding: 12px 10px 12px 10px
+    color: $white
+    font-weight: bold
+    background: #214760
+    margin-bottom: 0px
+    cursor: pointer
+
+  form.loading
+    button
+      background-image: url(images/loading.gif)
+      background-position: 50% 50%
+      background-size: 32px 32px
+      background-repeat: no-repeat
+      color: transparent
+      text-indent: -9999px
+      cursor: default
