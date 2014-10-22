@@ -1,0 +1,149 @@
+.mangoPaymentModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    overflow: auto;
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(20px, rgba(0,0,0,0.3)), color-stop(100%, rgba(0,0,0,0.6)));
+    background: -webkit-radial-gradient(center center, rgba(0,0,0,0.3) 20px,rgba(0,0,0,0.6));
+    background: -moz-radial-gradient(center center, rgba(0,0,0,0.3) 20px,rgba(0,0,0,0.6));
+    background: -o-radial-gradient(center center, rgba(0,0,0,0.3) 20px,rgba(0,0,0,0.6));
+    background: radial-gradient(center center, rgba(0,0,0,0.3) 20px,rgba(0,0,0,0.6));
+}
+
+.mangoPaymentModal * {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.mangoPaymentModal,.mangoPaymentModal .mangoPaymentModal-h {
+    width: 100%;
+    height: 100%;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h {
+    display: table;
+    text-align: center;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 40px 0;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c {
+    width: 520px;
+    padding: 30px 30px 10px;
+    margin: 0 auto;
+    background: #FFF;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.5);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-brand {
+    padding-bottom: 20px;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-brand h1 {
+    font: bold 28px Arial, Helvetica, sans-serif;
+    color: #000;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-brand img {
+    display: block;
+    margin: 0 auto;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-iframe {
+    background: url(https://js.getmango.com/v0/images/loading-big.gif) no-repeat center center;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-iframe iframe {
+    border: 0;
+    width: 100%;
+    height: 510px;
+    border: 0;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-iframe-hidden {
+    height: 60px;
+    margin: 20px 0;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-iframe-hidden iframe {
+    display: none;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 9999;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-close a {
+    display: block;
+    font-size: 0;
+    text-indent: -9999em;
+    width: 30px;
+    height: 30px;
+    background: url(https://js.getmango.com/v0/images/close.png) no-repeat 0 0;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c .mangoPaymentModal-close a:focus {
+    outline: 0;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-security {
+    width: 580px;
+    margin: 20px auto 0;
+    padding: 12px 0;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-security p {
+    padding-left: 20px;
+    background: url(https://js.getmango.com/v0/images/lock.png) no-repeat 0 0;
+    display: inline;
+    color: #CCC;
+    font-size: 13px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+@media screen and (max-width: 580px) {
+    .mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i {
+        padding: 0;
+    }
+
+    .mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-c {
+        width: auto;
+        border: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+        border-radius: 0;
+    }
+
+    .mangoPaymentModal .mangoPaymentModal-h .mangoPaymentModal-i .mangoPaymentModal-security {
+        width: auto;
+        margin: 20px;
+    }
+}
