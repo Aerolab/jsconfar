@@ -75,6 +75,7 @@
       'url': '/tickets/confirm',
       'data': { 'charge_uid': data.charge_uid },
       'success': function(res) {
+        $('#payment-form').removeClass('loading');
         if(res === 'ok') {
           // Todo: success
           showSuccess("Awesome! You'll receive an email with your ticket.");
@@ -82,14 +83,10 @@
           // error
           showError("There was an issue when processing your payment. Your card has not been charged. We'll contact you to sort out the details, but feel free to try again with another card.");
         }
-
-        $('#payment-form').removeClass('loading');
-        $('#modal-holder').hide();
       },
       'error': function() {
-        showError("There are some connectivity issues and we can't verify if your payment was made. Contact us at <a href=\"mailto:support@jsconfar.com\">support@jsconfar.com</a>.");
         $('#payment-form').removeClass('loading');
-        $('#modal-holder').show();
+        showError("There are some connectivity issues and we can't verify if your payment was made. Contact us at <a href=\"mailto:support@jsconfar.com\">support@jsconfar.com</a>.");
       }
     });
   }
