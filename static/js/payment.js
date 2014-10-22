@@ -9,8 +9,22 @@ $('.button-get-tickets').click(function(event){
 
 $('.modal-close').click(function(event){
   event.preventDefault();
-  $('#modal-holder').hide();
+  if( $('#payment-form').hasClass('loading') ) {
+    // Don't close
+  } else {
+    $('#modal-holder').hide();
+  }
 });
+
+
+// Prevent closing the tab if the payment form is processing
+window.onbeforeunload = function (event) {
+    var event = event || window.event;
+
+    if( $('#payment-form').hasClass('loading') ) {
+      return "If you close the tab while processing the payment you'll have to start again.";
+    }
+};
 
 
 ;(function(){
@@ -46,7 +60,7 @@ $('.modal-close').click(function(event){
 
       },
       'error': function(data){
-        alert("We had an issue while setting up your payment. Try again!");
+        alert("There are some connectivity issues and we can't get started with your payment. Try again in 30 seconds!");
         $('#payment-form').removeClass('loading');
       }
     });
@@ -66,7 +80,6 @@ $('.modal-close').click(function(event){
       }
 
       // Hide the input modal and show the Checkout one
-      $('#payment-form').removeClass('loading');
       $('#modal-holder').hide();
 
       this.charge(confirmPayment);
@@ -74,6 +87,8 @@ $('.modal-close').click(function(event){
   }
 
   function confirmPayment(error, data) {
+    $('#modal-holder').show();
+
     if(error) {
       // Todo: handle error
       alert("There was an issue when processing your payment. Your card has not been charged. We'll contact you to sort out the details, but feel free to try again with another card.");
@@ -91,9 +106,17 @@ $('.modal-close').click(function(event){
           alert("Awesome! You'll receive an email with your ticket.");
         } else {
           // error
-          alert("There was an issue when processing your payment. We'll contact you to sort out the details.");
+          alert("There was an issue when processing your payment. Your card has not been charged. We'll contact you to sort out the details, but feel free to try again with another card.");
         }
-      } 
+
+        $('#payment-form').removeClass('loading');
+        $('#modal-holder').hide();
+      },
+      'error': function() {
+        alert("There are some connectivity issues and we can't verify if your payment was made. Contact us at support@jsconfar.com.");
+        $('#payment-form').removeClass('loading');
+        $('#modal-holder').show();
+      }
     });
   }
 
