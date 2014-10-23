@@ -126,7 +126,7 @@ $(document).ready(function(){
   var interval = 5 * 1000;
   var minProgressBarPercent = 0.6;
 
-  function updateTicketsAvailability() {
+  function updateTicketsAvailability(data) {
     var percent = minProgressBarPercent;
     if( data.totalEarlyBirdTickets > 0 ) {
           var percentUsed = (data.totalEarlyBirdTickets - data.availableEarlyBirdTickets) / data.totalEarlyBirdTickets;
