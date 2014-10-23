@@ -129,8 +129,10 @@ $(document).ready(function(){
   function updateTicketsProgress() {
 
     $.get('/tickets/status', function(data){
-        if( typeof data.salesOpen !== 'undefined' ) {
+        if( typeof data.salesOpen !== 'undefined' && data.salesOpen ) {
           enableTickets();
+        } else {
+          return;
         }
         if( typeof data.availableEarlyBirdTickets !== 'number' || typeof data.totalEarlyBirdTickets !== 'number' ) { return; }
 
