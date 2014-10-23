@@ -125,6 +125,15 @@ $(document).ready(function(){
 
   var interval = 5 * 1000;
   var minProgressBarPercent = 0.6;
+  var ticketsOffset = $("section.section-earlybird").offset().top;
+
+  //click on header's button
+  $(".tickets .button").on("click", function(){
+    $("html, body").animate({
+      scrollTop: ticketsOffset
+    }, 800);
+    return false;
+  });
 
   function updateTicketsProgress() {
 
