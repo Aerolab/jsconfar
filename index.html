@@ -1024,6 +1024,9 @@
 
 
   var enableTickets = function() {
+    if( document.querySelector('section.section-tickets').style.display === 'block' ) {
+      return;
+    }
     document.querySelector('section.section-earlybird').style.display = 'none';
     document.querySelector('section.section-tickets').style.display = 'block';
 
