@@ -126,6 +126,17 @@ $(document).ready(function(){
   var interval = 5 * 1000;
   var minProgressBarPercent = 0.6;
 
+  function updateTicketsAvailability() {
+    var percent = minProgressBarPercent;
+    if( data.totalEarlyBirdTickets > 0 ) {
+          var percentUsed = (data.totalEarlyBirdTickets - data.availableEarlyBirdTickets) / data.totalEarlyBirdTickets;
+          percentUsed = Math.max(percentUsed, 1.0);
+          percent = minProgressBarPercent + percentUsed * (1-minProgressBarPercent);
+      }
+        
+      $('.tickets-progress .progressbar').css('width', (percent*100.0)+'%');
+  }
+
   function updateTicketsProgress() {
 
     $.get('/tickets/status', function(data){
@@ -136,21 +147,12 @@ $(document).ready(function(){
         }
         if( typeof data.availableEarlyBirdTickets !== 'number' || typeof data.totalEarlyBirdTickets !== 'number' ) { return; }
 
-        var percent = minProgressBarPercent;
-        if( data.totalEarlyBirdTickets > 0 ) {
-          var percentUsed = (data.totalEarlyBirdTickets - data.availableEarlyBirdTickets) / data.totalEarlyBirdTickets;
-          percentUsed = Math.max(percentUsed, 1.0);
-          percent = minProgressBarPercent + percentUsed * (1-minProgressBarPercent);
-        }
-        
-        $('.tickets-progress .progressbar').css('width', (percent*100.0)+'%');
+        updateTicketsAvailability(data);
 
-      }, 'json')
-      .always(function() {
-        setTimeout(function(){
-          updateTicketsProgress();
-        }, interval);
-      });
+        var socket = io.connect('/tickets/');
+        socket.on('availability', updateTicketsAvailability);
+
+      }, 'json');
 
   }
 
