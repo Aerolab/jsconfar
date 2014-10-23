@@ -129,12 +129,25 @@ $(document).ready(function(){
   function updateTicketsAvailability(data) {
     var percent = minProgressBarPercent;
     if( data.totalEarlyBirdTickets > 0 ) {
-          var percentUsed = (data.totalEarlyBirdTickets - data.availableEarlyBirdTickets) / data.totalEarlyBirdTickets;
-          percentUsed = Math.max(percentUsed, 1.0);
-          percent = minProgressBarPercent + percentUsed * (1-minProgressBarPercent);
+      var percentUsed = (data.totalEarlyBirdTickets - data.availableEarlyBirdTickets) / data.totalEarlyBirdTickets;
+      percentUsed = Math.min(percentUsed, 1.0);
+      percent = minProgressBarPercent + percentUsed * (1-minProgressBarPercent);
+    }
+      
+    $('.tickets-progress .progressbar').css('width', (percent*100.0)+'%');
+
+    if( data.availableEarlyBirdTickets <= 0 ) {
+      // Todo: Add a message if there's still a chance of getting one
+      $('.section-tickets .tickets-content-buy, .tickets-progress').hide();
+      $('.section-tickets .tickets-content-gone').show();
+      if( typeof data.maybeAvailableEarlyBirdTickets === 'number' && data.maybeAvailableEarlyBirdTickets > 0 ) {
+        $('.section-tickets .some-hope').show();
       }
-        
-      $('.tickets-progress .progressbar').css('width', (percent*100.0)+'%');
+    } else {
+      $('.section-tickets .tickets-content-buy, .tickets-progress').show();
+      $('.section-tickets .tickets-content-gone').hide();
+      $('.section-tickets .some-hope').hide();
+    }
   }
 
   function updateTicketsProgress() {

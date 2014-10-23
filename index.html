@@ -793,27 +793,39 @@
       </h1>
 
 
-      <div class="buy-ticket">
+      <div class="tickets-content-buy">
+        <div class="buy-ticket">
 
-        <div class="price">ARS 999</div>
+          <div class="price">ARS 999</div>
 
-        <div class="illustration-tickets">
-          <a class="button button-get-tickets" href="#">Get Your Ticket Now!</a>
+          <div class="illustration-tickets">
+            <a class="button button-get-tickets" href="#">Get Your Ticket Now!</a>
 
-          <span class="icon icon-button-thingy"></span>
+            <span class="icon icon-button-thingy"></span>
+          </div>
+
         </div>
 
+        <div class="ticket-includes wow animated fadeInRight" data-wow-delay=".1s">
+          <h2>Early Bird Promo!</h2>
+          <p>Just 100 Early Bird Tickets available. Regular tickets will cost ARS 1499.</p>
+          <p>Each ticket includes:</p>
+          <ul>
+            <li>Access to the all the talks</li>
+            <li>Breakfast and lunch</li>
+            <li>A fantastic party</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="ticket-includes wow animated fadeInRight" data-wow-delay=".1s">
-        <h2>Early Bird Promo!</h2>
-        <p>Just 100 Early Bird Tickets available. Regular tickets will cost ARS 1499.</p>
-        <p>Each ticket includes:</p>
-        <ul>
-          <li>Access to the all the talks</li>
-          <li>Breakfast and lunch</li>
-          <li>A fantastic party</li>
-        </ul>
+
+      <div class="tickets-content-gone" style="display:none;">
+        <figure>
+          <img src="static/images/earlybird-gone.png" alt=":(" />
+        </figure>
+
+        <h2>Early bird tickets have sold out :(</h2>
+        <p class="some-hope">Keep watching this page. You may still be able to get a ticket.</p>
       </div>
 
     </div>
@@ -991,6 +1003,8 @@
   </div>
 
 </div>
+
+
 
 <script>
   // https://www.youtube.com/watch?v=9jK-NcRmVcw
