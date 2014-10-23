@@ -149,7 +149,7 @@ $(document).ready(function(){
 
         updateTicketsAvailability(data);
 
-        var socket = io.connect('/tickets/');
+        var socket = io.connect('http://tickets.staging.jsconf.aerolab.co');
         socket.on('availability', updateTicketsAvailability);
 
       }, 'json');
