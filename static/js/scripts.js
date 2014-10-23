@@ -130,11 +130,13 @@ $(document).ready(function(){
     var percent = minProgressBarPercent;
     if( data.totalEarlyBirdTickets > 0 ) {
           var percentUsed = (data.totalEarlyBirdTickets - data.availableEarlyBirdTickets) / data.totalEarlyBirdTickets;
-          percentUsed = Math.max(percentUsed, 1.0);
+          percentUsed = Math.min(percentUsed, 1.0);
           percent = minProgressBarPercent + percentUsed * (1-minProgressBarPercent);
       }
         
       $('.tickets-progress .progressbar').css('width', (percent*100.0)+'%');
+      $('.tickets-progress .tickets-count').text( data.availableEarlyBirdTickets );
+
   }
 
   function updateTicketsProgress() {
