@@ -1,7 +1,11 @@
 // The ask
 .section-tickets
   background: $white
-  padding: 60px 0
+  padding: 60px 0 0 0
+
+  /* This leaves room for the progressbar */
+  .container
+    padding-bottom: 60px
 
   h1
     margin-bottom: 60px
@@ -75,3 +79,43 @@
 
     &:hover
       background: lighten($yellow, 10%)
+
+
+.tickets-progress
+  position: relative
+  padding-right: 25px /* Leave some room for the bird */
+
+  .progressbar
+    box-sizing: border-box
+    position: relative
+    display: inline-block
+    margin: 0
+    height: 43px
+    font-size: 16px
+    line-height: 43px
+    text-align: right
+    padding-left: 30px
+    padding-right: 50px
+    color: $yellow
+    background: $blue
+    min-width: 60%
+    white-space: nowrap
+
+  .sprite.progressbar-bird
+    position: absolute
+    top: 0
+    right: -25px
+    width: 55px
+    height: 43px
+    background-position: -300px -50px
+
+@media(max-width: 768px)
+  .tickets-progress .progressbar
+    .hidden-tablet
+      display: none
+
+
+@media(max-width: 480px)
+  .tickets-progress .progressbar
+    .hidden-mobile
+      display: none
