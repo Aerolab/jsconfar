@@ -1181,20 +1181,28 @@
       <img src="static/images/earlybird.png" alt="Early Bird" />
     </figure>
 
-    <h2>Hurry up before it's too late!</h2>
+    <h2>Get your Early Bird Ticket!</h2>
 
     <form id="payment-form" action="">
 
-      <input id="payment-email" type="email" name="email" value="" placeholder="Email" />
+      <input type="text" name="name" value="" placeholder="Your Name" required />
 
-      <select id="payment-cardtype" name="cardtype">
-        <option value="visa">Visa</option>
-        <option value="amex">American Express</option>
-        <option value="mastercard">MasterCard</option>
-      </select>
+      <input type="email" name="email" value="" placeholder="Email" required />
 
-      <select id="payment-paymenttype" name="paymenttype">
-        <option value="personal">Personal Card</option>
+      <div class="cardtype">
+        <label class="card-select card-visa" title="Visa">
+          <input type="radio" name="cardtype" value="visa" checked />
+        </label>
+        <label class="card-select card-amex" title="American Express">
+          <input type="radio" name="cardtype" value="amex" />
+        </label>
+        <label class="card-select card-mastercard" title="MasterCard">
+          <input type="radio" name="cardtype" value="mastercard" />
+        </label>
+      </div>
+
+      <select name="paymenttype">
+        <option value="personal" selected>Personal Card</option>
         <option value="corporate">Corporate Card</option>
       </select>
 

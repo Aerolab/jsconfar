@@ -16,9 +16,9 @@
       'method': 'POST',
       'url': '/tickets/authorization',
       'data': { 
-        'email': $('#payment-email').val(),
-        'cardtype': $('#payment-cardtype').val(),
-        'paymenttype': $('#payment-paymenttype').val(),
+        'email': $('#payment-form input[name=email]').val(),
+        'cardtype': $('#payment-form input[name=cardtype]:checked').val(),
+        'paymenttype': $('#payment-form select[name=paymenttype]').val(),
       },
       'success': function(data){
 
@@ -132,6 +132,14 @@
       $('#modal-holder').hide();
     }
   });
+
+  $('.cardtype .card-select input').on('change keyup', function(event){
+    var $holder = $(this).closest('.cardtype');
+    $holder.find('.card-select').removeClass('selected');
+    $holder.find('input:checked').parent().addClass('selected');
+  });
+
+  $('.cardtype .card-select input:checked').trigger('change');
 
 
   $('.modal-success button, .modal-error button').click(function(event){
