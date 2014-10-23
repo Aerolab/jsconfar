@@ -117,3 +117,41 @@ $(document).ready(function(){
 
 
 new WOW().init();
+
+
+
+// Early Bird Progress
+$(document).ready(function(){
+
+  var interval = 5 * 1000;
+  var minProgressBarPercent = 0.6;
+
+  function updateTicketsProgress() {
+
+    $.get('/tickets/status', function(data){
+        if( typeof data.salesOpen !== 'undefined' ) {
+          enableTickets();
+        }
+        if( typeof data.availableEarlyBirdTickets !== 'number' || typeof data.totalEarlyBirdTickets !== 'number' ) { return; }
+
+        var percent = minProgressBarPercent;
+        if( data.totalEarlyBirdTickets > 0 ) {
+          var percentUsed = (data.totalEarlyBirdTickets - data.availableEarlyBirdTickets) / data.totalEarlyBirdTickets;
+          percentUsed = Math.max(percentUsed, 1.0);
+          percent = minProgressBarPercent + percentUsed * (1-minProgressBarPercent);
+        }
+        
+        $('.tickets-progress .progressbar').css('width', (percent*100.0)+'%');
+
+      }, 'json')
+      .always(function() {
+        setTimeout(function(){
+          updateTicketsProgress();
+        }, interval);
+      });
+
+  }
+
+  updateTicketsProgress();
+
+});
