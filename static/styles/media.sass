@@ -11,17 +11,24 @@
 
   .section-tickets
     .buy-ticket
-      width: 100%
-      margin: 0
+      float: none
+      width: auto
+      margin: 0 -15px
+      overflow: hidden
 
       .price
         padding: 0
+        padding-left: 60px
         width: 100%
 
     .ticket-includes
-      width: 100%
+      float: none
+      width: auto
       text-align: center
       margin: 40px 0 0
+
+      p
+        text-align: center
 
       ul
         list-style: none
@@ -190,8 +197,11 @@
     .ticket-includes
       font-size: 16px
 
+    .buy-ticket .price
+      padding: 0
+
   .illustration-tickets
-    margin: 0 -30px
+    margin: 0 -30px 0 -85px
     width: auto
 
 @media only screen and (max-width: 599px)
