@@ -1256,6 +1256,19 @@
 
 
 <script>
+
+  var enableTickets = function() {
+    if( document.querySelector('section.section-tickets').style.display === 'block' ) {
+      return;
+    }
+    document.querySelector('section.section-earlybird').style.display = 'none';
+    document.querySelector('section.section-tickets').style.display = 'block';
+
+    // Trigger wow.js
+    window.scrollBy(0,1);
+    window.scrollBy(0,-1);
+  };
+
   // https://www.youtube.com/watch?v=9jK-NcRmVcw
   var updateCountdown = function(date, selector) {
 
@@ -1284,19 +1297,6 @@
 
   updateCountdown(Date.UTC(2014, 10, 29, 12, 0), 'countdown');
   updateCountdown(Date.UTC(2014, 9, 24, 16, 0), 'countdown-earlybird');
-
-
-  var enableTickets = function() {
-    if( document.querySelector('section.section-tickets').style.display === 'block' ) {
-      return;
-    }
-    document.querySelector('section.section-earlybird').style.display = 'none';
-    document.querySelector('section.section-tickets').style.display = 'block';
-
-    // Trigger wow.js
-    window.scrollBy(0,1);
-    window.scrollBy(0,-1);
-  };
 
 </script>
 
