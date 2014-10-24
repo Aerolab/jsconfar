@@ -68,7 +68,7 @@
     $.ajax({
       'method': 'POST',
       'url': '/tickets/confirm',
-      'data': { 'charge_uid': data.charge_uid },
+      'data': data,
       'success': function(res) {
         if(res === 'ok') {
           // Todo: success
