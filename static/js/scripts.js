@@ -193,7 +193,7 @@ $(document).ready(function(){
 
         updateTicketsAvailability(data);
 
-        var socket = io.connect('http://tickets.staging.jsconf.aerolab.co');
+        var socket = io.connect('https://tickets.jsconfar.com');
         socket.on('availability', updateTicketsAvailability);
 
       }, 'json');
