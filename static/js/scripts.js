@@ -145,6 +145,7 @@ $(document).ready(function(){
     }
       
     $('.tickets-progress .progressbar').css('width', (percent*100.0)+'%');
+    $('.tickets-progress .tickets-count').test(data.availableEarlyBirdTickets);
 
     // Enable / Disable Tickets
     if( data.availableEarlyBirdTickets <= 0 ) {
@@ -162,9 +163,9 @@ $(document).ready(function(){
     }
 
     // Show the latest purchase
-    if( typeof data.latestTicketName === 'string' && data.latestTicketName !== '' ) {
+    if( typeof data.lastBuyerName === 'string' && data.lastBuyerName !== '' ) {
       // The name is user-generated
-      $('.section-tickets .progressbar-flag-name').text( data.latestTicketName.substring(0, 30) +' bought one!' );
+      $('.section-tickets .progressbar-flag-name').text( data.lastBuyerName.substring(0, 30) +' bought one!' );
     }
 
   }
