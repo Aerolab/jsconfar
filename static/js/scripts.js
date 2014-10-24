@@ -146,10 +146,12 @@ $(document).ready(function(){
       
     $('.tickets-progress .progressbar').css('width', (percent*100.0)+'%');
 
+    // Enable / Disable Tickets
     if( data.availableEarlyBirdTickets <= 0 ) {
-      // Todo: Add a message if there's still a chance of getting one
       $('.section-tickets .tickets-content-buy, .tickets-progress').hide();
       $('.section-tickets .tickets-content-gone').show();
+
+      // Show a message if there's still a chance of getting one
       if( typeof data.maybeAvailableEarlyBirdTickets === 'number' && data.maybeAvailableEarlyBirdTickets > 0 ) {
         $('.section-tickets .some-hope').show();
       }
@@ -158,6 +160,13 @@ $(document).ready(function(){
       $('.section-tickets .tickets-content-gone').hide();
       $('.section-tickets .some-hope').hide();
     }
+
+    // Show the latest purchase
+    if( typeof data.latestTicketName === 'string' && data.latestTicketName !== '' ) {
+      // The name is user-generated
+      $('.section-tickets .progressbar-flag-name').text( data.latestTicketName.substring(0, 30) +' bought one!' );
+    }
+
   }
 
   function updateTicketsProgress() {

@@ -5,7 +5,7 @@
 
   /* This leaves room for the progressbar */
   .container
-    padding-bottom: 60px
+    padding-bottom: 80px
 
   h1
     margin-bottom: 60px
@@ -127,6 +127,7 @@
     width: 55px
     height: 43px
     background-position: -300px -50px
+    z-index: 10
 
 @media(max-width: 768px)
   .tickets-progress .progressbar
@@ -138,3 +139,31 @@
   .tickets-progress .progressbar
     .hidden-mobile
       display: none
+
+
+.progressbar-flag, .progressbar-flag-in, .progressbar-flag-name
+  background: url(images/earlybird-flag@2x.png) no-repeat 0px 0px
+  background-size: 30px 225px
+
+.progressbar-flag
+  position: absolute
+  z-index: 2
+  right: -5px
+  bottom: 28px
+  height: 75px
+  background-position: 100% 0px
+
+.progressbar-flag-in
+  height: 75px
+  padding-left: 30px
+  background-position: 0% -150px
+
+.progressbar-flag-name
+  height: 75px
+  line-height: 38px
+  font-size: 16px
+  color: $yellow
+  padding: 11px 15px 0px 5px
+  background-position: 0% -75px
+  background-repeat: repeat-x
+  white-space: nowrap
