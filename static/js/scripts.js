@@ -150,7 +150,7 @@ $(document).ready(function(){
     if( data.salesOpen ) { enableTickets(); }
 
     // Enable / Disable Tickets
-    if( data.availableEarlyBirdTickets <= 0 && data.totalEarlyBirdTickets > 0 ) {
+    if( data.availableEarlyBirdTickets <= 0 && data.salesOpen ) {
       $('.section-tickets .tickets-content-buy, .tickets-progress').hide();
       $('.section-tickets .tickets-content-gone').show();
 
