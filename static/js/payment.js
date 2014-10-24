@@ -12,6 +12,8 @@
 
     $(this).addClass('loading');
 
+    ga( 'send', 'event', 'purchase', 'begin', 'early-bird' );
+
     $.ajax({
       'method': 'POST',
       'url': '/tickets/authorization',
@@ -26,6 +28,7 @@
         if( typeof data.salesError !== 'undefined' ) {
           // Something went wrong (there are no tickets available or the sale hasn't started yet)
           showError( data.salesError );
+          ga( 'send', 'event', 'error', 'purchase', data.salesError );
           return;
         }
         
@@ -34,12 +37,14 @@
       },
       'error': function(data){
         showError("There are some connectivity issues and we can't get started with your payment.<br/>Try again in 30 seconds!");
+        ga( 'send', 'event', 'error', 'connectivity', 'authorization-request' );
       }
     });
   });
 
   var authorizationUid;
   function initPayment(data) {
+
     JsConfPayments({
       'api_key': 'public_live_mwhz6e34hvukjc5q', 
       'authorization_uid': data.uid
@@ -48,6 +53,7 @@
       if(error) {
         //handle error
         showError("We had an issue while setting up your payment. Try again!");
+        ga( 'send', 'event', 'error', 'payment', 'authorization' );
         return;
       }
 
@@ -56,6 +62,8 @@
 
       authorizationUid = data.uid;
       this.charge(confirmPayment);
+
+      ga( 'send', 'event', 'purchase', 'creditcard' );
     });
   }
 
@@ -73,15 +81,40 @@
       'data': { 'charge_uid': data.charge_uid, 'authorization_uid': authorizationUid },
       'success': function(res) {
         if(res === 'ok') {
-          // Todo: success
           showSuccess("Yay! I'm yours to take home :D");
+
+          // Tracking
+          ga( 'send', 'event', 'purchase', 'success' );
+
+          ga('ecommerce:addTransaction', {
+            'id': authorizationUid,
+            'affiliation': 'JSConf Argentina',
+            'revenue': '999.00'
+          });
+          ga('ecommerce:addItem', {
+            'id': authorizationUid,
+            'name': 'Early Bird',
+            'sku': 'earlybird',
+            'category': 'Tickets',
+            'price': '999.00',
+            'quantity': '1'
+          });
+          ga('ecommerce:send');
+
         } else {
-          // error
-          showError("There was an issue with your payment info. Your card has not been charged.<br/>Try again with another card.");
+
+          if( typeof res.salesError === 'string' ) {
+            showError(res.salesError);
+            ga( 'send', 'event', 'purchase', 'failed', res.salesError );
+          } else {
+            showError("There was an issue with your payment info. Your card has not been charged.<br/>Try again with another card.");
+            ga( 'send', 'event', 'purchase', 'failed', 'payment-info' );
+          }
         }
       },
       'error': function() {
         showError("There are some connectivity issues and we can't verify if your payment was made. Contact us at <a href=\"mailto:support@jsconfar.com\">support@jsconfar.com</a>.");
+        ga( 'send', 'event', 'error', 'connectivity', 'payment-confirmation' );
       }
     });
   }
