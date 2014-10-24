@@ -175,7 +175,13 @@ $(document).ready(function(){
     }
       
     $('.tickets-progress .progressbar').css('width', (percent*100.0)+'%');
-    $('.tickets-progress .tickets-count').text(data.availableEarlyBirdTickets);
+
+    if( data.totalEarlyBirdTickets === 0 && data.availableEarlyBirdTickets === 0 ) {
+      // If we get 0 out of 0, it means the server hasn't started yet (or is about to start). Optimistically use 50 by default.
+      $('.tickets-progress .tickets-count').text(50);
+    } else {
+      $('.tickets-progress .tickets-count').text(data.availableEarlyBirdTickets);
+    }
 
     // Show the latest purchase
     if( typeof data.lastBuyerName === 'string' && data.lastBuyerName !== '' ) {
