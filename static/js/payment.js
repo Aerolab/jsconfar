@@ -38,6 +38,7 @@
     });
   });
 
+  var authorizationUid;
   function initPayment(data) {
     JsConfPayments({
       'api_key': 'public_test_wsl91zxbk055ao3d', 
@@ -53,6 +54,7 @@
       // Hide the input modal and show the Checkout one
       showCheckoutBackground();
 
+      authorizationUid = data.uid;
       this.charge(confirmPayment);
     });
   }
@@ -68,7 +70,7 @@
     $.ajax({
       'method': 'POST',
       'url': '/tickets/confirm',
-      'data': { 'charge_uid': data.charge_uid },
+      'data': { 'charge_uid': data.charge_uid, 'authorization_uid': authorizationUid },
       'success': function(res) {
         if(res === 'ok') {
           // Todo: success
