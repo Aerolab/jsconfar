@@ -145,7 +145,7 @@ $(document).ready(function(){
     }
       
     $('.tickets-progress .progressbar').css('width', (percent*100.0)+'%');
-    $('.tickets-progress .tickets-count').test(data.availableEarlyBirdTickets);
+    $('.tickets-progress .tickets-count').text(data.availableEarlyBirdTickets);
 
     // Enable / Disable Tickets
     if( data.availableEarlyBirdTickets <= 0 ) {
