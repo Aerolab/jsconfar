@@ -41,7 +41,7 @@
   var authorizationUid;
   function initPayment(data) {
     JsConfPayments({
-      'api_key': 'public_test_wsl91zxbk055ao3d', 
+      'api_key': 'public_live_mwhz6e34hvukjc5q', 
       'authorization_uid': data.uid
     }, function(error){
 
