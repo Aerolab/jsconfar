@@ -146,15 +146,8 @@ $(document).ready(function(){
   var minProgressBarPercent = 0.6;
 
   function updateTicketsAvailability(data) {
-    var percent = minProgressBarPercent;
-    if( data.totalEarlyBirdTickets > 0 ) {
-      var percentUsed = (data.totalEarlyBirdTickets - data.availableEarlyBirdTickets) / data.totalEarlyBirdTickets;
-      percentUsed = Math.min(percentUsed, 1.0);
-      percent = minProgressBarPercent + percentUsed * (1-minProgressBarPercent);
-    }
-      
-    $('.tickets-progress .progressbar').css('width', (percent*100.0)+'%');
-    $('.tickets-progress .tickets-count').text(data.availableEarlyBirdTickets);
+
+    if( data.salesOpen ) { enableTickets(); }
 
     // Enable / Disable Tickets
     if( data.availableEarlyBirdTickets <= 0 ) {
@@ -171,6 +164,19 @@ $(document).ready(function(){
       $('.section-tickets .some-hope').hide();
     }
 
+
+    // Move the progressbar
+    var percent = minProgressBarPercent;
+
+    if( data.totalEarlyBirdTickets > 0 ) {
+      var percentUsed = (data.totalEarlyBirdTickets - data.availableEarlyBirdTickets) / data.totalEarlyBirdTickets;
+      percentUsed = Math.min(percentUsed, 1.0);
+      percent = minProgressBarPercent + percentUsed * (1-minProgressBarPercent);
+    }
+      
+    $('.tickets-progress .progressbar').css('width', (percent*100.0)+'%');
+    $('.tickets-progress .tickets-count').text(data.availableEarlyBirdTickets);
+
     // Show the latest purchase
     if( typeof data.lastBuyerName === 'string' && data.lastBuyerName !== '' ) {
       // The name is user-generated
@@ -182,11 +188,7 @@ $(document).ready(function(){
   function updateTicketsProgress() {
 
     $.get('/tickets/status', function(data){
-        if( typeof data.salesOpen !== 'undefined' && data.salesOpen ) {
-          enableTickets();
-        } else {
-          return;
-        }
+        if( typeof data.salesOpen === 'undefined' ) { return; }
         if( typeof data.availableEarlyBirdTickets !== 'number' || typeof data.totalEarlyBirdTickets !== 'number' ) { return; }
 
         updateTicketsAvailability(data);
