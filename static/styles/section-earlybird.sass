@@ -52,6 +52,8 @@
     width: 39px
     height: 30px
     -webkit-animation: levitate 2s infinite ease-in-out
+    -moz-animation: levitate 2s infinite ease-in-out
+    animation: levitate 2s infinite ease-in-out
 
 @-webkit-keyframes levitate
   0%
@@ -60,3 +62,19 @@
     -webkit-transform: translateY(0px)
   100%
     -webkit-transform: translateY(-5px)
+
+@-moz-keyframes levitate
+  0%
+    -moz-transform: translateY(-5px)
+  50%
+    -moz-transform: translateY(0px)
+  100%
+    -moz-transform: translateY(-5px)
+
+@keyframes levitate
+  0%
+    transform: translateY(-5px)
+  50%
+    transform: translateY(0px)
+  100%
+    transform: translateY(-5px)
