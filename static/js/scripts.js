@@ -130,6 +130,15 @@ $(document).ready(function(){
 });
 
 
+String.prototype.ucwords = function() {
+    str = this.toLowerCase();
+    return str.replace(/(^([a-zA-Z\p{M}]))|([ -][a-zA-Z\p{M}])/g,
+        function($1){
+            return $1.toUpperCase();
+        });
+};
+
+
 // Early Bird Progress
 $(document).ready(function(){
 
@@ -165,7 +174,7 @@ $(document).ready(function(){
     // Show the latest purchase
     if( typeof data.lastBuyerName === 'string' && data.lastBuyerName !== '' ) {
       // The name is user-generated
-      $('.section-tickets .progressbar-flag-name').text( data.lastBuyerName.substring(0, 30) +' bought one!' );
+      $('.section-tickets .progressbar-flag-name').text( data.lastBuyerName.substring(0, 30).ucwords() +' bought one!' );
     }
 
   }
