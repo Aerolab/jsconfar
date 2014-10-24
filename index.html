@@ -718,7 +718,7 @@
 
 
   <a name="earlybird"></a>
-  <section class="section-earlybird">
+  <section class="section-earlybird" style="display:none;">
 
     <div class="container">
 
@@ -805,7 +805,7 @@
   </section>
 
   <a name="tickets"></a>
-  <section class="section-tickets" style="display:none;">
+  <section class="section-tickets" style="display:block;">
 
     <div class="container">
 
@@ -850,7 +850,7 @@
       </h1>
 
 
-      <div class="tickets-content-buy">
+      <div class="tickets-content-buy" style="display:none;">
         <div class="buy-ticket">
 
           <div class="price">ARS 999</div>
@@ -876,18 +876,30 @@
       </div>
 
 
-      <div class="tickets-content-gone" style="display:none;">
+      <div class="tickets-content-gone" style="display:block;">
         <figure>
           <img src="static/images/earlybird-gone.png" alt=":(" />
         </figure>
 
         <h2>Early bird tickets have sold out :(</h2>
-        <p class="some-hope" style="display:none;">Keep watching this page. You may still be able to get a ticket.</p>
+        <p>Sign up and we'll notify you when we release the Regular Tickets</p>
+
+        <br/><br/>
+
+        <form class="signup-form" action="https://devthought.us4.list-manage.com/subscribe/post?u=33875ea2facba4ce8d8bc0d66&amp;id=8c9110b9d4" validate method="post" target="_blank">
+          <div class="input-group">
+            <input type="email" name="EMAIL" value="" placeholder="Let me know when to come back" required />
+            <span class="submit"><button type="submit"><span class="icon icon-send-yellow"></span></button></span>
+          </div>
+          <input type="hidden" name="b_33875ea2facba4ce8d8bc0d66_8c9110b9d4" tabindex="-1" value="">
+          <input type="hidden" name="subscribe" value="Subscribe" />
+        </form>
+
       </div>
 
     </div>
 
-    <div class="tickets-progress">
+    <div class="tickets-progress" style="display:none;">
       <div class="progressbar">
         <div class="sprite progressbar-bird"><!-- Tweet! --></div>
         <div class="progressbar-flag">
@@ -1296,7 +1308,7 @@
   };
 
   updateCountdown(Date.UTC(2014, 10, 29, 12, 0), 'countdown');
-  updateCountdown(Date.UTC(2014, 9, 24, 16, 0), 'countdown-earlybird');
+  //updateCountdown(Date.UTC(2014, 9, 24, 16, 0), 'countdown-earlybird');
 
 </script>
 
