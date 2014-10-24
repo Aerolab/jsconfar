@@ -16,6 +16,7 @@
       'method': 'POST',
       'url': '/tickets/authorization',
       'data': { 
+        'name': $('#payment-form input[name=name]').val(),
         'email': $('#payment-form input[name=email]').val(),
         'cardtype': $('#payment-form input[name=cardtype]:checked').val(),
         'paymenttype': $('#payment-form select[name=paymenttype]').val(),
