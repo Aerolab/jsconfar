@@ -12,7 +12,7 @@
 
     $(this).addClass('loading');
 
-    ga( 'send', 'event', 'purchase', 'begin', 'early-bird' );
+    ga( 'send', 'event', 'purchase', 'begin', 'regular' );
 
     $.ajax({
       'method': 'POST',
@@ -89,14 +89,14 @@
           ga('ecommerce:addTransaction', {
             'id': authorizationUid,
             'affiliation': 'JSConf Argentina',
-            'revenue': '999.00'
+            'revenue': '1499.00'
           });
           ga('ecommerce:addItem', {
             'id': authorizationUid,
-            'name': 'Early Bird',
-            'sku': 'earlybird',
+            'name': 'Regular Ticket',
+            'sku': 'regular',
             'category': 'Tickets',
-            'price': '999.00',
+            'price': '1499.00',
             'quantity': '1'
           });
           ga('ecommerce:send');
