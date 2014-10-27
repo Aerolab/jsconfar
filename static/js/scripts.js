@@ -150,12 +150,13 @@ $(document).ready(function(){
     if( data.salesOpen ) { enableTickets(); }
 
     // Enable / Disable Tickets
-    if( data.availableEarlyBirdTickets <= 0 && data.salesOpen ) {
+    if( data.availableEarlyBirdTickets <= 0 && data.availableRegularTickets <= 0 && data.salesOpen ) {
       $('.section-tickets .tickets-content-buy, .tickets-progress').hide();
       $('.section-tickets .tickets-content-gone').show();
 
       // Show a message if there's still a chance of getting one
-      if( typeof data.maybeAvailableEarlyBirdTickets === 'number' && data.maybeAvailableEarlyBirdTickets > 0 ) {
+      if( (typeof data.maybeAvailableEarlyBirdTickets === 'number' && data.maybeAvailableEarlyBirdTickets > 0) ||
+          (typeof data.maybeAvailableRegularTickets === 'number' && data.maybeAvailableRegularTickets > 0) ) {
         $('.section-tickets .some-hope').show();
       }
     } else {
@@ -168,19 +169,19 @@ $(document).ready(function(){
     // Move the progressbar
     var percent = minProgressBarPercent;
 
-    if( data.totalEarlyBirdTickets > 0 ) {
-      var percentUsed = (data.totalEarlyBirdTickets - data.availableEarlyBirdTickets) / data.totalEarlyBirdTickets;
+    if( data.totalRegularTickets > 0 ) {
+      var percentUsed = (data.totalRegularTickets - data.availableRegularTickets) / data.totalRegularTickets;
       percentUsed = Math.min(percentUsed, 1.0);
       percent = minProgressBarPercent + percentUsed * (1-minProgressBarPercent);
     }
       
     $('.tickets-progress .progressbar').css('width', (percent*100.0)+'%');
 
-    if( data.totalEarlyBirdTickets === 0 && data.availableEarlyBirdTickets === 0 ) {
+    if( data.totalRegularTickets === 0 && data.availableRegularTickets === 0 ) {
       // If we get 0 out of 0, it means the server hasn't started yet (or is about to start). Optimistically use 400 by default.
       $('.tickets-progress .tickets-count').text(400);
     } else {
-      $('.tickets-progress .tickets-count').text(data.availableEarlyBirdTickets);
+      $('.tickets-progress .tickets-count').text(data.availableRegularTickets);
     }
 
     // Show the latest purchase
@@ -196,6 +197,7 @@ $(document).ready(function(){
     $.get('/tickets/status', function(data){
         if( typeof data.salesOpen === 'undefined' ) { return; }
         if( typeof data.availableEarlyBirdTickets !== 'number' || typeof data.totalEarlyBirdTickets !== 'number' ) { return; }
+        if( typeof data.availableRegularTickets !== 'number' || typeof data.totalRegularTickets !== 'number' ) { return; }
 
         updateTicketsAvailability(data);
 
