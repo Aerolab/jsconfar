@@ -3,6 +3,12 @@
  */
 ;(function(){
 
+  $('#payment-form select[name=quantity]').bind('change keyup', function(event){
+    var price = $(this).find('option:selected').data('price');
+    $('#payment-form button[type=submit]').text('Pay ARS '+ price);
+  }).trigger('change');
+
+
   $('#payment-form').submit(function(event){
     event.preventDefault();
 
@@ -22,6 +28,7 @@
         'email': $('#payment-form input[name=email]').val(),
         'cardtype': $('#payment-form input[name=cardtype]:checked').val(),
         'paymenttype': $('#payment-form select[name=paymenttype]').val(),
+        'quantity': $('#payment-form select[name=quantity]').val()
       },
       'success': function(data){
 

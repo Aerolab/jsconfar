@@ -63,6 +63,10 @@
     &:-ms-input-placeholder
       color: #acbeca
 
+    &:-webkit-autofill
+      background: $white
+      -webkit-box-shadow: none
+
   input, .card-select
     background: url(images/inputs@2x.png) no-repeat 1000px 1000px
     background-size: 55px 500px
@@ -71,7 +75,7 @@
     background-position: 9px 7px
   input[name=email]
     background-position: 7px -41px
-  select[name=paymenttype]
+  select[name=paymenttype], select[name=quantity]
     padding-left: 15px
     background: $white
 
