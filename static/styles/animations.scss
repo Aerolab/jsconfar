@@ -2,6 +2,10 @@
 @import "component";
 @import "animate";
 
+.wow {
+  visibility: hidden
+}
+
 #cloudx1, #cloudx4 {
   fill: #f7d043;
 }
