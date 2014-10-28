@@ -28,7 +28,8 @@
         'email': $('#payment-form input[name=email]').val(),
         'cardtype': $('#payment-form input[name=cardtype]:checked').val(),
         'paymenttype': $('#payment-form select[name=paymenttype]').val(),
-        'quantity': $('#payment-form select[name=quantity]').val()
+        'quantity': $('#payment-form select[name=quantity]').val(),
+        'installments': $('#payment-form select[name=installments]').val()
       },
       'success': function(data){
 
