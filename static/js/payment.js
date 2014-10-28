@@ -3,10 +3,37 @@
  */
 ;(function(){
 
-  $('#payment-form select[name=quantity]').bind('change keyup', function(event){
+
+  var ajaxCalculation = null;
+  var updatePaymentAmount = function() {
+    if( ajaxCalculation !== null ){ ajaxCalculation.abort(); }
+
+    var price = $('#payment-form select[name=quantity]').find('option:selected').data('price');
+    var installments = $('#payment-form select[name=installments]').find('option:selected').val();
+    var cardtype = $('#payment-form input[name=cardtype]:checked').val();
+
+    ajaxCalculation = $.ajax({  
+      url: 'https://checkout.jsconfar.com/services/installments?amount='+(price*100)+'&installments='+installments+'&type='+cardtype+'', 
+      jsonp: 'callback', 
+      dataType: 'jsonp', 
+      success: function(data){
+        $('#payment-form button[type=submit]').text('Pay ARS '+ data.amount_gross / 100);
+      }
+    });
+  };
+
+  $('#payment-form select[name=quantity]').bind('change', function(event){
     var price = $(this).find('option:selected').data('price');
-    $('#payment-form button[type=submit]').text('Pay ARS '+ price);
+    $('#payment-form button[type=submit]').text('Loading...');
+    updatePaymentAmount();
   }).trigger('change');
+
+  $('#payment-form select[name=installments]').bind('change', function(event){
+    var price = $(this).find('option:selected').data('price');
+    $('#payment-form button[type=submit]').text('Loading...');
+    updatePaymentAmount();
+  }).trigger('change');
+
 
 
   $('#payment-form').submit(function(event){
