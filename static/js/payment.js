@@ -22,14 +22,17 @@
     });
   };
 
+  $('#payment-form input[name=cardtype]').bind('change', function(event){
+    $('#payment-form button[type=submit]').text('Loading...');
+    updatePaymentAmount();
+  }).trigger('change');
+
   $('#payment-form select[name=quantity]').bind('change', function(event){
-    var price = $(this).find('option:selected').data('price');
     $('#payment-form button[type=submit]').text('Loading...');
     updatePaymentAmount();
   }).trigger('change');
 
   $('#payment-form select[name=installments]').bind('change', function(event){
-    var price = $(this).find('option:selected').data('price');
     $('#payment-form button[type=submit]').text('Loading...');
     updatePaymentAmount();
   }).trigger('change');
