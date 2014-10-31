@@ -15,6 +15,17 @@ var wow = new WOW({
 });
 wow.init();
 
+
+// Agenda stuff
+$(document).ready(function(){
+  $(".talk").find(".subject").on("click", function(){
+    $(this).parent().addClass("open");
+  });
+  $(".md-close", ".talk").on("click", function(){
+    $(this).parents(".talk").removeClass("open");
+    return false;
+  });
+});
 // Tracking
 $(document).ready(function(){
 

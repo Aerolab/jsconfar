@@ -1,3 +1,64 @@
+@media only screen and (max-width: 1004px)
+  .talk-list
+    min-width: 300px
+    width: 100%
+    max-width: 640px
+    margin: 0 auto
+
+    li
+      margin-bottom: 50px
+      h5.single-line
+        display: inline-block
+        text-align: center
+        background: $blue
+        border: 2px solid $darkBlue
+        padding: 5px 10px
+      &:before 
+        display: none
+      .time
+        float: none
+        width: 100%
+        padding-right: 0
+        margin-bottom: 10px
+        text-align: center
+
+      .subject
+        float: none
+        width: 100%
+        padding-left: 0
+        text-align: center
+
+        .details p
+          padding-bottom: 70px
+
+        .description
+          margin-left: 0
+          margin-top: 96px
+          min-height: 80px
+          .avatar
+            left: 50%
+            top: -96px
+            margin-left: -48px
+        .actions
+          position: absolute
+          top: auto
+          left: 0px
+          bottom: 0px
+          width: 100%
+          overflow: hidden
+          background: $darkBlue
+          a
+            float: left
+            margin: 0
+            &.md-close
+              float: right
+              margin: 0
+            &.share
+              width: auto
+              padding: 0 10px
+      &.open
+        -webkit-transform: translateX(0)
+
 @media only screen and (max-width: 980px)
   .global-stats
     max-width: none
