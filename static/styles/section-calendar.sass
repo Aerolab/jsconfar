@@ -38,9 +38,6 @@ $hour_end: 22
     position: relative
     z-index: 3
     margin-bottom: 30px
-    -webkit-transition: -webkit-transform .25s ease-in-out
-    -moz-transition: -moz-transform .25s ease-in-out
-    transition: transform .25s ease-in-out
 
     &:before
       content: ""
@@ -74,9 +71,9 @@ $hour_end: 22
       float: left
       text-align: right
       padding-right: 30px
-      -webkit-transition: padding-right ease-in-out .25s
-      -moz-transition: padding-right ease-in-out .25s
-      transition: padding-right ease-in-out .25s
+      -webkit-transition: padding-right ease-in-out .25s, -webkit-transform .25s ease-in-out
+      -moz-transition: padding-right ease-in-out .25s, -moz-transform .25s ease-in-out
+      transition: padding-right ease-in-out .25s, transform .25s ease-in-out
       span
         background: #ff4a25
         font-size: .8em
@@ -126,8 +123,12 @@ $hour_end: 22
       width: 49.5%
       float: right
       padding-left: 30px
-      background: $blue
       @extend ul.block-list
+      -webkit-transition: -webkit-transform .25s ease-in-out
+      -moz-transition: -moz-transform .25s ease-in-out
+      transition: transform .25s ease-in-out
+      position: relative
+      z-index: 5
 
       .description
         min-height: 96px
@@ -136,6 +137,7 @@ $hour_end: 22
         margin-left: 92px
         position: relative
         cursor: pointer
+        background: $blue
 
         h5
           margin-bottom: 10px
@@ -182,15 +184,19 @@ $hour_end: 22
           text-decoration: none
 
     &.open
-      -webkit-transform: translateX(-127px)
-      -moz-transform: translateX(-127px)
-      transform: translateX(-127px)
+      .subject
+        -webkit-transform: translateX(-127px)
+        -moz-transform: translateX(-127px)
+        transform: translateX(-127px)
       .description
         cursor: text
       &:before
         opacity: 0
       .time
         padding-right: 0
+        -webkit-transform: translateX(-127px)
+        -moz-transform: translateX(-127px)
+        transform: translateX(-127px)
       .details
         opacity: 1
         visibility: visible
