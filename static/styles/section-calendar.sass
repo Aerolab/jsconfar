@@ -11,7 +11,7 @@ $hour_end: 22
   h1
     margin-bottom: 40px
 
-.calendar-svg
+.agenda-svg
   display: block
   position: relative
   
@@ -39,6 +39,8 @@ $hour_end: 22
     z-index: 3
     margin-bottom: 30px
     -webkit-transition: -webkit-transform .25s ease-in-out
+    -moz-transition: -moz-transform .25s ease-in-out
+    transition: transform .25s ease-in-out
 
     &:before
       content: ""
@@ -73,6 +75,8 @@ $hour_end: 22
       text-align: right
       padding-right: 30px
       -webkit-transition: padding-right ease-in-out .25s
+      -moz-transition: padding-right ease-in-out .25s
+      transition: padding-right ease-in-out .25s
       span
         background: #ff4a25
         font-size: .8em
@@ -93,6 +97,9 @@ $hour_end: 22
       position: absolute
       left: 100%
       top: 0
+      a
+        margin-top: -2px
+        display: block
       .md-close
         background: url(images/close-button.png) no-repeat center
         border: 2px solid $darkBlue
@@ -100,6 +107,7 @@ $hour_end: 22
         height: 50px 
         display: block
         padding: 0
+        margin-bottom: 100px
       .share
         display: block
         width: 127px
@@ -118,7 +126,6 @@ $hour_end: 22
       width: 49.5%
       float: right
       padding-left: 30px
-      cursor: pointer
       background: $blue
       @extend ul.block-list
 
@@ -128,6 +135,7 @@ $hour_end: 22
         padding: 15px 15px 0px 15px
         margin-left: 92px
         position: relative
+        cursor: pointer
 
         h5
           margin-bottom: 10px
@@ -146,12 +154,20 @@ $hour_end: 22
       font-size: 1em
       color: $green-talks
       margin-bottom: 10px
+      .pill
+        background: $green-talks
+        color: #fff
+        font-size: .75em
+        text-transform: uppercase
+        padding: 0 5px
 
     .details
       visibility: hidden
       opacity: 0
       max-height: 0
       -webkit-transition: visibility ease-in-out .5s, opacity ease-in-out .5s, max-height ease-in-out .5s
+      -moz-transition: visibility ease-in-out .5s, opacity ease-in-out .5s, max-height ease-in-out .5s
+      transition: visibility ease-in-out .5s, opacity ease-in-out .5s, max-height ease-in-out .5s
 
       p
         text-align: left
@@ -167,7 +183,9 @@ $hour_end: 22
 
     &.open
       -webkit-transform: translateX(-127px)
-      .subject
+      -moz-transform: translateX(-127px)
+      transform: translateX(-127px)
+      .description
         cursor: text
       &:before
         opacity: 0
@@ -181,11 +199,15 @@ $hour_end: 22
         display: none
       .actions 
         display: block
-        a
-          margin-top: -2px
-          display: block
-          &.md-close
-            margin-bottom: 100px
+    &.highlight
+      .subject .description,
+      .avatar,
+      .more,
+      .actions a,
+      &:before
+        border: 2px solid $yellow
+      .more
+        color: $yellow
 
 
 

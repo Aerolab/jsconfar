@@ -113,21 +113,21 @@
   }
 }
 
-/** Calendar **/
+/** AGENDA **/
 
-.calendar-svg-animation-tab {
+.agenda-svg-animation-tab {
   @include animation(showLeft 1s both);
 }
 
-.calendar-svg-animation-tab2 {
+.agenda-svg-animation-tab2 {
   @include animation(showLeft 1.1s both);
 }
 
-.calendar-svg-animation-tab3 {
+.agenda-svg-animation-tab3 {
   @include animation(showLeft 1.2s both);
 }
 
-.calendar-svg-animation-tab4 {
+.agenda-svg-animation-tab4 {
   @include animation(showLeft 1.3s both);
 }
 
