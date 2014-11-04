@@ -56,10 +56,18 @@
             &.share
               width: auto
               padding: 0 10px
+      &.odd
+        .time
+          padding-left: 0
+          text-align: center
+        .subject
+          padding-right: 0
+          .description
+            margin-right: 0
       &.open
         .time,
         .subject
-          -webkit-transform: translateX(0)
+          -webkit-transform: translateX(0) !important
 
 @media only screen and (max-width: 980px)
   .global-stats

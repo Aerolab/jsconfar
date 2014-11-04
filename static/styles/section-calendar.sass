@@ -184,7 +184,7 @@ $hour_end: 22
           text-decoration: none
 
     &.open
-      .subject
+      .subject, .time
         -webkit-transform: translateX(-127px)
         -moz-transform: translateX(-127px)
         transform: translateX(-127px)
@@ -194,9 +194,6 @@ $hour_end: 22
         opacity: 0
       .time
         padding-right: 0
-        -webkit-transform: translateX(-127px)
-        -moz-transform: translateX(-127px)
-        transform: translateX(-127px)
       .details
         opacity: 1
         visibility: visible
@@ -214,6 +211,33 @@ $hour_end: 22
         border: 2px solid $yellow
       .more
         color: $yellow
+
+    &.odd
+      .time
+        float: right
+        text-align: left
+        padding-left: 30px
+        padding-right: 0
+      .subject
+        float: left
+        padding-left: 0
+        padding-right: 30px
+        .description
+          margin-left: 0
+          margin-right: 92px
+        .avatar
+          left: auto
+          right: -96px
+      .actions
+        left: auto
+        right: 100%
+      &.open
+        .subject, .time
+          -webkit-transform: translateX(128px)
+          -moz-transform: translateX(128px)
+          transform: translateX(128px)
+        .time
+          padding-left: 0
 
 
 
