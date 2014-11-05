@@ -128,9 +128,23 @@ $(document).ready(function(){
   $("#nyancataudio").prop('volume', 0);
 
 });
-// End Planetarium
-
-
+// Obelisk
+$(function() {
+	$('.illustration .button-obelisk').click(function(event) {
+		event.preventDefault();
+		$(this).addClass('down');
+		$('.obelisk-group').addClass('launch');
+		setTimeout(function () {
+			$('.illustration .button-obelisk').removeClass('down');
+			$('.obelisk-group').removeClass('launch');
+			var obelisk     = $('.obelisk-group'),  
+				newobelisk 	= obelisk.clone(true);
+			obelisk.before(newobelisk);
+			$('.obelisk-group:last').remove();
+		},10000);
+	});
+});
+// End Obelisk
 $(document).ready(function(){
   $(".tickets .button").on("click", function(){
     var ticketsOffset = $("a[name=earlybird]").offset().top;
