@@ -232,6 +232,9 @@
   margin-left: -498px;
   z-index: 10;
 }
+.button-obelisk:hover {
+  cursor: pointer;
+}
 .button-obelisk:hover .circle-top {
   position: relative;
   bottom: -5px;
