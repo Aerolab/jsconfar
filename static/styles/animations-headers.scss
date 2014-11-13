@@ -46,6 +46,8 @@
   -webkit-animation-fill-mode: forwards;
   -ms-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+  position: relative;
+  z-index: 100;
 }
 .obelisk-group .obelisk {
   -webkit-animation-name: obelisk-drop-shadow;
@@ -232,6 +234,9 @@
   margin-left: -498px;
   z-index: 10;
 }
+.button-obelisk:hover {
+  cursor: pointer;
+}
 .button-obelisk:hover .circle-top {
   position: relative;
   bottom: -5px;
@@ -260,14 +265,550 @@
   display: block;
 }
 .button-obelisk .circle-top {
-  background: #c8562b;
+  background: #fd411c;
   overflow: hidden;
 }
 .button-obelisk .circle-bottom {
-  background: #a54117;
+  background: #da4525;
   position: relative;
   top: -22px;
   z-index: -1;
+}
+.windows-1 {
+  width: 128px;
+  height: 69px;
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  margin-left: 280px;
+}
+.windows-1 svg {
+  width: 100%;
+  height: 100%;
+}
+.windows-2 {
+  width: 87px;
+  height: 73px;
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  margin-left: 116px;
+}
+.windows-2 svg {
+  width: 100%;
+  height: 100%;
+}
+.windows-3 {
+  width: 100px;
+  height: 84px;
+  position: absolute;
+  bottom: 239px;
+  left: 50%;
+  margin-left: -246px;
+}
+.windows-3 svg {
+  width: 100%;
+  height: 100%;
+}
+.hackers {
+  position: absolute;
+  top: 103px;
+  left: 50%;
+  margin-left: -112px;
+  z-index: 10;
+  width: 221px;
+  height: 90px;
+}
+@media (max-width: 768px) {
+  .hackers {
+    display: none;
+  }
+}
+.hackers .display_left {
+  width: 30px;
+  height: 22px;
+  position: absolute;
+  top: 19px;
+  left: 7px;
+}
+.hackers .display_left svg {
+  width: 100%;
+  height: 100%;
+}
+.hackers .display_left .code_1 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 40ms;
+  -ms-animation-delay: 40ms;
+  animation-delay: 40ms;
+}
+.hackers .display_left .code_2 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 80ms;
+  -ms-animation-delay: 80ms;
+  animation-delay: 80ms;
+}
+.hackers .display_left .code_3 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 120ms;
+  -ms-animation-delay: 120ms;
+  animation-delay: 120ms;
+}
+.hackers .display_left .code_4 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 160ms;
+  -ms-animation-delay: 160ms;
+  animation-delay: 160ms;
+}
+.hackers .display_left .code_5 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 200ms;
+  -ms-animation-delay: 200ms;
+  animation-delay: 200ms;
+}
+.hackers .display_left .code_6 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 240ms;
+  -ms-animation-delay: 240ms;
+  animation-delay: 240ms;
+}
+.hackers .display_left .code_7 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 280ms;
+  -ms-animation-delay: 280ms;
+  animation-delay: 280ms;
+}
+.hackers .display_left .code_8 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 320ms;
+  -ms-animation-delay: 320ms;
+  animation-delay: 320ms;
+}
+.hackers .display_left .code_9 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 360ms;
+  -ms-animation-delay: 360ms;
+  animation-delay: 360ms;
+}
+.hackers .display_left .code_10 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 400ms;
+  -ms-animation-delay: 400ms;
+  animation-delay: 400ms;
+}
+.hackers .display_left .code_11 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 440ms;
+  -ms-animation-delay: 440ms;
+  animation-delay: 440ms;
+}
+.hackers .display_left .code_12 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 480ms;
+  -ms-animation-delay: 480ms;
+  animation-delay: 480ms;
+}
+.hackers .display_left .code_13 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 520ms;
+  -ms-animation-delay: 520ms;
+  animation-delay: 520ms;
+}
+.hackers .display_left .code_14 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 560ms;
+  -ms-animation-delay: 560ms;
+  animation-delay: 560ms;
+}
+.hackers .display_left .code_15 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_l 10s linear;
+  -ms-animation: code_l 10s linear;
+  animation: code_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 600ms;
+  -ms-animation-delay: 600ms;
+  animation-delay: 600ms;
+}
+.hackers .cable_left {
+  width: 51px;
+  height: 65px;
+  position: absolute;
+  top: 19px;
+  left: 39px;
+}
+.hackers .cable_left svg {
+  width: 100%;
+  height: 100%;
+}
+.hackers .cable_left .cable-left-2,
+.hackers .cable_left .cable-left-3,
+.hackers .cable_left .cable-left-4 {
+  -webkit-animation: dash_l 10s linear;
+  -ms-animation: dash_l 10s linear;
+  animation: dash_l 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  stroke-dashoffset: -242;
+  stroke-dasharray: 10, 20, 10, 325;
+}
+.hackers .cable_left .cable-left-3 {
+  stroke-dasharray: 0, 15, 11, 26, 12, 274;
+}
+.hackers .cable_left .cable-left-4 {
+  stroke-dasharray: 0, 0, 0, 70, 19, 274;
+}
+.hackers .display_right {
+  width: 30px;
+  height: 22px;
+  position: absolute;
+  top: 5px;
+  right: 7px;
+}
+.hackers .display_right svg {
+  width: 100%;
+  height: 100%;
+}
+.hackers .display_right .code_1 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_r 10s linear;
+  -ms-animation: code_r 10s linear;
+  animation: code_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 40ms;
+  -ms-animation-delay: 40ms;
+  animation-delay: 40ms;
+}
+.hackers .display_right .code_2 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_r 10s linear;
+  -ms-animation: code_r 10s linear;
+  animation: code_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 80ms;
+  -ms-animation-delay: 80ms;
+  animation-delay: 80ms;
+}
+.hackers .display_right .code_3 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_r 10s linear;
+  -ms-animation: code_r 10s linear;
+  animation: code_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 120ms;
+  -ms-animation-delay: 120ms;
+  animation-delay: 120ms;
+}
+.hackers .display_right .code_4 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_r 10s linear;
+  -ms-animation: code_r 10s linear;
+  animation: code_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 160ms;
+  -ms-animation-delay: 160ms;
+  animation-delay: 160ms;
+}
+.hackers .display_right .code_5 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_r 10s linear;
+  -ms-animation: code_r 10s linear;
+  animation: code_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 200ms;
+  -ms-animation-delay: 200ms;
+  animation-delay: 200ms;
+}
+.hackers .display_right .code_6 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_r 10s linear;
+  -ms-animation: code_r 10s linear;
+  animation: code_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 240ms;
+  -ms-animation-delay: 240ms;
+  animation-delay: 240ms;
+}
+.hackers .display_right .code_7 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_r 10s linear;
+  -ms-animation: code_r 10s linear;
+  animation: code_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 280ms;
+  -ms-animation-delay: 280ms;
+  animation-delay: 280ms;
+}
+.hackers .display_right .code_8 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_r 10s linear;
+  -ms-animation: code_r 10s linear;
+  animation: code_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 320ms;
+  -ms-animation-delay: 320ms;
+  animation-delay: 320ms;
+}
+.hackers .display_right .code_9 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_r 10s linear;
+  -ms-animation: code_r 10s linear;
+  animation: code_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 360ms;
+  -ms-animation-delay: 360ms;
+  animation-delay: 360ms;
+}
+.hackers .display_right .code_10 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_r 10s linear;
+  -ms-animation: code_r 10s linear;
+  animation: code_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 400ms;
+  -ms-animation-delay: 400ms;
+  animation-delay: 400ms;
+}
+.hackers .display_right .code_11 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_r 10s linear;
+  -ms-animation: code_r 10s linear;
+  animation: code_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 440ms;
+  -ms-animation-delay: 440ms;
+  animation-delay: 440ms;
+}
+.hackers .display_right .code_12 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_r 10s linear;
+  -ms-animation: code_r 10s linear;
+  animation: code_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 480ms;
+  -ms-animation-delay: 480ms;
+  animation-delay: 480ms;
+}
+.hackers .display_right .code_13 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_r 10s linear;
+  -ms-animation: code_r 10s linear;
+  animation: code_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 520ms;
+  -ms-animation-delay: 520ms;
+  animation-delay: 520ms;
+}
+.hackers .display_right .code_14 {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+  -webkit-animation: code_r 10s linear;
+  -ms-animation: code_r 10s linear;
+  animation: code_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 560ms;
+  -ms-animation-delay: 560ms;
+  animation-delay: 560ms;
+}
+.hackers .cable_right {
+  width: 52px;
+  height: 67px;
+  position: absolute;
+  top: 20px;
+  right: 35px;
+}
+.hackers .cable_right svg {
+  width: 100%;
+  height: 100%;
+}
+.hackers .cable_right .cable-right-2,
+.hackers .cable_right .cable-right-3,
+.hackers .cable_right .cable-right-4 {
+  -webkit-animation: dash_r 10s linear;
+  -ms-animation: dash_r 10s linear;
+  animation: dash_r 10s linear;
+  -webkit-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  stroke-dashoffset: -242;
+  stroke-dasharray: 10, 20, 10, 325;
+}
+.hackers .cable_right .cable-right-3 {
+  stroke-dasharray: 0, 15, 11, 26, 12, 274;
+}
+.hackers .cable_right .cable-right-4 {
+  stroke-dasharray: 0, 0, 0, 70, 19, 274;
 }
 @-webkit-keyframes shake-base {
   0% {
@@ -937,5 +1478,105 @@
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
+  }
+}
+@-webkit-keyframes code_l {
+  0%, 5% {
+    -webkit-transform: translateX(-35px);
+    -ms-transform: translateX(-35px);
+    transform: translateX(-35px);
+  }
+  15%, 20% {
+    -webkit-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  45%, 100% {
+    -webkit-transform: translateX(35px);
+    -ms-transform: translateX(35px);
+    transform: translateX(35px);
+  }
+}
+@keyframes code_l {
+  0%, 5% {
+    -webkit-transform: translateX(-35px);
+    -ms-transform: translateX(-35px);
+    transform: translateX(-35px);
+  }
+  15%, 20% {
+    -webkit-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  45%, 100% {
+    -webkit-transform: translateX(35px);
+    -ms-transform: translateX(35px);
+    transform: translateX(35px);
+  }
+}
+@-webkit-keyframes dash_l {
+  0%, 20% {
+    stroke-dashoffset: -242;
+  }
+  60%, 100% {
+    stroke-dashoffset: 100;
+  }
+}
+@keyframes dash_l {
+  0%, 20% {
+    stroke-dashoffset: -242;
+  }
+  60%, 100% {
+    stroke-dashoffset: 100;
+  }
+}
+@-webkit-keyframes code_r {
+  0%, 5% {
+    -webkit-transform: translateX(35px);
+    -ms-transform: translateX(35px);
+    transform: translateX(35px);
+  }
+  15%, 20% {
+    -webkit-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  45%, 100% {
+    -webkit-transform: translateX(-35px);
+    -ms-transform: translateX(-35px);
+    transform: translateX(-35px);
+  }
+}
+@keyframes code_r {
+  0%, 5% {
+    -webkit-transform: translateX(35px);
+    -ms-transform: translateX(35px);
+    transform: translateX(35px);
+  }
+  15%, 20% {
+    -webkit-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  45%, 100% {
+    -webkit-transform: translateX(-35px);
+    -ms-transform: translateX(-35px);
+    transform: translateX(-35px);
+  }
+}
+@-webkit-keyframes dash_r {
+  0%, 20% {
+    stroke-dashoffset: -242;
+  }
+  60%, 100% {
+    stroke-dashoffset: 100;
+  }
+}
+@keyframes dash_r {
+  0%, 20% {
+    stroke-dashoffset: -242;
+  }
+  60%, 100% {
+    stroke-dashoffset: 100;
   }
 }
