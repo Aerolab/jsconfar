@@ -92,87 +92,53 @@
 
     <div class="intro-holder">
 
-      <div class="cloudx1">
-        <svg id="cloudx1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 108 23" style="enable-background:new 0 0 108 23;" xml:space="preserve">
-        <g>
-          <circle fill="#f7d043" cx="4.5" cy="4.5" r="4.5"></circle>
-          <circle fill="#f7d043" cx="16.5" cy="18.5" r="4.5"></circle>
-          <circle fill="#f7d043" cx="103.5" cy="18.5" r="4.5"></circle>
-          <circle fill="#f7d043" cx="57.5" cy="4.5" r="4.5"></circle>
-          <path fill="#f7d043" d="M48,11.5c0-1.8,1.3-3.2,3-3.4V8H21.5c1.9,0,3.5,1.6,3.5,3.5S23.4,15,21.5,15H51v-0.1C49.3,14.7,48,13.3,48,11.5z"></path>
-          <circle fill="#f7d043" cx="71.5" cy="4.5" r="4.5"></circle>
-          <circle fill="#f7d043" cx="73.5" cy="4.5" r="4.5"></circle>
-          <rect fill="#f7d043" x="5" y="0" width="52" height="9"></rect>
-          <rect fill="#f7d043" x="17" y="14" width="86" height="9"></rect>
-          <rect fill="#f7d043" x="71.5" y="0" width="1.8" height="9"></rect>
-        </g>
-        </svg>
+      <div id="game-holder">
+        <img src="http://127.0.0.1:4000/assets/dance/2.gif" height="200" style="left: 20px;" />
+        <img src="http://127.0.0.1:4000/assets/dance/3.gif" height="200" style="left: 500px;" />
+        <img src="http://127.0.0.1:4000/assets/dance/4.gif" height="200" style="right: 20px;" />
+
+        <div id="invaders-game"></div>
+
+        <div id="game-score">
+          <div id="game-score-text">0</div>
+          <p>score</p>
+        </div>
+
+        <div id="game-progress">
+          <div id="game-progress-bar">Next Level</div>
+        </div>
+
+        <div id="game-over">
+          <div class="game-ui-container">
+
+            <div class="game-over">
+              <div class="game-over-title">Game Over</div>
+              <div class="game-over-text" id="game-over-text">You are the IE6 of people</div>
+              <div class="game-over-continue">Press Space to Restart</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="game-overlay">
+          <div class="game-ui-container">
+
+            <div class="game-signup" id="game-signup">
+              <figure>
+                <img src="static/game_assets/ui/cartridge.png" width="399" height="380" alt="Attack of the Drones" />
+              </figure>
+              <form action="" onsubmit="return tryToStartGame();">
+                <input type="text" name="name" value="" placeholder="Your Superhero name" required />
+                <button type="submit">Play Now!</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
       </div>
 
-      <div class="cloudx2">
-        <svg id="cloudx2" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 84.6 24" style="enable-background:new 0 0 84.6 24;" xml:space="preserve">
-        <g>
-          <circle fill="#f1bc05" cx="80.1" cy="18.5" r="4.5"></circle>
-          <circle fill="#f1bc05" cx="62.2" cy="4.6" r="4.5"></circle>
-          <circle fill="#f1bc05" cx="9.1" cy="4.6" r="4.5"></circle>
-          <circle fill="#f1bc05" cx="20.4" cy="18.5" r="4.5"></circle>
-          <path fill="#f1bc05" d="M36.9,11.6c0,1.8-1.3,3.2-3,3.4l-1.6,0.1h23.9c-1.9,0-3.5-1.6-3.5-3.5s1.6-3.5,3.5-3.5H32.3l1.6,0.1 C35.6,8.4,36.9,9.8,36.9,11.6z"></path>
-          <circle fill="#f1bc05" cx="6.5" cy="19.5" r="4.5"></circle>
-          <circle fill="#f1bc05" cx="4.5" cy="19.5" r="4.5"></circle>
-          <polygon fill="#f1bc05" points="20.9,14.1 79.6,14 79.6,23 20.9,23"></polygon>
-          <polygon fill="#f1bc05" points="8.6,0 62.6,0 62.6,9 8.6,8.9"></polygon>
-        </g>
-        </svg>
-      </div>
 
-      <div class="cloudx3">
-        <svg id="cloudx3" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 49.6 16" style="enable-background:new 0 0 49.6 16;" xml:space="preserve">
-          <circle fill="#f5d24d" cx="2.9" cy="2.9" r="2.9"></circle>
-          <circle fill="#f5d24d" cx="10.6" cy="13.1" r="2.9"></circle>
-          <circle fill="#f5d24d" cx="32.9" cy="13.1" r="2.9"></circle>
-          <circle fill="#f5d24d" cx="36.4" cy="2.9" r="2.9"></circle>
-          <path fill="#f5d24d" d="M25.8,8c0-1.3,0.8-2.3,1.9-2.5l1,0H13.4c1.2,0,2.2,1.1,2.2,2.5s-1,2.5-2.2,2.5h15.4l-1,0C26.7,10.3,25.8,9.2,25.8,8z"></path>
-          <circle fill="#f5d24d" cx="45.4" cy="2.9" r="2.9"></circle>
-          <circle fill="#f5d24d" cx="46.7" cy="2.9" r="2.9"></circle>
-          <rect fill="#f5d24d" x="2.8" y="0" width="33.3" height="5.8"></rect>
-          <rect fill="#f5d24d" x="10.5" y="10.2" width="22.2" height="5.8"></rect>
-        </svg>
-      </div>
-
-      <div class="cloudx4">
-        <svg id="cloudx4" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 108 23" style="enable-background:new 0 0 108 23;" xml:space="preserve">
-        <g>
-          <circle fill="#f7d043" cx="4.5" cy="4.5" r="4.5"></circle>
-          <circle fill="#f7d043" cx="16.5" cy="18.5" r="4.5"></circle>
-          <circle fill="#f7d043" cx="103.5" cy="18.5" r="4.5"></circle>
-          <circle fill="#f7d043" cx="57.5" cy="4.5" r="4.5"></circle>
-          <path fill="#f7d043" d="M48,11.5c0-1.8,1.3-3.2,3-3.4V8H21.5c1.9,0,3.5,1.6,3.5,3.5S23.4,15,21.5,15H51v-0.1C49.3,14.7,48,13.3,48,11.5z"></path>
-          <circle fill="#f7d043" cx="71.5" cy="4.5" r="4.5"></circle>
-          <circle fill="#f7d043" cx="73.5" cy="4.5" r="4.5"></circle>
-          <rect fill="#f7d043" x="5" y="0" width="52" height="9"></rect>
-          <rect fill="#f7d043" x="17" y="14" width="86" height="9"></rect>
-          <rect fill="#f7d043" x="71.5" y="0" width="1.8" height="9"></rect>
-        </g>
-        </svg>
-      </div>
-
-      <div class="cloudx5">
-        <svg id="cloudx5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 84.6 24" style="enable-background:new 0 0 84.6 24;" xml:space="preserve">
-        <g>
-          <circle fill="#f1bc05" cx="80.1" cy="18.5" r="4.5"></circle>
-          <circle fill="#f1bc05" cx="62.2" cy="4.6" r="4.5"></circle>
-          <circle fill="#f1bc05" cx="9.1" cy="4.6" r="4.5"></circle>
-          <circle fill="#f1bc05" cx="20.4" cy="18.5" r="4.5"></circle>
-          <path fill="#f1bc05" d="M36.9,11.6c0,1.8-1.3,3.2-3,3.4l-1.6,0.1h23.9c-1.9,0-3.5-1.6-3.5-3.5s1.6-3.5,3.5-3.5H32.3l1.6,0.1 C35.6,8.4,36.9,9.8,36.9,11.6z"></path>
-          <circle fill="#f1bc05" cx="6.5" cy="19.5" r="4.5"></circle>
-          <circle fill="#f1bc05" cx="4.5" cy="19.5" r="4.5"></circle>
-          <polygon fill="#f1bc05" points="20.9,14.1 79.6,14 79.6,23 20.9,23"></polygon>
-          <polygon fill="#f1bc05" points="8.6,0 62.6,0 62.6,9 8.6,8.9"></polygon>
-        </g>
-        </svg>
-      </div>
-
-      <div class="container" itemscope="itemscope" itemtype="http://schema.org/Event">
+      <div id="header-content" class="container" itemscope="itemscope" itemtype="http://schema.org/Event">
 
         <h1 class="sprite logo wow animated fadeInDown"><span class="screenreader">JSConf</span></h1>
 
@@ -209,9 +175,9 @@
         <div class="main-menu">
 
           <div class="tickets">
-            <a class="button button-primary" href="#">
+            <a class="button button-primary button-game" href="#">
               <span class="icon icon-tickets-yellow"></span>
-              Tickets
+              Play Game
             </a>
           </div>
 
@@ -776,376 +742,6 @@
     </div>
 
   </section>
-  <!-- <section class="section-speakers">
-
-    <div class="container">
-
-      <h1>
-        <div class="speaker-svg wow speaker-svg-animation">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        viewBox="0 0 108.1 63.8" enable-background="new 0 0 108.1 63.8" xml:space="preserve">
-            <g>
-                <path fill="none" stroke="#0C374E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-                    M41.5,45v1.2c0,4.9-4,8.9-8.9,8.9c-4.9,0-8.9-4-8.9-8.9v-6.6"/>
-                <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="28.0935" y1="52.9141" x2="70.0976" y2="10.91">
-                    <stop  offset="0" style="stop-color:#009D7A"/>
-                    <stop  offset="0.4107" style="stop-color:#009B7A"/>
-                    <stop  offset="0.6145" style="stop-color:#00957A"/>
-                    <stop  offset="0.7726" style="stop-color:#008C7B"/>
-                    <stop  offset="0.9066" style="stop-color:#01807C"/>
-                    <stop  offset="1" style="stop-color:#04757B"/>
-                </linearGradient>
-                <polygon fill="url(#SVGID_1_)" points="69.5,53.6 10.9,35.7 10.9,28.1 69.5,10.3     "/>
-                <polygon fill="#016A56" points="56.7,49.7 67.4,12.6 69.5,55.1     "/>
-                <polygon fill="none" stroke="#0C374E" stroke-width="4" stroke-miterlimit="10" points="69.5,53.6 10.9,35.7 10.9,28.1 69.5,10.3     
-                    "/>
-                <g>
-                    <path fill="#26BEC9" d="M75.2,61.8c-3.2,0-5.7-2.6-5.7-5.7V7.7C69.5,4.6,72,2,75.2,2c3.2,0,5.7,2.6,5.7,5.7v48.4
-                        C80.9,59.3,78.4,61.8,75.2,61.8z"/>
-                </g>
-                <polygon fill="#027F86" points="75.2,60.9 79,7.5 79,60.4     "/>
-                <g>
-                    <path fill="none" stroke="#0C374E" stroke-width="4" stroke-miterlimit="10" d="M75.2,61.8c-3.2,0-5.7-2.6-5.7-5.7V7.7
-                        C69.5,4.6,72,2,75.2,2c3.2,0,5.7,2.6,5.7,5.7v48.4C80.9,59.3,78.4,61.8,75.2,61.8z"/>
-                </g>
-                <g>
-                    <path fill="#59C3B4" stroke="#0C374E" stroke-width="4" stroke-miterlimit="10" d="M6.5,42.7c-2.5,0-4.5-2-4.5-4.5V25.5
-                        c0-2.5,2-4.5,4.5-4.5s4.5,2,4.5,4.5v12.7C10.9,40.7,8.9,42.7,6.5,42.7z"/>
-                </g>
-                <g>                            
-                        <line class="wow sound-animation" fill="none" stroke="#0C374E" stroke-width="6.3643" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="92.2" y1="31.9" x2="104.9" y2="31.9"/>
-                    
-                        <line class="wow sound-animation" fill="none" stroke="#0C374E" stroke-width="6.3643" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="92.2" y1="17.9" x2="101.2" y2="8.9"/>
-                    
-                        <line class="wow sound-animation" fill="none" stroke="#0C374E" stroke-width="6.3643" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="92.2" y1="46.1" x2="101.2" y2="55.1"/>
-                </g>
-            </g>
-            </svg>
-        </div>
-        Speakers
-      </h1>
-
-
-      <p>We're bringing together a fantastic team of speakers from all over the world for JSConf Argentina 2014.</p>
-
-      <ul class="speaker-list">
-
-        <li class="speaker full-width keynote-speaker wow animated fadeInDown" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-usa"></div>
-            <img src="static/images/speakers/andreas-gal.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2><span class="full-name">Andreas Gal</span> <em>Keynote Speaker</em></h2>
-              <p>CTO of Mozilla<span class="hidden-mobile">, Creator of PDF.js and Boot2Gecko</span></p>
-              <p class="talk"><strong>Talk:</strong> j2me.js, a multi-threaded Java VM in JS</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/andreasgal" class="github" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/andreasgal" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker full-width keynote-speaker wow animated fadeInDown" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-usa"></div>
-            <img src="static/images/speakers/brendan-eich.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2><span class="full-name">Brendan Eich</span> <em>Keynote Speaker</em></h2>
-              <p>Co-Founder of Mozilla<span class="hidden-mobile">, Creator of Javascript</span></p>
-              <p class="talk"><strong>Talk:</strong> The Future of Javascript</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/brendaneich" class="github" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/BrendanEich" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInLeft" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-usa"></div>
-            <img src="static/images/speakers/sebastian-markbage.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Seb Markbage</h2>
-              <p>Facebook, React.JS</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/sebmarkbage" class="github" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/sebmarkbage" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInRight" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-usa"></div>
-            <img src="static/images/speakers/jennifer-dewalt.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Jennifer Dewalt</h2>
-              <p>180days, Wit.AI</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/jendewalt" class="facebook" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/JenniferDewalt" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInLeft" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-spain"></div>
-            <img src="static/images/speakers/ricardo-cabello.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Ricardo Cabello</h2>
-              <p>Three.JS</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/mrdoob" class="facebook" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/mrdoob" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInRight" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-argentina"></div>
-            <img src="static/images/speakers/nicolas-garcia.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Nicolás Belmonte</h2>
-              <p>Twitter</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/philogb" class="github" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/philogb" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInLeft" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-uruguay"></div>
-            <img src="static/images/speakers/alvaro-videla.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Álvaro Videla</h2>
-              <p>RabbitMQ</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/videlalvaro" class="facebook" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/old_sound" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInRight" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-usa"></div>
-            <img src="static/images/speakers/sara-chipps.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Sara Chipps</h2>
-              <p>GirlDevelopIt, Jewliebots</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/sarajo" class="facebook" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/SaraJChipps" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInLeft" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-usa"></div>
-            <img src="static/images/speakers/jason-chen.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Jason Chen</h2>
-              <p>Quilljs</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/jhchen" class="github" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/jhchen" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInRight" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-usa"></div>
-            <img src="static/images/speakers/alex-sexton.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Alex Sexton</h2>
-              <p>Stripe</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/SlexAxton" class="facebook" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/SlexAxton" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInLeft" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-argentina"></div>
-            <img src="static/images/speakers/maria-evangelina-ferreira.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>María Evangelina Ferreira</h2>
-              <p>UTN</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/evaferreira" class="github" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/evaferreira92" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInRight" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-argentina"></div>
-            <img src="static/images/speakers/angel-java-lopez.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Angel &quot;Java&quot; López</h2>
-              <p>Southworks</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/ajlopez" class="facebook" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/ajlopez" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInLeft" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-argentina"></div>
-            <img src="static/images/speakers/juan-ignacio-dopazo.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Juan Ignacio Dopazo</h2>
-              <p>Yahoo</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/juandopazo" class="github" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/juandopazo" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInRight" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-brazil"></div>
-            <img src="static/images/speakers/jaydson-gomes.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Jaydson Gomes</h2>
-              <p>Terra</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/jaydson" class="facebook" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/jaydson" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInLeft" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-bulgary"></div>
-            <img src="static/images/speakers/nikolai-bachiyski.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Nikolay Bachiyski</h2>
-              <p>Automattic</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/nb" class="github" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/nikolayb" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInRight" data-wow-delay=".1s">
-          <figure>
-            <div class="flag flag-colombia"></div>
-            <img src="static/images/speakers/julian-duque.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Julián Duque</h2>
-              <p>NodeSource</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/julianduque" class="github" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/julian_duque" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInLeft" data-wow-delay=".1s">
-          <div class="large-icon icon-nodejs" title="Node.JS Track"></div>
-          <figure>
-            <div class="flag flag-usa"></div>
-            <img src="static/images/speakers/nathan-rajlich.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Nathan Rajlich</h2>
-              <p>Automattic, Node.JS</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/TooTallNate" class="github" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/TooTallNate" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-        <li class="speaker wow animated fadeInRight" data-wow-delay=".1s">
-          <div class="large-icon icon-nodejs" title="Node.JS Track"></div>
-          <figure>
-            <div class="flag flag-usa"></div>
-            <img src="static/images/speakers/tomasz-janczuk.jpg" alt=""/>
-          </figure>
-          <div class="description">
-            <div class="name">
-              <h2>Tomasz Janczuk</h2>
-              <p>Auth0</p>
-            </div>
-            <div class="social">
-              <a href="https://github.com/tjanczuk" class="github" target="_blank">&lt;github&gt;</a>
-              <a href="https://twitter.com/tjanczuk" class="twitter" target="_blank">&lt;tw&gt;</a>
-            </div>
-          </div>
-        </li>
-
-      </ul>
-
-
-    </div>
-
-  </section> -->
 
 
 
@@ -1796,6 +1392,44 @@
 <script src="static/js/tickets.js?f=20141103"></script>
 <script src="static/js/payment.js?f=20141103"></script>
 <script src="static/js/terminal.js"></script>
+
+
+
+
+<!-- Libraries -->
+<script src="http://127.0.0.1:4000/libs/underscore-min.js"></script>
+<script src="http://127.0.0.1:4000/libs/phaser.min.js"></script>
+
+<!-- Game -->
+<script src="http://127.0.0.1:4000/js/globals.js"></script>
+<script src="http://127.0.0.1:4000/js/utilities.js"></script>
+
+<script src="http://127.0.0.1:4000/js/player.management.js"></script>
+<script src="http://127.0.0.1:4000/js/player.controls.js"></script>
+<script src="http://127.0.0.1:4000/js/player.collisions.js"></script>
+<script src="http://127.0.0.1:4000/js/teammates.js"></script>
+
+<script src="http://127.0.0.1:4000/js/enemy.types.js"></script>
+
+<script src="http://127.0.0.1:4000/js/enemies.js"></script>
+
+<script src="http://127.0.0.1:4000/js/scene.js"></script>
+
+<script src="http://127.0.0.1:4000/js/preload.js"></script>
+<script src="http://127.0.0.1:4000/js/create.js"></script>
+
+<script src="http://127.0.0.1:4000/js/game.js"></script>
+<script src="http://127.0.0.1:4000/js/connection.js"></script>
+
+
+<script>
+  initGame('http://127.0.0.1:4000', 'static/game_assets/');
+  function tryToStartGame() {
+    document.querySelector('#game-overlay').style.display = 'none';
+    startGame( document.querySelector('.game-signup input[name=name]').value );
+    return false;
+  };
+</script>
 
 
 <!-- begin olark code -->

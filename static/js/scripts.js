@@ -132,8 +132,14 @@ $(document).ready(function(){
 $(function() {
 	$('.illustration .button-obelisk').click(function(event) {
 		event.preventDefault();
+    if( $(this).hasClass('down') ){ return; }
+
 		$(this).addClass('down');
 		$('.obelisk-group').addClass('launch');
+
+    $(".button-game").trigger('click');
+
+    /*
 		setTimeout(function () {
 			$('.illustration .button-obelisk').removeClass('down');
 			$('.obelisk-group').removeClass('launch');
@@ -142,10 +148,13 @@ $(function() {
 			obelisk.before(newobelisk);
 			$('.obelisk-group:last').remove();
 		},10000);
+  */
 	});
 });
 // End Obelisk
+
 $(document).ready(function(){
+  /*
   $(".tickets .button").on("click", function(){
     var ticketsOffset = $("a[name=earlybird]").offset().top;
     $("html, body").animate({
@@ -153,15 +162,26 @@ $(document).ready(function(){
     }, 800);
     return false;
   });
+  */
+  $(".button-game").on("click", function(event){
+    event.preventDefault();
+    if( $('#header-content').hasClass('game-active') ){ return; }
+    $('#header-content').addClass('game-active')
+
+    $('.illustration .button-obelisk').trigger('click');
+    $('#header-content').fadeOut(400, function(){
+      $('#game-signup').delay(200).fadeIn(300);
+    });
+  });
 });
 
 
 String.prototype.ucwords = function() {
-    str = this.toLowerCase();
-    return str.replace(/(^([a-zA-Z\p{M}]))|([ -][a-zA-Z\p{M}])/g,
-        function($1){
+  str = this.toLowerCase();
+  return  str.replace(/(^([a-zA-Z\p{M}]))|([ -][a-zA-Z\p{M}])/g,
+          function($1){
             return $1.toUpperCase();
-        });
+          });
 };
 
 
