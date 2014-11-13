@@ -47,10 +47,10 @@
 }
 #game-progress-bar {
   box-sizing: border-box;
-  min-width: 70px;
+  min-width: 90px;
   width: 0%;
   height: 12px;
-  padding-right: 4px;
+  padding-right: 16px;
   font-size: 9px;
   line-height: 12px;
   text-transform: uppercase;
@@ -58,7 +58,8 @@
   font-weight: bold;
   text-align: right;
   font-family: Consolas;
-  background: #E44B3E;
+  background: url(../game_assets/ui/powerup.png) no-repeat 100% 50% #E44B3E;
+  background-size: 12px 9.5px;
   white-space: nowrap;
 }
 #game-overlay, #game-over {
@@ -108,10 +109,10 @@
   width: 100%;
   padding: 10px 15px;
   font-size: 18px;
-  line-height: 18px;
+  line-height: 26px;
   margin-bottom: 20px;
   padding-left: 50px;
-  background: url(assets/ui/input.png) no-repeat 10px 10px;
+  background: url(../game_assets/ui/input.png) no-repeat 10px 10px;
   border: 2px solid #1e3e55;
   color: #1e3e55;
 }
@@ -149,7 +150,7 @@
   text-align: left;
   padding: 20px 15px 20px 100px;
   min-height: 100px;
-  background: url(assets/ui/error.png) no-repeat 20px 20px;
+  background: url(../game_assets/ui/error.png) no-repeat 20px 20px;
 }
 .game-over .game-over-continue {
   display: block;

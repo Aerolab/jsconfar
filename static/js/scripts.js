@@ -117,10 +117,16 @@ $(document).ready(function(){
     $(this).addClass("fly");
     $("#nyancataudio").trigger("play");
     $("#nyancataudio").animate({volume: 1}, 500);
+
     setTimeout(function() {
+      $("#nyancataudio").animate({volume: 0}, 1000);
       $(".planetarium").removeClass("fly");
-      $("#nyancataudio").animate({volume: 0}, 500);
+      $(".planetarium").hide();
     }, 6000);
+
+    setTimeout(function() {
+      $(".planetarium").fadeIn(800);
+    }, 8000);
 
     ga( 'send', 'event', 'toys', 'planetarium');
   });
@@ -154,15 +160,7 @@ $(function() {
 // End Obelisk
 
 $(document).ready(function(){
-  /*
-  $(".tickets .button").on("click", function(){
-    var ticketsOffset = $("a[name=earlybird]").offset().top;
-    $("html, body").animate({
-      scrollTop: ticketsOffset
-    }, 800);
-    return false;
-  });
-  */
+
   $(".button-game").on("click", function(event){
     event.preventDefault();
     if( $('#header-content').hasClass('game-active') ){ return; }
@@ -170,7 +168,9 @@ $(document).ready(function(){
 
     $('.illustration .button-obelisk').trigger('click');
     $('#header-content').fadeOut(400, function(){
-      $('#game-signup').delay(200).fadeIn(300);
+      $('#game-signup').delay(200).fadeIn(300, function(){
+        $('#game-signup input').focus();
+      });
     });
   });
 });

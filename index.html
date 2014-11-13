@@ -93,9 +93,9 @@
     <div class="intro-holder">
 
       <div id="game-holder">
-        <img src="http://127.0.0.1:4000/assets/dance/2.gif" height="200" style="left: 20px;" />
-        <img src="http://127.0.0.1:4000/assets/dance/3.gif" height="200" style="left: 500px;" />
-        <img src="http://127.0.0.1:4000/assets/dance/4.gif" height="200" style="right: 20px;" />
+        <img src="static/game_assets/dance/2.gif" height="200" style="left: 20px;" />
+        <img src="static/game_assets/dance/3.gif" height="200" style="left: 500px;" />
+        <img src="static/game_assets/dance/4.gif" height="200" style="right: 20px;" />
 
         <div id="invaders-game"></div>
 
@@ -1397,36 +1397,25 @@
 
 
 <!-- Libraries -->
-<script src="http://127.0.0.1:4000/libs/underscore-min.js"></script>
-<script src="http://127.0.0.1:4000/libs/phaser.min.js"></script>
 
-<!-- Game -->
-<script src="http://127.0.0.1:4000/js/globals.js"></script>
-<script src="http://127.0.0.1:4000/js/utilities.js"></script>
-
-<script src="http://127.0.0.1:4000/js/player.management.js"></script>
-<script src="http://127.0.0.1:4000/js/player.controls.js"></script>
-<script src="http://127.0.0.1:4000/js/player.collisions.js"></script>
-<script src="http://127.0.0.1:4000/js/teammates.js"></script>
-
-<script src="http://127.0.0.1:4000/js/enemy.types.js"></script>
-
-<script src="http://127.0.0.1:4000/js/enemies.js"></script>
-
-<script src="http://127.0.0.1:4000/js/scene.js"></script>
-
-<script src="http://127.0.0.1:4000/js/preload.js"></script>
-<script src="http://127.0.0.1:4000/js/create.js"></script>
-
-<script src="http://127.0.0.1:4000/js/game.js"></script>
-<script src="http://127.0.0.1:4000/js/connection.js"></script>
-
+<script src="http://127.0.0.1:4000/dist/attack_of_the_drones.js"></script>
 
 <script>
   initGame('http://127.0.0.1:4000', 'static/game_assets/');
   function tryToStartGame() {
-    document.querySelector('#game-overlay').style.display = 'none';
-    startGame( document.querySelector('.game-signup input[name=name]').value );
+    if( typeof Connection !== 'undefined' && Connection.connected ) {
+      document.querySelector('#game-overlay').style.display = 'none';
+      startGame( document.querySelector('.game-signup input[name=name]').value, {
+        onEnemyDead: function(enemy){
+          if( enemy.type === 'ufo' ) {
+            $('.planetarium').trigger('click');
+          }
+        }
+      } );
+      return false;
+    } else {
+      alert("Hold on a second. We are loading the game.")
+    }
     return false;
   };
 </script>
