@@ -145,6 +145,25 @@ $(function() {
 	});
 });
 // End Obelisk
+
+// Lights of towers
+  var colors = ["#0E374E", "#0E374E", "#0E374E", "#0E374E", "#ffcb00"];
+  function setTowersLight(groupID) {
+  	var lightsTowers = $(groupID).find('line').length;
+    var randChild = Math.floor((Math.random() * lightsTowers) + 1);
+    var randColor = Math.floor((Math.random() * colors.length));
+    $(groupID).find('line').eq(randChild).attr('stroke', colors[randColor]);
+  }
+
+  var i;
+  setInterval(function() {
+    for (i = 0; i < 10; i++) {
+      setTowersLight("#window-1");
+      setTowersLight("#window-2");
+      setTowersLight("#window-3");
+    }
+  }, 500);
+
 $(document).ready(function(){
   $(".tickets .button").on("click", function(){
     var ticketsOffset = $("a[name=earlybird]").offset().top;
