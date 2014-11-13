@@ -1396,12 +1396,13 @@
 
 
 
-<!-- Libraries -->
-
-<script src="http://127.0.0.1:4000/dist/attack_of_the_drones.js"></script>
-
 <script>
-  initGame('http://127.0.0.1:4000', 'static/game_assets/');
+  // Attack Of The Drones!
+  
+  $.getScript('http://127.0.0.1:4000/dist/attack_of_the_drones.js', function(){
+    initGame('http://127.0.0.1:4000', 'static/game_assets/');
+  });
+
   function tryToStartGame() {
     if( typeof Connection !== 'undefined' && Connection.connected ) {
       document.querySelector('#game-overlay').style.display = 'none';

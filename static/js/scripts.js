@@ -119,7 +119,7 @@ $(document).ready(function(){
     $("#nyancataudio").animate({volume: 1}, 500);
 
     setTimeout(function() {
-      $("#nyancataudio").animate({volume: 0}, 1000);
+      $("#nyancataudio").animate({volume: 0}, 1500);
       $(".planetarium").removeClass("fly");
       $(".planetarium").hide();
     }, 6000);
