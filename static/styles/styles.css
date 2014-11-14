@@ -9727,13 +9727,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     max-width: 640px;
     margin: 0 auto;
   }
+  .talk-list .break-icon,
+  .talk-list .checkin-icon,
+  .talk-list .party-icon {
+    position: static !important;
+    display: block;
+    margin: 0 auto;
+    margin-left: auto !important;
+  }
+  .talk-list .break-icon:after,
+  .talk-list .checkin-icon:after,
+  .talk-list .party-icon:after {
+    display: none;
+  }
   .talk-list li {
     margin-bottom: 50px;
   }
   .talk-list li h5.single-line {
     display: inline-block;
     text-align: center;
-    background: #214760;
+    background: #ffca00;
     border: 2px solid #0e374e;
     padding: 5px 10px;
   }
@@ -9752,6 +9765,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     width: 100%;
     padding-left: 0;
     text-align: center;
+  }
+  .talk-list li .subject.icon {
+    height: auto;
+  }
+  .talk-list li .subject.icon h5 {
+    height: auto !important;
+    line-height: inherit;
   }
   .talk-list li .subject .details p {
     padding-bottom: 70px;

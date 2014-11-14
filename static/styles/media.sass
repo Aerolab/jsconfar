@@ -4,13 +4,21 @@
     width: 100%
     max-width: 640px
     margin: 0 auto
-
+    .break-icon,
+    .checkin-icon,
+    .party-icon
+      position: static !important
+      display: block
+      margin: 0 auto
+      margin-left: auto !important
+      &:after
+        display: none
     li
       margin-bottom: 50px
       h5.single-line
         display: inline-block
         text-align: center
-        background: $blue
+        background: $yellow
         border: 2px solid $darkBlue
         padding: 5px 10px
       &:before 
@@ -27,6 +35,11 @@
         width: 100%
         padding-left: 0
         text-align: center
+        &.icon
+          height: auto
+          h5
+            height: auto !important
+            line-height: inherit
 
         .details p
           padding-bottom: 70px
