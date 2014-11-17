@@ -278,7 +278,7 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-  // Pause the game when it's not necessary
+  // Pause the game when it's not visible
   $(window).focus(function(e){
     $(window).trigger('scroll');
   });
@@ -292,5 +292,5 @@ $(document).ready(function(){
       }
     }
   }).trigger('scroll');
-  
+
 });

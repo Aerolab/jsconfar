@@ -113,7 +113,7 @@
 
             <div class="game-over">
               <div class="game-over-title">Game Over</div>
-              <div class="game-over-text" id="game-over-text">You are the IE6 of people</div>
+              <div class="game-over-text" id="game-over-text">Game Over</div>
               <div class="game-over-continue">Press Space to Restart</div>
             </div>
 
@@ -128,7 +128,7 @@
                 <img src="static/game_assets/ui/cartridge.png" width="399" height="380" alt="Attack of the Drones" />
               </figure>
               <form action="" onsubmit="return tryToStartGame();">
-                <input type="text" name="name" value="" placeholder="Your Superhero name" required />
+                <input type="text" name="name" value="" placeholder="Your Superhero name" maxlength="24" required />
                 <button type="submit">Play Now!</button>
               </form>
             </div>
