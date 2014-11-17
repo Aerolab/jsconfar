@@ -275,3 +275,22 @@ $(document).ready(function(){
   updateTicketsProgress();
 
 });
+
+
+$(document).ready(function(){
+  // Pause the game when it's not necessary
+  $(window).focus(function(e){
+    $(window).trigger('scroll');
+  });
+
+  $(window).scroll(function(e){
+    if( typeof game !== 'undefined' && typeof game.paused !== 'undefined' ) {
+      if( $(this).scrollTop() > 560 ) {
+        game.paused = true;
+      } else {
+        game.paused = false;
+      }
+    }
+  }).trigger('scroll');
+  
+});
