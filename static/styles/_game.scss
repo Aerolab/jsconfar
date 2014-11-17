@@ -14,6 +14,20 @@
   position: relative;
   background: rgba(255, 194, 13, 0.85);
 }
+#game-instructions {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  margin-left: -300px;
+  text-align: center;
+  color: #ffffff;
+  font-family: InputMono;
+  z-index: 100;
+  font-size: 26px;
+  line-height: 160%;
+}
 #game-score {
   position: absolute;
   top: 20px;
@@ -126,6 +140,24 @@
 }
 .game-signup form {
   padding: 20px;
+  position: relative;
+}
+.game-signup form[disabled] {
+  input, button {
+    visibility: hidden;
+  }
+
+  background: url(../game_assets/ui/loading.gif) no-repeat 50% 35%;
+  
+  &::after {
+    position: absolute;
+    bottom: 15%;
+    left: 0px;
+    width: 100%;
+    content: "... Loading Game ...";
+    text-align: center;
+    color: #303030;
+  }
 }
 .game-signup input {
   box-sizing: border-box;

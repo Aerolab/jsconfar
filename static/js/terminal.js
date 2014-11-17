@@ -128,6 +128,10 @@
 				},500);
 			}
 			ga( 'send', 'event', 'toys', 'terminal', 'open');
+
+	    if( typeof game !== 'undefined' && typeof game.paused !== 'undefined' ) {
+        GameCycle.disableGameControls();
+	    }
 		}
 
 		$("#onlineTerminal").on('click', function(e) {

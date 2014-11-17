@@ -319,10 +319,19 @@ $(document).ready(function(){
     $(window).trigger('scroll');
   });
 
+  // If the user clicks on the game, restore the controls
+  $('#invaders-game, #game-over, #game-score, #game-progress, #game-instructions, #game-friends').click(function(event){
+    if( typeof game !== 'undefined' && typeof game.paused !== 'undefined' ) {
+      game.paused = false;
+      GameCycle.enableGameControls();
+    }
+  });
+
   $(window).scroll(function(e){
     if( typeof game !== 'undefined' && typeof game.paused !== 'undefined' ) {
       if( $(this).scrollTop() > 560 ) {
         game.paused = true;
+        GameCycle.disableGameControls();
       } else {
         game.paused = false;
       }

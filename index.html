@@ -112,6 +112,14 @@
           <div id="game-progress-bar">Next Level</div>
         </div>
 
+        <div id="game-instructions">
+          Move with the Arrow Keys or WASD
+          <br/>
+          Shoot with Space
+          <br/>
+          Have Fun!
+        </div>
+
         <div id="game-friends">
           
         </div>
@@ -135,7 +143,7 @@
               <figure>
                 <img src="static/game_assets/ui/cartridge.png" width="399" height="380" alt="Attack of the Drones" />
               </figure>
-              <form action="" onsubmit="return tryToStartGame();">
+              <form action="" onsubmit="return tryToStartGame();" disabled>
                 <input type="text" name="name" value="" placeholder="Your Superhero name" maxlength="24" required />
                 <button type="submit">Play Now!</button>
               </form>
@@ -1348,7 +1356,6 @@
   };
 
   updateCountdown(Date.UTC(2014, 10, 29, 12, 0), 'countdown');
-  updateCountdown(Date.UTC(2014, 9, 27, 16, 0), 'countdown-regular');
 
 </script>
 
@@ -1371,12 +1378,16 @@
   // Attack Of The Drones!
   
   $.getScript('http://127.0.0.1:4000/dist/attack_of_the_drones.js', function(){
+    Callbacks.onGameLoaded = function(){
+      $('.game-signup form').removeAttr('disabled');
+    };
     initGame('http://127.0.0.1:4000', 'static/game_assets/');
   });
 
   function tryToStartGame() {
     if( typeof Connection !== 'undefined' && Connection.connected ) {
       document.querySelector('#game-overlay').style.display = 'none';
+
       startGame( document.querySelector('.game-signup input[name=name]').value, {
         onEnemyDead: function(enemy){
           if( enemy.type === 'ufo' ) {
@@ -1384,6 +1395,10 @@
           }
         }
       } );
+
+      // Show the instructions
+      $('#game-instructions').delay(300).fadeIn(500).delay(5000).fadeOut(700);
+
       return false;
     } else {
       alert("Hold on a second. We are loading the game.")
