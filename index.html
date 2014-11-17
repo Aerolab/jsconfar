@@ -1389,6 +1389,9 @@
       document.querySelector('#game-overlay').style.display = 'none';
 
       startGame( document.querySelector('.game-signup input[name=name]').value, {
+        onPlayerDead: function(player){
+          ga( 'send', 'event', 'toys', 'game', 'highscore', player.lifeScore +' points');
+        },
         onEnemyDead: function(enemy){
           if( enemy.type === 'ufo' ) {
             $('.planetarium').trigger('click');
@@ -1398,6 +1401,8 @@
 
       // Show the instructions
       $('#game-instructions').delay(300).fadeIn(500).delay(5000).fadeOut(700);
+
+      ga( 'send', 'event', 'toys', 'game', 'start');
 
       return false;
     } else {
