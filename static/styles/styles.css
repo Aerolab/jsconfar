@@ -521,6 +521,11 @@ svg {
   .icon.icon-tickets-yellow {
     width: 25px;
     background-position: -90px -110px; }
+  .icon.icon-game {
+    width: 18px;
+    height: 25px;
+    margin-top: -3px;
+    background-position: -200px -110px; }
   .icon.icon-star {
     background-position: -128px -109px; }
   .icon.icon-send-yellow {
@@ -743,14 +748,13 @@ h1.logo {
 
 #game-score {
   position: absolute;
-  top: 30px;
+  top: 20px;
   left: 50%;
-  width: 150px;
-  margin-left: -75px;
+  width: 180px;
+  margin-left: -90px;
   text-align: center;
-  padding: 5px 10px;
   color: #223F59;
-  font-family: Consolas;
+  font-family: InputMono;
   border: 2px solid #223F59;
   z-index: 100;
   /*background: rgba(255,255,255,0.1);*/ }
@@ -758,11 +762,34 @@ h1.logo {
 #game-score-text {
   font-size: 32px;
   line-height: 110%;
-  font-weight: bold; }
+  font-weight: bold;
+  padding: 10px 10px 0px 10px; }
 
 #game-score .score-text {
   font-size: 14px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  padding-bottom: 10px; }
+
+#game-score p {
+  line-height: 110%;
+  font-size: 16px;
+  padding-bottom: 9px; }
+
+.game-friends-title {
+  line-height: 140%;
+  font-weight: bold;
+  background: rgba(34, 63, 89, 0.85);
+  padding: 8px 0px 5px 0px;
+  color: #fff; }
+
+.game-friends-text {
+  padding-top: 5px;
+  line-height: 140%;
+  font-size: 12px;
+  font-weight: normal;
+  background: rgba(34, 63, 89, 0.85);
+  padding: 0 0 5px 0;
+  color: #fff; }
 
 #game-progress {
   position: absolute;
@@ -775,18 +802,20 @@ h1.logo {
   box-sizing: border-box;
   min-width: 90px;
   width: 0%;
-  height: 12px;
-  padding-right: 16px;
+  height: 15px;
+  padding-right: 25px;
   font-size: 9px;
-  line-height: 12px;
+  line-height: 17px;
   text-transform: uppercase;
   color: #fff;
   font-weight: bold;
   text-align: right;
-  font-family: Consolas;
-  background: url(../game_assets/ui/powerup.png) no-repeat 100% 50% #e44b3e;
-  background-size: 12px 9.5px;
-  white-space: nowrap; }
+  font-family: InputMono;
+  background: url(../game_assets/ui/powerup.png) no-repeat 100% 50% rgba(228, 75, 62, 0.8);
+  background-size: 20px 11px;
+  white-space: nowrap;
+  -webkit-transition: width 0.2s ease-out;
+  transition: width 0.2s ease-out; }
 
 #game-overlay, #game-over {
   position: absolute;
@@ -797,7 +826,7 @@ h1.logo {
   z-index: 10;
   color: #fff;
   text-align: center;
-  font-family: Consolas;
+  font-family: InputMono;
   background: rgba(255, 198, 25, 0.7);
   z-index: 200; }
 
