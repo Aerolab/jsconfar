@@ -218,11 +218,11 @@ $(document).ready(function(){
   $(".button-game").on("click", function(event){
     event.preventDefault();
     if( $('#header-content').hasClass('game-active') ){ return; }
-    $('#header-content').addClass('game-active')
+    $('#header-content').addClass('game-active');
 
     $('.illustration .button-obelisk').trigger('click');
-    $('#header-content').fadeOut(400, function(){
-      $('#game-signup').delay(200).fadeIn(300, function(){
+    $('#header-content').fadeOut(500, function(){
+      $('#game-signup').delay(200).fadeIn(500, function(){
         $('#game-signup input').focus();
       });
     });
