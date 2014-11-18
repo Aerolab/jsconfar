@@ -97,7 +97,7 @@
         <img src="static/game_assets/dance/2.gif" height="200" style="left: 20px;" />
         <img src="static/game_assets/dance/3.gif" height="200" style="left: 500px;" />
         -->
-        <img src="static/game_assets/dance/4.gif" height="200" style="right: 20px;" />
+        <img class="dancer" src="static/game_assets/dance/4.gif" height="200" style="right: 20px; display:none;" />
 
         <div id="invaders-game"></div>
 
@@ -1381,6 +1381,7 @@
   $.getScript(gameUrl+'/dist/attack_of_the_drones.js', function(){
     Callbacks.onGameLoaded = function(){
       $('.game-signup form').removeAttr('disabled');
+      $('#game-holder img.dancer').show();
     };
     initGame(gameUrl, 'static/game_assets/');
   });
