@@ -1376,12 +1376,13 @@
 
 <script>
   // Attack Of The Drones!
+  var gameUrl = 'http://127.0.0.1:4000';
   
-  $.getScript('http://127.0.0.1:4000/dist/attack_of_the_drones.js', function(){
+  $.getScript(gameUrl+'/dist/attack_of_the_drones.js', function(){
     Callbacks.onGameLoaded = function(){
       $('.game-signup form').removeAttr('disabled');
     };
-    initGame('http://127.0.0.1:4000', 'static/game_assets/');
+    initGame(gameUrl, 'static/game_assets/');
   });
 
   function tryToStartGame() {
