@@ -818,7 +818,7 @@ h1.logo {
   min-width: 90px;
   width: 0%;
   height: 18px;
-  padding-right: 17px;
+  padding-right: 15px;
   font-size: 9px;
   line-height: 21px;
   text-transform: uppercase;
@@ -859,6 +859,31 @@ h1.logo {
 
 #game-over {
   display: none; }
+
+#game-over .game-over-share {
+  padding-top: 10px; }
+#game-over a.share-twitter {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 36px;
+  font-weight: bold;
+  color: #00B2EF;
+  border: 2px solid #00B2EF;
+  padding: 0px 10px;
+  text-decoration: none; }
+  #game-over a.share-twitter:hover {
+    background: rgba(0, 178, 239, 0.09); }
+#game-over a.share-facebook {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 36px;
+  font-weight: bold;
+  color: #34579A;
+  border: 2px solid #34579A;
+  padding: 0px 10px;
+  text-decoration: none; }
+  #game-over a.share-facebook:hover {
+    background: rgba(52, 87, 154, 0.11); }
 
 #game-overlay .game-ui-container, #game-over .game-ui-container {
   box-sizing: border-box;

@@ -128,6 +128,37 @@
 #game-over {
   display: none;
 }
+#game-over {
+  .game-over-share {
+    padding-top: 10px;
+  }
+  a.share-twitter {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 36px;
+    font-weight: bold;
+    color: #00B2EF;
+    border: 2px solid #00B2EF;
+    padding: 0px 10px;
+    text-decoration: none;
+    &:hover {
+      background: rgba(0, 178, 239, 0.09);
+    }
+  }
+  a.share-facebook {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 36px;
+    font-weight: bold;
+    color: #34579A;
+    border: 2px solid #34579A;
+    padding: 0px 10px;
+    text-decoration: none;
+    &:hover {
+      background: rgba(52, 87, 154, 0.11);
+    }
+  }
+}
 #game-overlay .game-ui-container, #game-over .game-ui-container {
   box-sizing: border-box;
   max-width: 399px;

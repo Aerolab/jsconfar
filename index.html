@@ -129,7 +129,13 @@
 
             <div class="game-over">
               <div class="game-over-title">Game Over</div>
-              <div class="game-over-text" id="game-over-text">Game Over</div>
+              <div class="game-over-text">
+                <div id="game-over-text">Game Over</div>
+                <div class="game-over-share">
+                  <a class="share-twitter" href="https://twitter.com" target="_blank">&lt;tw&gt;</a>
+                  <a class="share-facebook" href="https://www.facebook.com" target="_blank">&lt;fb&gt;</a>
+                </div>
+              </div>
               <div class="game-over-continue">Press Space to Restart</div>
             </div>
 
@@ -1392,6 +1398,10 @@
 
       startGame( document.querySelector('.game-signup input[name=name]').value, {
         onPlayerDead: function(player){
+          console.log("asdfdsfadsaf");
+          $('#game-over .share-twitter').attr('href', 'http://twitter.com/share?text='+ encodeURIComponent("I got "+ player.lifeScore +" points in the JSConf Game!") +"&url=https://www.jsconfar.com" );
+          $('#game-over .share-facebook').attr('href', 'http://www.facebook.com/sharer.php?u=https://www.jsconfar.com&t='+ encodeURIComponent("I got "+ player.lifeScore +" points in the JSConf Game!") );
+
           ga( 'send', 'event', 'toys', 'game', 'highscore', player.lifeScore +' points');
         },
         onEnemyDead: function(enemy){
