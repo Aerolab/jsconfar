@@ -813,23 +813,33 @@ h1.logo {
   z-index: 100; }
 
 #game-progress-bar {
+  position: relative;
   box-sizing: border-box;
   min-width: 90px;
   width: 0%;
-  height: 15px;
-  padding-right: 25px;
+  height: 18px;
+  padding-right: 17px;
   font-size: 9px;
-  line-height: 17px;
+  line-height: 21px;
   text-transform: uppercase;
   color: #fff;
   font-weight: bold;
   text-align: right;
   font-family: InputMono;
-  background: url(../game_assets/ui/powerup.png) no-repeat 100% 50% rgba(228, 75, 62, 0.8);
-  background-size: 20px 11px;
+  background: rgba(34, 63, 89, 0.85);
   white-space: nowrap;
   -webkit-transition: width 0.2s ease-out;
   transition: width 0.2s ease-out; }
+
+#game-progress-bar::after {
+  position: absolute;
+  content: "";
+  top: 0px;
+  right: -12px;
+  width: 23px;
+  height: 18px;
+  background: url(../game_assets/ui/input.png) no-repeat 50% 50%;
+  background-size: 23px 18px; }
 
 #game-overlay, #game-over {
   position: absolute;
