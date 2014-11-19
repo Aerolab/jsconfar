@@ -977,6 +977,23 @@ h1.logo {
   background: #ebeff0;
   padding: 10px 15px; }
 
+.game-signup figure {
+  position: relative; }
+.game-signup .game-title {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  font-size: 18px;
+  line-height: 29px; }
+.game-signup .game-detail {
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  line-height: 29px; }
+
 .intro-holder {
   background: #ffc20d;
   padding-top: 0px;
