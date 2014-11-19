@@ -145,6 +145,61 @@ $(function() {
 	});
 });
 // End Obelisk
+
+// Flower 
+function percentClose (date) {
+	var hours = date.getHours();
+	var min = date.getMinutes();
+	if (hours>12) {
+		var hours = hours-12;
+		porcent = (100/720)*((hours*60)+min);
+	}else{
+		porcent = 100-((100/720)*((hours*60)+min));
+	}
+	return porcent;
+}
+
+function animateFlower (closePercent) {
+	var leftDeg = (25/(100/closePercent));
+	var rightDeg = -(15/(100/closePercent));
+	// console.log(leftDeg+','+rightDeg);
+	$('.flower-petal-1 , .flower-petal-2').css({
+		'transform': 'rotateZ('+leftDeg+'deg)',
+		'-webkit-transform': 'rotateZ('+leftDeg+'deg)',
+		'-moz-transform': 'rotateZ('+leftDeg+'deg)'
+	});
+	$('.flower-petal-3 , .flower-petal-4').css({
+		'transform': 'rotateZ('+rightDeg+'deg)',
+		'-webkit-transform': 'rotateZ('+rightDeg+'deg)',
+		'-moz-transform': 'rotateZ('+rightDeg+'deg)'
+	});
+}
+
+var closePercent = percentClose(new Date());
+animateFlower(closePercent);
+setInterval(function() {
+	var closePercent = percentClose(new Date());
+	animateFlower(closePercent);
+},60000)
+
+// Lights of towers
+  var colors = ["#0E374E", "#0E374E", "#0E374E", "#0E374E", "#ffcb00"];
+  function setTowersLight(groupID) {
+  	var lightsTowers = $(groupID).find('line').length;
+    var randChild = Math.floor((Math.random() * lightsTowers) + 1);
+    var randColor = Math.floor((Math.random() * colors.length));
+    $(groupID).find('line').eq(randChild).attr('stroke', colors[randColor]);
+  }
+
+  var i;
+  setInterval(function() {
+    for (i = 0; i < 10; i++) {
+      setTowersLight("#window-1");
+      setTowersLight("#window-2");
+      setTowersLight("#window-3");
+    }
+  }, 500);
+
 $(document).ready(function(){
   $(".tickets .button").on("click", function(){
     var ticketsOffset = $("a[name=earlybird]").offset().top;

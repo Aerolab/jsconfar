@@ -1069,6 +1069,53 @@ h1.logo {
   background: #214760;
   z-index: 2;
 }
+.talk-list li .break-icon,
+.talk-list li .checkin-icon,
+.talk-list li .party-icon {
+  width: 47.5px;
+  height: 27.5px;
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  margin-left: -24px;
+  z-index: 100;
+}
+.talk-list li .break-icon:after,
+.talk-list li .checkin-icon:after,
+.talk-list li .party-icon:after {
+  content: "";
+  width: 126px;
+  height: 25px;
+  background: #ffca00;
+  position: absolute;
+  top: 1px;
+  left: 50%;
+  z-index: -10;
+}
+.talk-list li .break-icon svg,
+.talk-list li .checkin-icon svg,
+.talk-list li .party-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.talk-list li .party-icon {
+  top: -14px;
+  width: 32px;
+  height: 40px;
+  margin-left: -13px;
+}
+.talk-list li .party-icon:after {
+  top: 11px;
+}
+.talk-list li .break-icon {
+  width: 37px;
+  height: 37px;
+  top: -7px;
+  margin-left: -17px;
+}
+.talk-list li .break-icon:after {
+  top: 5px;
+}
 .talk-list li .more {
   width: 30px;
   height: 30px;
@@ -1153,6 +1200,20 @@ h1.logo {
   transition: transform 0.25s ease-in-out;
   position: relative;
   z-index: 5;
+}
+.talk-list li .subject.icon {
+  color: #0e374e;
+  font-size: 12px;
+  z-index: 100;
+}
+.talk-list li .subject.icon h5 {
+  line-height: 19px;
+}
+.talk-list li .subject.icon.party h5 {
+  line-height: 20px;
+}
+.talk-list li .subject.icon.break h5 {
+  line-height: 23px;
 }
 .talk-list li .subject .description {
   min-height: 96px;
@@ -4148,6 +4209,48 @@ body {
   z-index: -1;
 }
 
+.windows-1 {
+  width: 128px;
+  height: 69px;
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  margin-left: 280px;
+}
+
+.windows-1 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.windows-2 {
+  width: 87px;
+  height: 73px;
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  margin-left: 116px;
+}
+
+.windows-2 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.windows-3 {
+  width: 100px;
+  height: 84px;
+  position: absolute;
+  bottom: 239px;
+  left: 50%;
+  margin-left: -246px;
+}
+
+.windows-3 svg {
+  width: 100%;
+  height: 100%;
+}
+
 .hackers {
   position: absolute;
   top: 103px;
@@ -4690,6 +4793,109 @@ body {
 
 .hackers .cable_right .cable-right-4 {
   stroke-dasharray: 0, 0, 0, 70, 19, 274;
+}
+
+.flower {
+  width: 100px;
+  height: 75px;
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  margin-left: -328px;
+}
+
+.flower-base {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  width: 95px;
+  height: 35px;
+}
+
+.flower-base svg {
+  width: 100%;
+  height: 100%;
+}
+
+.flower .flower-petal-1,
+.flower .flower-petal-2 {
+  -webkit-transform-origin: right bottom;
+  -ms-transform-origin: right bottom;
+  transform-origin: right bottom;
+}
+
+.flower .flower-petal-3,
+.flower .flower-petal-4 {
+  -webkit-transform-origin: left bottom;
+  -ms-transform-origin: left bottom;
+  transform-origin: left bottom;
+}
+
+.flower-petal-1,
+.flower-petal-2,
+.flower-petal-3,
+.flower-petal-4 {
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.flower-petal-1 svg,
+.flower-petal-2 svg,
+.flower-petal-3 svg,
+.flower-petal-4 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.flower-petal-1 {
+  position: absolute;
+  top: 27px;
+  left: 0;
+  z-index: 8;
+  width: 47px;
+  height: 33px;
+}
+
+.flower-petal-2 {
+  position: absolute;
+  top: 18px;
+  left: 5px;
+  z-index: 9;
+  width: 47px;
+  height: 36px;
+}
+
+.flower-petal-3 {
+  position: absolute;
+  top: 0px;
+  right: 28px;
+  z-index: 9;
+  width: 27px;
+  height: 49px;
+}
+
+.flower-petal-4 {
+  position: absolute;
+  top: 3px;
+  right: 22px;
+  z-index: 8;
+  width: 27px;
+  height: 49px;
+}
+
+.flower-inner {
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
+  z-index: 1;
+  width: 25px;
+  height: 35px;
+}
+
+.flower-inner svg {
+  width: 100%;
+  height: 100%;
 }
 
 @-webkit-keyframes shake-base {
@@ -9624,13 +9830,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     max-width: 640px;
     margin: 0 auto;
   }
+  .talk-list .break-icon,
+  .talk-list .checkin-icon,
+  .talk-list .party-icon {
+    position: static !important;
+    display: block;
+    margin: 0 auto;
+    margin-left: auto !important;
+  }
+  .talk-list .break-icon:after,
+  .talk-list .checkin-icon:after,
+  .talk-list .party-icon:after {
+    display: none;
+  }
   .talk-list li {
     margin-bottom: 50px;
   }
   .talk-list li h5.single-line {
     display: inline-block;
     text-align: center;
-    background: #214760;
+    background: #ffca00;
     border: 2px solid #0e374e;
     padding: 5px 10px;
   }
@@ -9649,6 +9868,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     width: 100%;
     padding-left: 0;
     text-align: center;
+  }
+  .talk-list li .subject.icon {
+    height: auto;
+  }
+  .talk-list li .subject.icon h5 {
+    height: auto !important;
+    line-height: inherit;
   }
   .talk-list li .subject .details p {
     padding-bottom: 70px;
@@ -11441,3 +11667,5 @@ main {
   opacity: 0.5;
   display: none;
 }
+
+/*# sourceMappingURL=styles.css.map */
