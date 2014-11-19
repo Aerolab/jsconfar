@@ -2804,7 +2804,7 @@ h1.logo {
   color: #1e3d55;
   padding: 55px 0 50px; }
   .section-sponsors h1 {
-    margin-bottom: 20px; }
+    margin-bottom: 35px; }
   .section-sponsors .heart-svg {
     display: block;
     position: relative; }
@@ -2845,9 +2845,11 @@ h1.logo {
   .sponsor-list.sponsors-silver .sponsor {
     width: 167px;
     height: 93px; }
-  .sponsor-list.sponsors-startup .sponsor {
-    width: 167px;
-    height: 93px; }
+  .sponsor-list.sponsors-startup {
+    max-width: 800px; }
+    .sponsor-list.sponsors-startup .sponsor {
+      width: 167px;
+      height: 93px; }
 
 .section-earlybird {
   background: white;
