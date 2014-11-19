@@ -58,7 +58,7 @@
   <link rel="icon" href="static/styles/images/favicon.png" type="image/png" />
   <link rel="shortcut icon" href="static/styles/images/favicon.png" type="image/png" />
 
-  <link rel="stylesheet" href="static/styles/styles.css?20141119" />
+  <link rel="stylesheet" href="static/styles/styles.css?201411191255" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="theme-color" content="#FFC20D" />
   
@@ -148,6 +148,8 @@
             <div class="game-signup" id="game-signup">
               <figure>
                 <img src="static/game_assets/ui/cartridge.png" width="399" height="380" alt="Attack of the Drones" />
+                <div class="game-title">Fight for Javascript and Stuff</div>
+                <div class="game-detail">Built with Phaser.JS + Socket.io</div>
               </figure>
               <form action="" onsubmit="return tryToStartGame();" disabled>
                 <input type="text" name="name" value="" placeholder="Your Superhero name" maxlength="24" required />
@@ -1403,8 +1405,8 @@
 
         startGame( document.querySelector('.game-signup input[name=name]').value, {
           onPlayerDead: function(player){
-            console.log("asdfdsfadsaf");
-            $('#game-over .share-twitter').attr('href', 'http://twitter.com/share?text='+ encodeURIComponent("I got "+ player.lifeScore +" points in the JSConf Game!") +"&url=https://www.jsconfar.com" );
+
+            $('#game-over .share-twitter').attr('href', 'http://twitter.com/share?text='+ encodeURIComponent("I got "+ player.lifeScore +" points in the #JSConfAr game! Join me at") +"&url=https://www.jsconfar.com" );
             $('#game-over .share-facebook').attr('href', 'http://www.facebook.com/sharer.php?u=https://www.jsconfar.com&t='+ encodeURIComponent("I got "+ player.lifeScore +" points in the JSConf Game!") );
 
             ga( 'send', 'event', 'toys', 'game', 'highscore', player.lifeScore +' points');
