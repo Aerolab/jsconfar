@@ -102,6 +102,18 @@ main
     color: $yellow
     height: 94px
     padding: 26px 20px
+    cursor: pointer
+    position: relative
+
+    &:after
+      content: "+"
+      position: absolute
+      top: 8px
+      right: 10px
+      display: block
+      width: 10px
+      height: 10px
+      z-index: 1000
 
     h2
       line-height: 1.25em
@@ -113,6 +125,46 @@ main
       font-style: italic
       .time
         display: none
+
+  .description
+    border: 2px solid $blue
+    border-top: none
+    font-size: 1.15em
+    line-height: 1.5em
+    -webkit-transition: max-height ease-in-out .5s, border-bottom ease-in-out .5s
+    -moz-transition: max-height ease-in-out .5s, border-bottom ease-in-out .5s
+    transition: max-height ease-in-out .5s, border-bottom ease-in-out .5s
+    max-height: 0px
+    overflow: hidden
+    margin-top: -2px
+
+    p
+      text-align: left
+      padding: 15px 20px
+
+  &.sponsors
+    overflow: hidden
+    margin-bottom: 30px
+  .sponsor
+    border: 2px solid $blue
+    border-right: 1px solid $blue
+    width: 50%
+    float: left
+    max-width: 250px
+    &:nth-child(even)
+      border-left: 1px solid $blue
+      border-right: 2px solid $blue
+
+    img
+      width: 100%
+      display: block
+
+  article.open
+    header:after
+      content: "-"
+    .description
+      max-height: 10000px
+      margin-top: 0
 
   > .time
     position: absolute
@@ -281,6 +333,7 @@ main
     padding-left: 110px
     font-size: 1.15em
     line-height: 1.5em
+    background: #fff
 
     h3, h4
       font-size: 1em
@@ -315,8 +368,8 @@ main
     background-image: none
   .workshop
     padding-right: 0
-    h2
-      margin-right: 270px
+    header
+      margin-right: 260px
     .attend
       width: 262px
 
@@ -324,7 +377,7 @@ main
   .clouds
     display: none
   .workshop
-    h2
+    header
       margin-right: 0
     header
       text-align: center
@@ -401,3 +454,21 @@ main
             display: block
             position: relative
             width: 100%
+  .sponsors
+    .time
+      display: block
+      position: relative
+      color: $blue
+      width: auto
+      right: auto
+      top: auto
+      text-align: center
+      padding: 15px 0
+      font-size: 1.4em
+      &:after
+        display: none
+    .sponsor
+      float: none
+      width: 100%
+      max-width: 1000px
+      border: 2px solid $blue !important

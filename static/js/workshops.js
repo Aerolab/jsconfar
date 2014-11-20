@@ -75,6 +75,12 @@ $(document).ready(function(){
   });
 });
 
+$(document).ready(function(){
+  $(".title", ".workshop").on("click", function(){
+    $(this).parent().toggleClass("open");
+  });
+});
+
 // Google Maps
 function initialize_map() {
 
