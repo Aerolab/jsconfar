@@ -3,8 +3,22 @@
   position: relative
   height: auto
 
+#map
+  height: 300px
+  border-top: 2px solid $blue
+  .map-wrap
+    position: absolute
+    left: 50%
+    margin-left: -280px
+    right: 0
+    height: 300px
+    z-index: 100
+
+#map-holder
+  height: 300px
+
 .blue
-  background: url(../images/pipes.png) no-repeat right top $blue
+  background: url(../images/pipes.png) no-repeat right bottom $blue
   width: 50%
   height: 100%
   position: absolute
@@ -68,6 +82,14 @@ main
         background-position: left
       &.place:before
         background-position: right
+      a
+        color: $blue
+
+.intro
+  padding-left: 260px
+  font-size: 1.4em
+  line-height: 1.6em
+  margin-bottom: 70px
 
 .workshop
   padding-left: 260px
@@ -78,7 +100,7 @@ main
   header
     background: $blue
     color: $yellow
-    height: 92px
+    height: 94px
     padding: 26px 20px
 
     h2
@@ -123,6 +145,19 @@ main
     -webkit-transition: width ease-in-out .25s, min-height ease-in-out .25s
     -moz-transition: width ease-in-out .25s, min-height ease-in-out .25s
     transition: width ease-in-out .25s, min-height ease-in-out .25s
+
+    .progressBar
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      height: 2px
+      background: #fff
+      .percentage
+        height: 2px
+        width: 50%
+        background: #ff4b27
+
     
     .btn
       text-align: center
@@ -239,6 +274,7 @@ main
 
   footer
     border: 2px solid $blue
+    border-top: none
     height: 94px
     position: relative
     padding-top: 10px
@@ -259,7 +295,7 @@ main
 
     .avatar
       width: 92px
-      height: 90px
+      height: 92px
       position: absolute
       top: 0
       left: 0
@@ -267,7 +303,10 @@ main
 
 @media only screen and (max-width: 1070px)
   /*main*/
-
+  #map .map-wrap
+    position: relative
+    left: 0
+    margin-left: 256px
   .blue
     margin-right: 0
     right: auto
@@ -276,11 +315,17 @@ main
     background-image: none
   .workshop
     padding-right: 0
+    h2
+      margin-right: 270px
     .attend
       width: 262px
 
-@media only screen and (max-width: 780px)
+@media only screen and (max-width: 1000px)
+  .clouds
+    display: none
   .workshop
+    h2
+      margin-right: 0
     header
       text-align: center
     .attend
@@ -292,7 +337,12 @@ main
       &.open
         width: 100%
 
-@media only screen and (max-width: 684px)
+@media only screen and (max-width: 730px)
+  .intro
+    padding: 0 30px
+    margin-bottom: 30px
+  #map .map-wrap
+    margin-left: 0
   .blue
     display: none
   .section-header
@@ -312,26 +362,20 @@ main
   .workshop
     padding: 0 30px
     header
+      height: auto
+      padding-bottom: 20px
       small
         .time
           display: inline
-          margin-left: 10px
-          padding-left: 15px
           position: relative
-          &:before
-            content: ""
-            display: inline-block
-            width: 5px
-            height: 5px
-            background: $yellow
-            margin-right: 10px
-            position: absolute
-            top: 10px
-            left: 0
     > .time
       display: none
 
 @media only screen and (max-width: 460px)
+  .intro
+    padding: 0 15px
+    margin-bottom: 30px
+    font-size: 1.2em
   .section-header
     .event
       li

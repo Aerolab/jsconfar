@@ -74,3 +74,62 @@ $(document).ready(function(){
     }
   });
 });
+
+// Google Maps
+function initialize_map() {
+
+  var place = new google.maps.LatLng(-34.6021862, -58.3673001);
+
+  var map = new google.maps.Map(document.getElementById("map-holder"), {
+    center: place,
+    zoom: 16,
+    scrollwheel: false,
+    draggable: true,
+    scaleControl: true,
+    navigationControl: false,
+    mapTypeControl: false,
+    streetViewControl: false,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+
+  var marker = new google.maps.Marker({
+    position: place,
+    icon: {
+      url: "../static/styles/images/sprite.png", 
+      size: new google.maps.Size(53, 58), 
+      anchor: new google.maps.Point(27, 58),
+      origin: new google.maps.Point(230, 0),
+      scaledSize: new google.maps.Size(500, 250)
+    },
+    map: map
+  });
+
+  var infoWindow = new google.maps.InfoWindow({
+    content: "<strong>Google Argentina</strong><br>Alicia M. de Justo 350, 2do piso<br>Sala 'Macanudo'"
+  });
+
+  google.maps.event.addListener(marker, 'click', function () {
+    infoWindow.open(map, marker);
+  });
+
+  // Keep it centered on resize
+  window.onresize = function(){
+    google.maps.event.trigger(map, 'resize');
+    map.setCenter(place);
+  };
+
+}
+
+
+// Async Loading for the Maps API
+function loadGoogleMaps() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.async = 1;
+  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&callback=initialize_map';
+  document.body.appendChild(script);
+}
+
+$(window).load(function(){
+  loadGoogleMaps();
+});
