@@ -31,28 +31,24 @@ $(document).ready(function(){
     $(this).parent().parent().removeClass("open");
   });
 
-  $('.workshop').each(function(){
-    var $workshop = $(this);
-    $workshop.find('form').submit(function(event){
-      event.preventDefault();
+  $('.workshop form').submit(function(event){
+    event.preventDefault();
 
-      $form = $(this);
-      $form.addClass('loading');
-      $form.find('.error-box').hide();
+    var $form = $(this);
+    $form.addClass('loading');
+    $form.parent().find('.error-box, .success-box').hide();
 
-      $.post('/tickets/workshops/signup', $form.serialize(), function(data){
-        $form.removeClass('loading');
-        if( typeof data.error !== 'undefined' ) {
-          if( $form.parent().find('.error-box').length ) { $form.parent().append('.error-box'); }
-          $form.parent().find('.error-box').text( data.error ).show();
-        }
-        else {
-          $form.hide();
-          $form.parent().find('.success-box').remove();
-          $form.insertAfter('<div class="success-box">Awesome! You\'ll be getting an email soon with all the details</div>').show();
-        }
-      });
-
+    $.post('/tickets/workshops/signup', $form.serialize(), function(data){
+      $form.removeClass('loading');
+      if( typeof data.error !== 'undefined' ) {
+        if( ! $form.parent().find('.error-box').length ) { $form.after('<div class="error-box"></div>'); }
+        $form.parent().find('.error-box').text( data.error ).show();
+      }
+      else {
+        $form.hide();
+        //$form.parent().find('.success-box').remove();
+        $form.after('<div class="success-box">Awesome! You\'ll be getting an email soon with all the details</div>');
+      }
     });
   });
 
