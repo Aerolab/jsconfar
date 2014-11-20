@@ -22,6 +22,7 @@ $(document).ready(function(){
     event.preventDefault();
     if( $(this).hasClass('loading') ){ return; }
     $(this).parent().addClass("open");
+    $(this).parent().find('form').removeClass('loading').show();
     $(this).parent().find('.error-box').hide();
     $(this).parent().find('.success-box').remove();
   });
@@ -36,18 +37,23 @@ $(document).ready(function(){
 
     var $form = $(this);
     $form.addClass('loading');
+    if( ! $form.parent().find('.error-box').length ) { $form.after('<div class="error-box"></div>'); }
+    if( ! $form.parent().find('.success-box').length ) { $form.after('<div class="success-box"></div>'); }
     $form.parent().find('.error-box, .success-box').hide();
 
     $.post('/tickets/workshops/signup', $form.serialize(), function(data){
       $form.removeClass('loading');
       if( typeof data.error !== 'undefined' ) {
-        if( ! $form.parent().find('.error-box').length ) { $form.after('<div class="error-box"></div>'); }
-        $form.parent().find('.error-box').text( data.error ).show();
+        if( data.error.indexOf('already signed up') >= 0 ) {
+          $form.hide();
+          $form.parent().find('.success-box').text( data.error ).show();
+        } else {
+          $form.parent().find('.error-box').text( data.error ).show();
+        }
       }
       else {
         $form.hide();
-        //$form.parent().find('.success-box').remove();
-        $form.after('<div class="success-box">Awesome! You\'ll be getting an email soon with all the details</div>');
+        $form.parent().find('.success-box').text("Awesome! You\'ll be getting an email soon with all the details").show();
       }
     });
   });
