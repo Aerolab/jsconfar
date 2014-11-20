@@ -128,6 +128,7 @@ main
       text-align: center
       color: $blue
       display: block
+      cursor: pointer
       height: 90px
       font-weight: bold
       padding: 24px 0
@@ -142,6 +143,17 @@ main
         font-size: 0.8em
         opacity: .6
         font-style: italic
+
+      &.available
+        cursor: pointer
+        background: none
+      &.unavailable
+        cursor: default
+        padding-top: 34px
+      &.loading
+        cursor: default
+        color: rgba(255,255,255,0.0)
+        background: url(images/workshop-loading.gif) no-repeat 50% 50%
     .form
       display: none
       padding: 20px
@@ -189,10 +201,34 @@ main
           height: 46px
           top: 0
           right: 0
+          cursor: pointer
           font-size: 1.15em
+          background-image: url(images/workshop-loading-small.gif)
+          background-repeat: no-repeat
+          background-position: 200% 50% 
+          background-color: $blue
+
+        &.loading
+          button
+            cursor: default
+            text-indent: 999px
+            background-position: 50% 50%
+
+      .error-box, .success-box
+        display: block
+        color: #ffffff
+        padding: 12px 20px
+        margin-bottom: 20px
+
+      .error-box
+        background: #BE391D
+      .success-box
+        background: #298B93
+
     &.open
       width: 460px
       min-height: 186px
+      z-index: 10
       .btn
         display: none
       .form
@@ -230,7 +266,8 @@ main
       border-right: 2px solid $blue
 
 @media only screen and (max-width: 1070px)
-  main
+  /*main*/
+
   .blue
     margin-right: 0
     right: auto

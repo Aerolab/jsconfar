@@ -175,7 +175,8 @@
         <li class="place">La Maquinita</li>
       </ul>
     </header>
-    <section class="workshop">
+
+    <section class="workshop" data-id="3">
       <span class="time">9:00 am</span>
       <article>
         <header class="title"><h2>Mobile</h2><small>Spanish<span class="time">9:00 am</span></small></header>
@@ -189,10 +190,11 @@
         </footer>
       </article>
       <div class="attend">
-        <a href="#" class="btn">I want to attend!<small><span>10</span> spots available</small></a>
+        <a href="#" class="btn signup loading">I want to attend!<small><span class="available-count">?</span> spots available</small></a>
         <div class="form">
           <form action="">
-            <input type="text" placeholder="What's your email?">
+            <input type="email" name="email" placeholder="What's your email?">
+            <input type="hidden" name="workshop" value="3">
             <button>Submit</button>
           </form>
           <p>In order to attend any workshops, you must use the email with which you bought the ticket for conference.</p>
@@ -201,7 +203,7 @@
       </div>
     </section>
 
-    <section class="workshop">
+    <section class="workshop" data-id="1">
       <span class="time">9:00 am</span>
       <article>
         <header class="title"><h2>Polymer</h2><small>Spanish<span class="time">9:00 am</span></small></header>
@@ -215,10 +217,11 @@
         </footer>
       </article>
       <div class="attend">
-        <a href="#" class="btn">I want to attend!<small><span>10</span> spots available</small></a>
+        <a href="#" class="btn signup loading">I want to attend!<small><span class="available-count">?</span> spots available</small></a>
         <div class="form">
           <form action="">
-            <input type="text" placeholder="What's your email?">
+            <input type="email" name="email" placeholder="What's your email?">
+            <input type="hidden" name="workshop" value="1">
             <button>Submit</button>
           </form>
           <p>In order to attend any workshops, you must use the email with which you bought the ticket for conference.</p>
@@ -227,7 +230,7 @@
       </div>
     </section>
 
-    <section class="workshop">
+    <section class="workshop" data-id="4">
       <span class="time">9:00 am</span>
       <article>
         <header class="title"><h2>Angular</h2><small>Spanish<span class="time">9:00 am</span></small></header>
@@ -241,10 +244,11 @@
         </footer>
       </article>
       <div class="attend">
-        <a href="#" class="btn">I want to attend!<small><span>10</span> spots available</small></a>
+        <a href="#" class="btn signup loading">I want to attend!<small><span class="available-count">?</span> spots available</small></a>
         <div class="form">
           <form action="">
-            <input type="text" placeholder="What's your email?">
+            <input type="email" name="email" placeholder="What's your email?">
+            <input type="hidden" name="workshop" value="4">
             <button>Submit</button>
           </form>
           <p>In order to attend any workshops, you must use the email with which you bought the ticket for conference.</p>
@@ -253,7 +257,7 @@
       </div>
     </section>
 
-    <section class="workshop">
+    <section class="workshop" data-id="2">
       <span class="time">9:00 am</span>
       <article>
         <header class="title"><h2>Node-webkit</h2><small>Spanish<span class="time">9:00 am</span></small></header>
@@ -267,10 +271,11 @@
         </footer>
       </article>
       <div class="attend">
-        <a href="#" class="btn">I want to attend!<small><span>10</span> spots available</small></a>
+        <a href="#" class="btn signup loading">I want to attend!<small><span class="available-count">?</span> spots available</small></a>
         <div class="form">
           <form action="">
-            <input type="text" placeholder="What's your email?">
+            <input type="email" name="email" placeholder="What's your email?">
+            <input type="hidden" name="workshop" value="2">
             <button>Submit</button>
           </form>
           <p>In order to attend any workshops, you must use the email with which you bought the ticket for conference.</p>
@@ -279,7 +284,8 @@
       </div>
     </section>
 
-    <section class="workshop">
+    <!--
+    <section class="workshop" data-id="5">
       <span class="time">9:00 am</span>
       <article>
         <header class="title"><h2>TBD</h2><small>Spanish<span class="time">9:00 am</span></small></header>
@@ -293,10 +299,11 @@
         </footer>
       </article>
       <div class="attend open">
-        <a href="#" class="btn">I want to attend!<small><span>10</span> spots available</small></a>
+        <a href="#" class="btn signup loading">I want to attend!<small><span class="available-count">?</span> spots available</small></a>
         <div class="form">
           <form action="">
-            <input type="text" placeholder="What's your email?">
+            <input type="email" name="email" placeholder="What's your email?">
+            <input type="hidden" name="workshop" value="5">
             <button>Submit</button>
           </form>
           <p>In order to attend any workshops, you must use the email with which you bought the ticket for conference.</p>
@@ -304,6 +311,7 @@
         </div>
       </div>
     </section>
+    -->
   </main>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

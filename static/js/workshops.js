@@ -17,12 +17,58 @@ wow.init();
 
 // Agenda stuff
 $(document).ready(function(){
-  $(".btn", ".attend").on("click", function(){
+
+  $(".btn", ".attend").on("click", function(event){
+    event.preventDefault();
+    if( $(this).hasClass('loading') ){ return; }
     $(this).parent().addClass("open");
-    return false;
+    $(this).parent().find('.error-box').hide();
+    $(this).parent().find('.success-box').remove();
   });
-  $(".close", ".form").on("click", function(){
+
+  $(".close", ".form").on("click", function(event){
+    event.preventDefault();
     $(this).parent().parent().removeClass("open");
-    return false;
+  });
+
+  $('.workshop').each(function(){
+    var $workshop = $(this);
+    $workshop.find('form').submit(function(event){
+      event.preventDefault();
+
+      $form = $(this);
+      $form.addClass('loading');
+      $form.find('.error-box').hide();
+
+      $.post('/tickets/workshops/signup', $form.serialize(), function(data){
+        $form.removeClass('loading');
+        if( typeof data.error !== 'undefined' ) {
+          if( $form.parent().find('.error-box').length ) { $form.parent().append('.error-box'); }
+          $form.parent().find('.error-box').text( data.error ).show();
+        }
+        else {
+          $form.hide();
+          $form.parent().find('.success-box').remove();
+          $form.insertAfter('<div class="success-box">Awesome! You\'ll be getting an email soon with all the details</div>').show();
+        }
+      });
+
+    });
+  });
+
+  // Update the workshops with availability data
+  $.get('/tickets/workshops/status', function(data){
+    for( var i=0; i<data.workshops.length; i++ ) {
+      var workshop = data.workshops[i];
+      var $workshop = $('.workshop[data-id="'+workshop.id+'"]');
+
+      $workshop.find('.available-count').text( workshop.availableSlots );
+
+      if( workshop.availableSlots > 0 ) {
+        $workshop.find('.btn.signup').removeClass('loading').addClass('available');
+      } else {
+        $workshop.find('.btn.signup').removeClass('loading').addClass('unavailable').text("All Gone!");
+      }
+    }
   });
 });
