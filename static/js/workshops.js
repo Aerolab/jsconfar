@@ -58,21 +58,6 @@ $(document).ready(function(){
     });
   });
 
-  // Update the workshops with availability data
-  $.get('/tickets/workshops/status', function(data){
-    for( var i=0; i<data.workshops.length; i++ ) {
-      var workshop = data.workshops[i];
-      var $workshop = $('.workshop[data-id="'+workshop.id+'"]');
-
-      $workshop.find('.available-count').text( workshop.availableSlots );
-
-      if( workshop.availableSlots > 0 ) {
-        $workshop.find('.btn.signup').removeClass('loading').addClass('available');
-      } else {
-        $workshop.find('.btn.signup').removeClass('loading').addClass('unavailable').text("All Gone!");
-      }
-    }
-  });
 });
 
 $(document).ready(function(){
@@ -138,4 +123,117 @@ function loadGoogleMaps() {
 
 $(window).load(function(){
   loadGoogleMaps();
+});
+
+
+
+
+// Workshop Progress
+$(document).ready(function(){
+
+  var interval = 5 * 1000;
+  var minProgressBarPercent = 0.1;
+
+  function updateWorkshopAvailability(data) {
+
+    // Update the count and availability for each workshop
+    for( var i=0; i<data.workshops.length; i++ ) {
+      var workshop = data.workshops[i];
+      var $workshop = $('.workshop[data-id="'+workshop.id+'"]');
+
+      if( data.inscriptionOpen ) {
+        if( workshop.availableSlots > 0 ) {
+          $workshop.find('.btn.signup').removeClass('loading').addClass('available').html('I want to attend!<small><span class="available-count">'+workshop.availableSlots+'</span> spots available</small>');
+        } else {
+          $workshop.find('.btn.signup').removeClass('loading').addClass('unavailable').html('All Gone!');
+        }
+      } else {
+        if( typeof workshop.openDate === 'string' && workshop.openDate !== '' ) {
+          var time = Math.ceil((Date.parse(workshop.openDate) - Date.now()) / 1000);
+
+          if( time >= 0 ) {
+            $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Inscription starts in <small class="countdown" data-date="'+workshop.openDate+'"></small>');
+            updateCountdown($workshop.find('.countdown'));
+          } else {
+            $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Inscription not open');
+          }
+        }
+        else {
+          $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Inscription not open');
+        }
+      }
+
+
+      $workshop.find('.available-count').text( workshop.availableSlots );
+
+      // Move the progressbar
+      var percent = minProgressBarPercent;
+
+      if( data.slots > 0 ) {
+        var percentUsed = (data.slots - data.availableSlots) / data.slots;
+        percentUsed = Math.min(percentUsed, 1.0);
+        percent = minProgressBarPercent + percentUsed * (1-minProgressBarPercent);
+      }
+        
+      $workshop.find('.progressBar .percentage').css('width', (percent*100.0)+'%');
+
+      // Show the latest purchase
+      if( typeof data.lastBuyerName === 'string' && data.lastBuyerName !== '' ) {
+        // The name is user-generated
+        $('.section-tickets .progressbar-flag-name').text( data.lastBuyerName.substring(0, 30).ucwords() +' bought one!' );
+      }
+
+    }
+
+  }
+
+  function updateWorkshopsProgress() {
+
+
+
+    // Update the workshops with availability data
+    $.get('/tickets/workshops/status', function(data){
+      updateWorkshopAvailability(data);
+
+      var socket = io.connect('https://tickets.jsconfar.com');
+      socket.on('workshopAvailability', updateWorkshopAvailability);
+    });
+
+  }
+
+  updateWorkshopsProgress();
+
+
+  // Update all countdowns
+  var updateCountdown = function($countdown){
+    var date = $countdown.data('date');
+    if( typeof date === 'undefined' || typeof date !== 'string' || date === '' ){ return; }
+
+    var time = Math.ceil((Date.parse(date) - Date.now()) / 1000);
+
+    if( time >= 0 ) {
+      var days = Math.floor(time / (60*60*24));
+      var hours = Math.floor(time % (60*60*24) / (60*60));
+      var minutes = Math.floor(time % (60*60*24) % (60*60) / 60);
+      var seconds = Math.floor(time % (60*60*24) % (60*60) % 60);
+
+      var countString = "";
+      if( days > 0 ){ countString += days+' days '; }
+      if( hours > 0 ){ countString += hours+'hs '; }
+      if( minutes > 0 ){ countString += minutes+'m '; }
+      if( seconds > 0 ){ countString += seconds+'s '; }
+
+      $countdown.text(countString);
+    }
+    else {
+      // Running!
+
+    }
+  };
+
+  setInterval(function(){
+    $('.countdown[data-date]').each(function(){
+      updateCountdown($(this));
+    });
+  }, 1000);
 });
