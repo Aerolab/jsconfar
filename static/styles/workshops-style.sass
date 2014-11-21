@@ -199,6 +199,7 @@ main
     transition: width ease-in-out .25s, min-height ease-in-out .25s
 
     .progressBar
+      display: none
       position: absolute
       bottom: 0
       left: 0
@@ -222,8 +223,6 @@ main
       font-size: 1.4em
       line-height: 1.25em
       text-decoration: none
-      &:hover
-        background: rgba(255,255,255,.6)
       small
         display: block
         font-weight: normal
@@ -234,7 +233,9 @@ main
       &.available
         cursor: pointer
         background: none
-      &.unavailable
+        &:hover
+          background: rgba(255,255,255,.6)
+      &.unavailable, &.pending
         cursor: default
         padding-top: 34px
       &.loading

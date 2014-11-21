@@ -3823,6 +3823,7 @@ main {
     -moz-transition: width ease-in-out 0.25s, min-height ease-in-out 0.25s;
     transition: width ease-in-out 0.25s, min-height ease-in-out 0.25s; }
     .workshop .attend .progressBar {
+      display: none;
       position: absolute;
       bottom: 0;
       left: 0;
@@ -3844,8 +3845,6 @@ main {
       font-size: 1.4em;
       line-height: 1.25em;
       text-decoration: none; }
-      .workshop .attend .btn:hover {
-        background: rgba(255, 255, 255, 0.6); }
       .workshop .attend .btn small {
         display: block;
         font-weight: normal;
@@ -3855,7 +3854,9 @@ main {
       .workshop .attend .btn.available {
         cursor: pointer;
         background: none; }
-      .workshop .attend .btn.unavailable {
+        .workshop .attend .btn.available:hover {
+          background: rgba(255, 255, 255, 0.6); }
+      .workshop .attend .btn.unavailable, .workshop .attend .btn.pending {
         cursor: default;
         padding-top: 34px; }
       .workshop .attend .btn.loading {

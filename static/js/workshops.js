@@ -20,7 +20,7 @@ $(document).ready(function(){
 
   $(".btn", ".attend").on("click", function(event){
     event.preventDefault();
-    if( $(this).hasClass('loading') ){ return; }
+    if( ! $(this).hasClass('available') ){ return; }
     $(this).parent().addClass("open");
     $(this).parent().find('form').removeClass('loading').show();
     $(this).parent().find('.error-box').hide();
@@ -142,12 +142,18 @@ $(document).ready(function(){
       var $workshop = $('.workshop[data-id="'+workshop.id+'"]');
 
       if( data.inscriptionOpen ) {
+
+        $workshop.find('.progressBar').show();
+
         if( workshop.availableSlots > 0 ) {
           $workshop.find('.btn.signup').removeClass('loading').addClass('available').html('I want to attend!<small><span class="available-count">'+workshop.availableSlots+'</span> spots available</small>');
         } else {
           $workshop.find('.btn.signup').removeClass('loading').addClass('unavailable').html('All Gone!');
         }
       } else {
+
+        $workshop.find('.progressBar').hide();
+
         if( typeof workshop.openDate === 'string' && workshop.openDate !== '' ) {
           var time = Math.ceil((Date.parse(workshop.openDate) - Date.now()) / 1000);
 
@@ -177,11 +183,13 @@ $(document).ready(function(){
         
       $workshop.find('.progressBar .percentage').css('width', (percent*100.0)+'%');
 
-      // Show the latest purchase
+      // Show the latest inscription
+      /*
       if( typeof data.lastBuyerName === 'string' && data.lastBuyerName !== '' ) {
         // The name is user-generated
         $('.section-tickets .progressbar-flag-name').text( data.lastBuyerName.substring(0, 30).ucwords() +' bought one!' );
       }
+      */
 
     }
 
