@@ -3856,9 +3856,11 @@ main {
         background: none; }
         .workshop .attend .btn.available:hover {
           background: rgba(255, 255, 255, 0.6); }
-      .workshop .attend .btn.unavailable, .workshop .attend .btn.pending {
+      .workshop .attend .btn.unavailable {
         cursor: default;
         padding-top: 34px; }
+      .workshop .attend .btn.pending {
+        cursor: default; }
       .workshop .attend .btn.loading {
         cursor: default;
         color: rgba(255, 255, 255, 0);
