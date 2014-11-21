@@ -158,14 +158,14 @@ $(document).ready(function(){
           var time = Math.ceil((Date.parse(workshop.openDate) - Date.now()) / 1000);
 
           if( time >= 0 ) {
-            $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Inscription starts in <small class="countdown" data-date="'+workshop.openDate+'"></small>');
+            $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Registration starts in <small class="countdown" data-date="'+workshop.openDate+'"></small>');
             updateCountdown($workshop.find('.countdown'));
           } else {
-            $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Inscription not open');
+            $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Registration not open');
           }
         }
         else {
-          $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Inscription not open');
+          $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Registration not open');
         }
       }
 
