@@ -308,7 +308,7 @@ $(document).ready(function(){
 
   }
 
-  updateTicketsProgress();
+  //updateTicketsProgress();
 
 });
 
