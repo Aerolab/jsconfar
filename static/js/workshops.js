@@ -158,7 +158,7 @@ $(document).ready(function(){
           var time = Math.ceil((Date.parse(workshop.openDate) - Date.now()) / 1000);
 
           if( time >= 0 ) {
-            $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Registration starts in <small class="countdown" data-date="'+workshop.openDate+'"></small>');
+            $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Registration opens <small class="countdown" data-date="'+workshop.openDate+'"></small>');
             updateCountdown($workshop.find('.countdown'));
           } else {
             $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Registration not open');
@@ -231,7 +231,11 @@ $(document).ready(function(){
       if( minutes > 0 ){ countString += minutes+'m '; }
       if( seconds > 0 ){ countString += seconds+'s '; }
 
-      $countdown.text(countString);
+      if( days <= 0 ) {
+        $countdown.text(countString);
+      } else {
+        $countdown.text("Monday 24th @ 13:00 GMT-3");
+      }
     }
     else {
       // Running!
