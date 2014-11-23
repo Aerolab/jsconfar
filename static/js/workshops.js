@@ -141,32 +141,25 @@ $(document).ready(function(){
       var workshop = data.workshops[i];
       var $workshop = $('.workshop[data-id="'+workshop.id+'"]');
 
-      if( data.inscriptionOpen ) {
+      $workshop.find('.progressBar').hide();
 
-        $workshop.find('.progressBar').show();
+      if( typeof workshop.openDate === 'string' && workshop.openDate !== '' ) {
+        var time = Math.ceil((Date.parse(workshop.openDate) - Date.now()) / 1000);
 
-        if( workshop.availableSlots > 0 ) {
-          $workshop.find('.btn.signup').removeClass('loading').addClass('available').html('I want to attend!<small><span class="available-count">'+workshop.availableSlots+'</span> spots available</small>');
+        if( time >= 0 ) {
+          $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Registration opens <small class="countdown" data-date="'+workshop.openDate+'"></small>');
+          updateCountdown($workshop.find('.countdown'));
         } else {
-          $workshop.find('.btn.signup').removeClass('loading').addClass('unavailable').html('All Gone!');
-        }
-      } else {
-
-        $workshop.find('.progressBar').hide();
-
-        if( typeof workshop.openDate === 'string' && workshop.openDate !== '' ) {
-          var time = Math.ceil((Date.parse(workshop.openDate) - Date.now()) / 1000);
-
-          if( time >= 0 ) {
-            $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Registration opens <small class="countdown" data-date="'+workshop.openDate+'"></small>');
-            updateCountdown($workshop.find('.countdown'));
+          if( workshop.availableSlots > 0 ) {
+            $workshop.find('.btn.signup').removeClass('loading').addClass('available').html('I want to attend!<small><span class="available-count">'+workshop.availableSlots+'</span> spots available</small>');
+            $workshop.find('.progressBar').show();
           } else {
-            $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Registration not open');
+            $workshop.find('.btn.signup').removeClass('loading').addClass('unavailable').html('All Gone!');
           }
         }
-        else {
-          $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Registration not open');
-        }
+      }
+      else {
+        $workshop.find('.btn.signup').removeClass('loading').addClass('pending').html('Registration not open');
       }
 
 
@@ -182,14 +175,6 @@ $(document).ready(function(){
       }
         
       $workshop.find('.progressBar .percentage').css('width', (percent*100.0)+'%');
-
-      // Show the latest inscription
-      /*
-      if( typeof data.lastBuyerName === 'string' && data.lastBuyerName !== '' ) {
-        // The name is user-generated
-        $('.section-tickets .progressbar-flag-name').text( data.lastBuyerName.substring(0, 30).ucwords() +' bought one!' );
-      }
-      */
 
     }
 
@@ -219,7 +204,7 @@ $(document).ready(function(){
 
     var time = Math.ceil((Date.parse(date) - Date.now()) / 1000);
 
-    if( time >= 0 ) {
+    if( time > 0 ) {
       var days = Math.floor(time / (60*60*24));
       var hours = Math.floor(time % (60*60*24) / (60*60));
       var minutes = Math.floor(time % (60*60*24) % (60*60) / 60);
@@ -239,7 +224,9 @@ $(document).ready(function(){
     }
     else {
       // Running!
-
+      $countdown.parent().removeClass('loading').addClass('available')
+        .html('I want to attend!<small><span class="available-count">60</span> spots available</small>');
+      $countdown.closest('.workshop').find('.progressBar').show();
     }
   };
 
