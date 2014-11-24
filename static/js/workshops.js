@@ -168,8 +168,8 @@ $(document).ready(function(){
       // Move the progressbar
       var percent = minProgressBarPercent;
 
-      if( data.slots > 0 ) {
-        var percentUsed = (data.slots - data.availableSlots) / data.slots;
+      if( workshop.slots > 0 ) {
+        var percentUsed = (workshop.slots - workshop.availableSlots) / workshop.slots;
         percentUsed = Math.min(percentUsed, 1.0);
         percent = minProgressBarPercent + percentUsed * (1-minProgressBarPercent);
       }
