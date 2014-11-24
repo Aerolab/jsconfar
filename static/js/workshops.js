@@ -23,6 +23,7 @@ $(document).ready(function(){
     if( ! $(this).hasClass('available') ){ return; }
     $(this).parent().addClass("open");
     $(this).parent().find('form').removeClass('loading').show();
+    $(this).parent().find('form').find('input').focus();
     $(this).parent().find('.error-box').hide();
     $(this).parent().find('.success-box').remove();
   });
