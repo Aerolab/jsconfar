@@ -1,7 +1,11 @@
 #section-header
   background: $blue
-  overflow: hidden
   padding: 32px 0 0 0
+  &:after
+    content: ""
+    display: block
+    height: 0
+    clear: both
   #logo
     display: block
     width: 126px
@@ -16,6 +20,12 @@
     font-size: 1em
     color: $yellow
     padding-top: 42px
+    a
+      color: $blue
+      text-decoration: none
+      background: $yellow
+      border-radius: 2px
+      padding: 0 5px
 
 .wrap
   max-width: 1040px
