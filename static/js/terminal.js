@@ -430,7 +430,7 @@
 			ga( 'send', 'event', 'toys', 'terminal', 'ieLove');
 		}
 		function weather() {
-			var fiveDaysBeforeJSConf = new Date(2014, 11, 29);
+			var fiveDaysBeforeJSConf = new Date(2014, 11, 24);
 			var today = new Date();
 			if (today.getTime() < fiveDaysBeforeJSConf.getTime()) {
 				$("#onlineTerminal").html($("#onlineTerminal").html().trim()+'<span class="response">Too soon. The weather forecast will be available five days before the event.</span>'+breakLine()+breakLine());
