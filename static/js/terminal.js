@@ -432,26 +432,30 @@
 		function weather() {
 			var fiveDaysBeforeJSConf = new Date(2014, 11, 24);
 			var today = new Date();
-			if (today.getTime() < fiveDaysBeforeJSConf.getTime()) {
-				$("#onlineTerminal").html($("#onlineTerminal").html().trim()+'<span class="response">Too soon. The weather forecast will be available five days before the event.</span>'+breakLine()+breakLine());
-			} else {
+			//if (today.getTime() < fiveDaysBeforeJSConf.getTime()) {
+				//$("#onlineTerminal").html($("#onlineTerminal").html().trim()+'<span class="response">Too soon. The weather forecast will be available five days before the event.</span>'+breakLine()+breakLine());
+			//} else {
 				$("#onlineTerminal").html($("#onlineTerminal").html().trim()+'<span class="response">Loading weather condition for JSConf 2014 Buenos Aires...</span>'+breakLine()+breakLine());
 				var uri = "//api.worldweatheronline.com/free/v1/weather.ashx?q=Buenos%20Aires&format=json&num_of_days=2&date=2014-11-29&lang=es&key=c0bc674c45172b0ab46399b10bd4c0e1bf532d17";
 				$.getJSON(uri, function(data) {
-					$("#onlineTerminal").html($("#onlineTerminal").html().trim()+'<span class="response">'+
+					var weatherResponse = $("#onlineTerminal").html().trim()+'<span class="response">'+
 					'Date: <strong>'+data['data']['weather'][0]['date']+'</strong>'+breakLine()+
 					'Max: <strong>'+data['data']['weather'][0]['tempMaxC']+'&deg;C ('+data['data']['weather'][0]['tempMaxF']+'&deg;F)</strong>'+breakLine()+
 					'Min: <strong>'+data['data']['weather'][0]['tempMinC']+'&deg;C ('+data['data']['weather'][0]['tempMinF']+'&deg;F)</strong>'+breakLine()+
 					'<strong>'+data['data']['weather'][0]['weatherDesc'][0]['value']+'</strong>'+breakLine()+
-					breakLine()+
-					'Date: <strong>'+data['data']['weather'][1]['date']+'</strong>'+breakLine()+
-					'Max: <strong>'+data['data']['weather'][1]['tempMaxC']+'&deg;C ('+data['data']['weather'][1]['tempMaxF']+'&deg;F)</strong>'+breakLine()+
-					'Min: <strong>'+data['data']['weather'][1]['tempMinC']+'&deg;C ('+data['data']['weather'][1]['tempMinF']+'&deg;F)</strong>'+breakLine()+
-					'<strong>'+data['data']['weather'][1]['weatherDesc'][0]['value']+'</strong>'+breakLine()+
-					'</span>'+breakLine());
+					breakLine();
+					if (data['data']['weather'][1]) {
+						weatherResponse = weatherResponse + 'Date: <strong>'+data['data']['weather'][1]['date']+'</strong>'+breakLine()+
+						'Max: <strong>'+data['data']['weather'][1]['tempMaxC']+'&deg;C ('+data['data']['weather'][1]['tempMaxF']+'&deg;F)</strong>'+breakLine()+
+						'Min: <strong>'+data['data']['weather'][1]['tempMinC']+'&deg;C ('+data['data']['weather'][1]['tempMinF']+'&deg;F)</strong>'+breakLine()+
+						'<strong>'+data['data']['weather'][1]['weatherDesc'][0]['value']+'</strong>'+breakLine()+
+						'</span>'+breakLine();
+					}
+					
+					$("#onlineTerminal").html(weatherResponse);
 					setEndOfContenteditable(document.getElementById("onlineTerminal"));
 				});
-			}
+			//}
 			ga( 'send', 'event', 'toys', 'terminal', 'weather');
 		}
 		function exit() {
