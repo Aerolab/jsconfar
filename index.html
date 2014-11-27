@@ -84,7 +84,7 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10"/>
 </head>
-<body>
+<body class="streaming">
 
 <main>
 
@@ -206,34 +206,51 @@
           </div>
 
           <div class="video">
-            <a class="button button-secondary" href="https://vimeo.com/76116533" target="_blank">
+            <a class="button button-secondary button-toggle" href="">
               <span class="icon icon-video"></span>
-              Video 2012
+              Watch Live
+            </a>
+            <a class="button button-secondary button-watch" href="https://www.youtube.com/watch?v=I4VkZ5H9PE8" target="_blank">
+              <span class="icon icon-video"></span>
+              Watch Live
             </a>
           </div>
 
-          <div class="countdown">
-            <span class="counter">
-              <strong id="countdown-days">&nbsp;</strong>
-              Days
-            </span>
-            <span class="counter">
-              <strong id="countdown-hours">&nbsp;</strong>
-              Hrs
-            </span>
-            <span class="counter">
-              <strong id="countdown-minutes">&nbsp;</strong>
-              Min
-            </span>
-            <span class="counter">
-              <strong id="countdown-seconds">&nbsp;</strong>
-              Sec
-            </span>
-          </div>
-
-
         </div>
 
+      </div>
+
+      <div id="stream" class="container">
+        <div class="heading">
+          <a href="https://jsconfar.com" class="jsconf">JSConf Argentina 2014</a>
+          <a href="#" class="closeStream">close stream</a>
+        </div>
+        <div class="realTime">
+          <iframe width="720" id="video" height="405" src="//www.youtube.com/embed/rQ1HDZuBpJI?autoplay=true&version=3&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+          <div class="dashboard">
+            <div class="current">
+              <div class="person">
+                <div class="social">
+                  <img src="static/images/speakers/sara-chipps.jpg" alt="" class="avatar">
+                  <div class="share">
+                    <a href="" class="share-btn tw">&lt;share on tw /&gt;</a>
+                    <a href="" class="share-btn fb">&lt;share on fb /&gt;</a>
+                  </div>
+                </div>
+                <div class="info">
+                  <h2>How I learned to Code by Making 180 websites in 180 days</h2>
+                  <h3>_Sara Chipps</h3>
+                  <a href="#">@sarachipps</a>
+                </div>
+              </div>
+            </div>
+            <div class="next">
+              <h4>_up next</h4>
+              <h2>Building a Distributed Data Ingestion System with RabbitMQ</h2>
+              <h3>_Álvaro Videla</h3>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

@@ -339,3 +339,18 @@ $(document).ready(function(){
   }).trigger('scroll');
 
 });
+
+// streaming stuff
+$(document).ready(function(){
+  var streamUrl = $("#video").attr("src");
+  $(".closeStream").on("click", function(){
+    $("body").removeClass("streaming");
+    $("#video").attr("src", "");
+    return false;
+  });
+  $(".button-toggle", ".video").on("click", function(){
+    $("body").addClass("streaming");
+    $("#video").attr("src", streamUrl);
+    return false;
+  });
+});
