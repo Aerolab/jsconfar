@@ -42,6 +42,51 @@
       position: relative
       text-align: left
 
+      .break
+        text-align: center
+        padding: 35px 15px 15px 15px
+        &:before
+          content: ""
+          display: block
+          width: 120px
+          height: 120px
+          margin: 0 auto 30px
+          background: url(../images/breaks.png) no-repeat
+          background-size: 360px
+        h3
+          color: $yellow
+          margin-bottom: 5px
+        .sponsor
+          display: block
+          width: 164px
+          height: 30px
+          margin: 0 auto
+          overflow: hidden
+          text-indent: -9999px
+          background: url(../images/break-sponsors.png) no-repeat
+        &.coffee
+          h3:before
+            content: "Coffee"
+          &:before
+            background-position: left
+          .sponsor
+            background-position: bottom
+        &.lunch
+          h3:before
+            content: "Lunch"
+          &:before
+            background-position: right
+          .sponsor
+            background-position: center
+        &.party
+          h3:before
+            content: "Party"
+          &:before
+            background-position: center
+          .sponsor
+            background-position: top
+
+
       .person
         .social:after
           content: ""
