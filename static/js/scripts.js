@@ -308,7 +308,58 @@ $(document).ready(function(){
 
   }
 
+
+  function updateSpeaker(data) {
+    if( data.speaker.break === true ) {
+      $('#stream .current > div').hide();
+      var $break = $('#stream .current > .break');
+      $break.show();
+
+      $break.attr('class', 'break '+data.speaker.type);
+    } else {
+      $('#stream .current > div').hide();
+      var $speaker = $('#stream .current > .person');
+      $speaker.show();
+
+      $speaker.find('img').attr('src', 'static/images/speakers/'+ data.speaker.img);
+      $speaker.find('h2').text(data.speaker.title);
+      $speaker.find('h3').text(data.speaker.name);
+      $speaker.find('a').text('@'+data.speaker.twitter).attr('href', 'https://twitter.com/'+data.speaker.twitter);
+    }
+
+    // Coming up next
+    $next = $('#stream .next');
+    if( data.nextSpeaker !== null ) {
+      $next.show();
+      if( data.nextSpeaker.break === true ) {
+        $next.find('h2').text(data.nextSpeaker.title);
+        $next.find('h3').text(data.nextSpeaker.sponsor);
+      } else {
+        $next.find('h2').text(data.nextSpeaker.title);
+        $next.find('h3').text(data.nextSpeaker.name);
+      }
+    } else {
+      $next.hide();
+    }
+  }
+
+
+  function updateSpeakerProgress() {
+
+    $.get('/tickets/speakers', function(data){
+
+        updateSpeaker(data);
+
+        var socket = io.connect('https://tickets.jsconfar.com');
+        socket.on('speakerChange', updateSpeaker);
+
+      }, 'json');
+
+  }
+
   //updateTicketsProgress();
+
+  updateSpeakerProgress();
 
 });
 
