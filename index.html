@@ -84,7 +84,26 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10"/>
 </head>
-<body class="streaming">
+<body>
+
+
+<script>
+// Inject some CSS if the conference is active
+var streamActive = false;
+var streamingStart = Date.UTC(2014, 10, 29, 11, 00);
+var streamingEnd = Date.UTC(2014, 10, 29, 23, 59);
+
+function recheckStreamingTime() {
+  var nowTime = new Date();
+  streamActive = nowTime >= streamingStart && nowTime <= streamingEnd;
+
+  if( streamActive ) {
+    document.getElementsByTagName('body')[0].className = 'streaming';
+  } else {
+    document.getElementsByTagName('body')[0].className = 'no-streaming';
+  }
+}
+</script>
 
 <main>
 
@@ -222,18 +241,18 @@
 
       <div id="stream" class="container">
         <div class="heading">
-          <a href="https://jsconfar.com" class="jsconf">JSConf Argentina 2014</a>
-          <a href="#" class="closeStream">close stream</a>
+          <a href="https://www.jsconfar.com" class="jsconf">JSConf Argentina 2014</a>
+          <!--<a href="#" class="closeStream">close stream</a>-->
         </div>
         <div class="realTime">
-          <iframe width="720" id="video" height="405" src="//www.youtube.com/embed/rQ1HDZuBpJI?version=3&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+          <iframe width="720" id="video" height="405" src="https://www.youtube.com/embed/rQ1HDZuBpJI?version=3&enablejsapi=1" frameborder="0" allowfullscreen style="background:#000;"></iframe>
           <div class="dashboard">
             <div class="current">
               <div class="break coffee">
                 <h3> is powered by</h3>
                 <a href="#" class="sponsor">Sponsor</a>
               </div>
-              <!--div class="person">
+              <div class="person">
                 <div class="social">
                   <img src="static/images/speakers/sara-chipps.jpg" alt="" class="avatar">
                   <div class="share">
@@ -246,7 +265,7 @@
                   <h3>_Sara Chipps</h3>
                   <a href="#">@sarachipps</a>
                 </div>
-              </div-->
+              </div>
             </div>
             <div class="next">
               <h4>_up next</h4>
@@ -1338,52 +1357,6 @@
 </main>
 
 
-
-<script>
-
-  var enableTickets = function() {
-    return;
-    if( document.querySelector('section.section-tickets').style.display === 'block' ) {
-      return;
-    }
-    document.querySelector('section.section-earlybird').style.display = 'none';
-    document.querySelector('section.section-tickets').style.display = 'block';
-
-    // Trigger wow.js
-    window.scrollBy(0,1);
-    window.scrollBy(0,-1);
-  };
-
-  // https://www.youtube.com/watch?v=9jK-NcRmVcw
-  var updateCountdown = function(date, selector) {
-
-    var dateStart = new Date(date);
-    var now = new Date();
-
-    var diff = Math.round((dateStart.getTime() - now.getTime()) / 1000);
-    if( diff < 0 ){ diff = 0; }
-    var days = Math.floor(diff / (60*60*24));
-    var hours = Math.floor(diff % (60*60*24) / (60*60));
-    var minutes = Math.floor(diff % (60*60*24) % (60*60) / 60);
-    var seconds = Math.floor(diff % (60*60*24) % (60*60) % 60);
-
-    document.getElementById(selector+'-days').innerHTML = days;
-    document.getElementById(selector+'-hours').innerHTML = hours;
-    document.getElementById(selector+'-minutes').innerHTML = minutes;
-    document.getElementById(selector+'-seconds').innerHTML = seconds;
-
-    if( (now - dateStart) >= 0 ){
-      enableTickets();
-    }
-    else {
-      setTimeout(function(){ updateCountdown(date, selector); }, 1000);
-    }
-  };
-
-  updateCountdown(Date.UTC(2014, 10, 29, 12, 0), 'countdown');
-
-</script>
-
 <div id="contTerminal" class="closedTerminal terminalsizeanimated" style="overflow:visible !important">
   <div id="onlineTerminal" contenteditable spellcheck="false"></div>
   <a href="#" onclick="launchJSTerminal();return false;" class="terminalHandle"></a>
@@ -1397,8 +1370,6 @@
 <script src="static/js/terminal.js"></script>
 
 
-
-
 <script>
 
   function isMobile() {
@@ -1407,52 +1378,91 @@
     return check;
   }
 
-  if( ! isMobile() ) {
-    // Attack Of The Drones!
-    // There's no touch controls right now
-    var gameUrl = 'https://game.jsconfar.com';
-    
-    $.getScript(gameUrl+'/dist/attack_of_the_drones.js', function(){
-      Callbacks.onGameLoaded = function(){
-        $('.game-signup form').removeAttr('disabled');
-        $('#game-holder img.dancer').show();
-      };
-      initGame(gameUrl, 'static/game_assets/');
-    });
+  function setupGame() {
 
-    function tryToStartGame() {
-      if( typeof Connection !== 'undefined' && Connection.connected ) {
-        document.querySelector('#game-overlay').style.display = 'none';
+    if( ! isMobile() && ! streamActive ) {
+      // Attack Of The Drones!
+      // There's no touch controls right now
+      // Don't start the game if the stream is active
+      var gameUrl = 'https://game.jsconfar.com';
+      
+      $.getScript(gameUrl+'/dist/attack_of_the_drones.js', function(){
+        Callbacks.onGameLoaded = function(){
+          $('.game-signup form').removeAttr('disabled');
+          $('#game-holder img.dancer').show();
+        };
+        initGame(gameUrl, 'static/game_assets/');
+      });
 
-        startGame( document.querySelector('.game-signup input[name=name]').value, {
-          onPlayerDead: function(player){
+      function tryToStartGame() {
+        if( typeof Connection !== 'undefined' && Connection.connected ) {
+          document.querySelector('#game-overlay').style.display = 'none';
 
-            $('#game-over .share-twitter').attr('href', 'http://twitter.com/share?text='+ encodeURIComponent("I got "+ player.lifeScore +" points in the #JSConfAr game! Join me at") +"&url=https://www.jsconfar.com" );
-            $('#game-over .share-facebook').attr('href', 'http://www.facebook.com/sharer.php?u=https://www.jsconfar.com&t='+ encodeURIComponent("I got "+ player.lifeScore +" points in the JSConf Game!") );
+          startGame( document.querySelector('.game-signup input[name=name]').value, {
+            onPlayerDead: function(player){
 
-            ga( 'send', 'event', 'toys', 'game', 'highscore', player.lifeScore +' points');
-          },
-          onEnemyDead: function(enemy){
-            if( enemy.type === 'ufo' ) {
-              $('.planetarium').trigger('click');
+              $('#game-over .share-twitter').attr('href', 'http://twitter.com/share?text='+ encodeURIComponent("I got "+ player.lifeScore +" points in the #JSConfAr game! Join me at") +"&url=https://www.jsconfar.com" );
+              $('#game-over .share-facebook').attr('href', 'http://www.facebook.com/sharer.php?u=https://www.jsconfar.com&t='+ encodeURIComponent("I got "+ player.lifeScore +" points in the JSConf Game!") );
+
+              ga( 'send', 'event', 'toys', 'game', 'highscore', player.lifeScore +' points');
+            },
+            onEnemyDead: function(enemy){
+              if( enemy.type === 'ufo' ) {
+                $('.planetarium').trigger('click');
+              }
             }
-          }
-        } );
+          } );
 
-        // Show the instructions
-        $('#game-instructions').delay(300).fadeIn(500).delay(5000).fadeOut(700);
+          // Show the instructions
+          $('#game-instructions').delay(300).fadeIn(500).delay(5000).fadeOut(700);
 
-        ga( 'send', 'event', 'toys', 'game', 'start');
+          ga( 'send', 'event', 'toys', 'game', 'start');
 
+          return false;
+        } else {
+          alert("Hold on a second. We are loading the game.")
+        }
         return false;
-      } else {
-        alert("Hold on a second. We are loading the game.")
-      }
-      return false;
-    };
+      };
+    }
+
+  }
+
+
+  function killGame() {
+    if( typeof Connection !== 'undefined' && Connection !== null ) {
+      Connection.disconnect();
+    }
+    if( typeof game !== 'undefined' && game !== null ) {
+      game.destroy();
+    }
   }
 </script>
 
+
+<script>
+
+  if( ! streamActive ) {
+    setupGame();
+  }
+
+  // Recheck if the stream should be active
+  setInterval(function(){
+    var wasStreamActive = streamActive;
+
+    recheckStreamingTime();
+
+    // Stream Started
+    if( ! wasStreamActive && streamActive ) {
+      killGame();
+    } 
+    // Stream Finished
+    else if( wasStreamActive && ! streamActive ) {
+      setupGame();
+    }
+  }, 1000);
+
+</script>
 
 <!-- begin olark code -->
 <script data-cfasync="false" type='text/javascript'>/*<![CDATA[*/window.olark||(function(c){var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){
