@@ -89,7 +89,7 @@
   <header id="section-header" >
     <div class="wrap">
       <a href="http://jsconfar.com" id="logo">JSConf Buenos Aires</a>
-      <h1>&lt;Randomize®&gt;</h1>
+      <h1 style="cursor:pointer;">&lt;Randomize®&gt;</h1>
     </div>
   </header>
   
@@ -109,7 +109,7 @@
     $('#random-result').text('Randomizing...');
 
     $.get('/tickets/random', function(data){
-      $('#random-result').text(data.first_name + ' ' + data.last_name);
+      $('#random-result').text(data.signup.first_name + ' ' + data.signup.last_name);
     });
   });
 </script>
