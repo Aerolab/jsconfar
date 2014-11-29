@@ -93,7 +93,7 @@
     </div>
   </header>
   
-  <article id="tldr" style="position:absolute; top:50%; width:600px; left:50%; margin-top: -50px; margin-left:-300px; padding:0px;">
+  <article id="tldr" style="position:absolute; top:50%; width:600px; left:50%; margin-top: -60px; margin-left:-300px; padding:0px;">
     <div class="wrap">
       <p style="font-size:36px;" id="random-result">Randomize!</p>
     </div>
@@ -109,7 +109,7 @@
     $('#random-result').text('Randomizing...');
 
     $.get('/tickets/random', function(data){
-      $('#random-result').text(data.signup.first_name + ' ' + data.signup.last_name);
+      $('#random-result').html(data.signup.first_name + ' ' + data.signup.last_name + '<br/><small style="margin-top: 30px; font-size:16px;">'+ data.signup.email +'</small>');
     });
   });
 </script>
