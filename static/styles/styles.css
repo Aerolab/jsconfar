@@ -3250,7 +3250,7 @@ body {
       color: #f4ba11; }
 
 .button-watch {
-  display: none !important; }
+  display: none; }
 
 .streaming #game-holder {
   display: none; }
