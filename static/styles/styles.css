@@ -3318,7 +3318,7 @@ body {
         text-indent: -9999px;
         background: url(../images/break-sponsors.png) no-repeat; }
       .streaming #stream.container .dashboard .break.checkin:before {
-        background-position: top; }
+        background-position: left; }
       .streaming #stream.container .dashboard .break.checkin h3 {
         display: none; }
       .streaming #stream.container .dashboard .break.checkin .sponsor {
