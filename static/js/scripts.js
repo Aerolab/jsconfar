@@ -324,7 +324,7 @@ $(document).ready(function(){
       $speaker.find('img').attr('src', 'static/images/speakers/'+ data.speaker.img);
       $speaker.find('h2').text(data.speaker.title);
       $speaker.find('h3').text(data.speaker.name);
-      $speaker.find('a').text('@'+data.speaker.twitter).attr('href', 'https://twitter.com/'+data.speaker.twitter);
+      $speaker.find('.info a').text('@'+data.speaker.twitter).attr('href', 'https://twitter.com/'+data.speaker.twitter);
     }
 
     // Coming up next
